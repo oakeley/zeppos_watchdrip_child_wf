@@ -26,6 +26,7 @@ import {
     NORMAL_STEPS_TEXT_IMG,
     PAI_ARC,
     PHONE_BATTERY_TEXT,
+    WATCH_BATTERY_TEXT,
     TIME_AM_PM,
     TREATMENT_TEXT,
     WEEK_DAYS
@@ -37,7 +38,7 @@ let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparat
     normalHeartRateTextImg, normalStepsTextImg, normalDistTextImg, weekImg, dateDayImg, batteryCircleArc, paiCircleArc,
     screenType;
 let bgValTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine,
-    phoneBattery, iob, treatment, bgStatusLow, bgStatusOk, bgStatusHight, progress;
+    phoneBattery, watchBattery, iob, treatment, bgStatusLow, bgStatusOk, bgStatusHight, progress;
 
 let globalNS, progressTimer, progressAngle;
 
@@ -144,6 +145,7 @@ WatchFace({
         //bgStaleLine = hmUI.createWidget(hmUI.widget.FILL_RECT, BG_STALE_RECT);
         bgStaleLine = hmUI.createWidget(hmUI.widget.IMG, BG_STALE_IMG);
         phoneBattery = hmUI.createWidget(hmUI.widget.TEXT, PHONE_BATTERY_TEXT);
+        watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
         iob = hmUI.createWidget(hmUI.widget.TEXT, IOB_TEXT);
         treatment = hmUI.createWidget(hmUI.widget.TEXT, TREATMENT_TEXT);
         bgStatusLow = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOW_IMG);
@@ -154,8 +156,9 @@ WatchFace({
         function scale_call() {
             if (screenType !== hmSetting.screen_type.AOD) {
                 batteryCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(battery.current, BATTERY_ARC.start_angle, BATTERY_ARC.end_angle))
+                watchBattery.setProperty(hmUI.prop.MORE, { text: battery.current + '%'})
                 paiCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(pai.totalpai, PAI_ARC.start_angle, PAI_ARC.end_angle))
-            }
+            } else { watchBattery.setProperty(hmUI.prop.MORE, { text: battery.current + '%'}) }
         }
 
         scale_call();
@@ -206,6 +209,7 @@ WatchFace({
         phoneBattery.setProperty(hmUI.prop.MORE, {
             text: watchdripData.getStatus().getBatVal()
         });
+
         let treatmentObj = watchdripData.getTreatment();
         iob.setProperty(hmUI.prop.MORE, {
             text: treatmentObj.getPredictIOB()

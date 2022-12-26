@@ -255,6 +255,18 @@ export const PHONE_BATTERY_TEXT = {
     text_style: hmUI.text_style.NONE,
 };
 
+export const WATCH_BATTERY_TEXT = {
+    x: px(45),
+    y: px(255),
+    w: px(71),
+    h: px(27),
+    color: Colors.white,
+    text_size: px(23),
+    align_h: hmUI.align.RIGHT,
+    align_v: hmUI.align.TOP,
+    text_style: hmUI.text_style.NONE,
+};
+
 export const BG_STATUS_LOW_IMG = {
     x: px(145),
     y: px(124),
