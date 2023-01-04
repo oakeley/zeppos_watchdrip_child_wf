@@ -173,11 +173,11 @@ export const BG_VALUE_TEXT_IMG = {
 
 export const BG_TIME_TEXT = {
     x: px(111),
-    y: px(209),
+    y: px(217),
     w: px(114),
     h: px(33),
     color: Colors.defaultTransparent,
-    text_size: px(22),
+    text_size: px(23),
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
@@ -185,11 +185,11 @@ export const BG_TIME_TEXT = {
 
 export const BG_DELTA_TEXT = {
     x: px(134),
-    y: px(187),
+    y: px(190),
     w: px(69),
     h: px(45),
     color: Colors.defaultTransparent,
-    text_size: px(26),
+    text_size: px(27),
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
@@ -198,7 +198,7 @@ export const BG_DELTA_TEXT = {
 export const BG_TREND_IMAGE = {
     src: 'watchdrip/arrows/None.png',
     x: px(147),
-    y: px(236),
+    y: px(253),
     w: px(42),
     h: px(45),
 };
