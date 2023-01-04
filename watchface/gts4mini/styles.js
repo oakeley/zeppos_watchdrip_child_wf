@@ -23,7 +23,7 @@ let smallNumAccentArr = range(10).map((v) => {
 
 export const DIGITAL_TIME_HOUR = {
     hour_startX: px(86),
-    hour_startY: px(46),
+    hour_startY: px(26),
     hour_zero: true,
     hour_space: 2,
     hour_align: hmUI.align.CENTER_H,
@@ -32,7 +32,7 @@ export const DIGITAL_TIME_HOUR = {
 
 export const DIGITAL_TIME_MINUTES = {
     minute_startX: px(176),
-    minute_startY: px(46),
+    minute_startY: px(26),
     minute_zero: true,
     minute_space: 2,
     minute_align: hmUI.align.CENTER_H,
@@ -41,32 +41,32 @@ export const DIGITAL_TIME_MINUTES = {
 
 export const TIME_AM_PM = {
     am_x: px(241),
-    am_y: px(84),
+    am_y: px(64),
     am_sc_path: img('bigNum/am.png'),
     am_en_path: img('bigNum/am.png'),
     pm_x: px(298),
-    pm_y: px(84),
+    pm_y: px(64),
     pm_sc_path: img('bigNum/pm.png'),
     pm_en_path: img('bigNum/pm.png'),
 }
 
 export const DIGITAL_TIME_SEPARATOR = {
     x: px(164),
-    y: px(63),
+    y: px(43),
     src: img( `bigNum/sp.png`)
 };
 
-export const ANALOG_TIME_SECONDS = {
+/* export const ANALOG_TIME_SECONDS = {
     second_centerX: px(168),
     second_centerY: px(168),
     second_posX: px(5),
     second_posY: px(162),
     second_path: img("point/sec.png")
-};
+}; */
 
 export const NORMAL_HEART_RATE_TEXT_IMG = {
     x: px(25),
-    y: px(141),
+    y: px(158),
     w: px(50),
     padding: false,
     h_space: 1,
@@ -77,8 +77,8 @@ export const NORMAL_HEART_RATE_TEXT_IMG = {
 }
 
 export const NORMAL_STEPS_TEXT_IMG = {
-    x: px(223),
-    y: px(141),
+    x: px(236),
+    y: px(158),
     w: px(95),
     padding: false,
     h_space: 1,
@@ -88,7 +88,7 @@ export const NORMAL_STEPS_TEXT_IMG = {
     font_array: smallNumArr
 }
 
-export const NORMAL_DIST_TEXT_IMG = {
+/* export const NORMAL_DIST_TEXT_IMG = {
     x: px(222),
     y: px(218),
     w: px(78),
@@ -99,7 +99,7 @@ export const NORMAL_DIST_TEXT_IMG = {
     dot_image: img('smallNumAccent/d.png'),
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumAccentArr
-}
+} */
 
 export const WEEK_DAYS = {
     x: px(33),
@@ -121,7 +121,7 @@ export const DAYS_TEXT_IMG = {
     day_en_array: smallNumAccentArr,
 }
 
-export const BATTERY_ARC = {
+/* export const BATTERY_ARC = {
     x: px(21),
     y: px(8),
     w: px(390),
@@ -143,11 +143,11 @@ export const PAI_ARC = {
     color: Colors.accent,
     line_width: px(9),
     show_level: hmUI.show_level.ONLY_NORMAL,
-}
+} */
 
 export const BG_VALUE_NO_DATA_TEXT = {
-    x: px(125),
-    y: px(132),
+    x: px(114),
+    y: px(122),
     w: px(108),
     h: px(50),
     color: Colors.white,
@@ -159,8 +159,8 @@ export const BG_VALUE_NO_DATA_TEXT = {
 };
 
 export const BG_VALUE_TEXT_IMG = {
-    x: px(125),
-    y: px(128),
+    x: px(114),
+    y: px(122),
     w: px(108),
     color: Colors.white,
     align_h: hmUI.align.CENTER_H,
@@ -244,44 +244,44 @@ export const TREATMENT_TEXT = {
 };
 
 export const PHONE_BATTERY_TEXT = {
-    x: px(270),
-    y: px(250),
+    x: px(260),
+    y: px(240),
     w: px(71),
     h: px(27),
     color: Colors.white,
-    text_size: px(17),
+    text_size: px(21),
     align_h: hmUI.align.LEFT,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
 };
 
 export const WATCH_BATTERY_TEXT = {
-    x: px(50),
-    y: px(250),
+    x: px(0),
+    y: px(240),
     w: px(71),
     h: px(27),
     color: Colors.white,
-    text_size: px(17),
+    text_size: px(21),
     align_h: hmUI.align.RIGHT,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
 };
 
 export const BG_STATUS_LOW_IMG = {
-    x: px(145),
-    y: px(124),
+    x: px(105),
+    y: px(108),
     src: 'watchdrip/bgLow.png',
 };
 
 export const BG_STATUS_OK_IMG = {
-    x: px(165),
-    y: px(124),
+    x: px(125),
+    y: px(108),
     src: 'watchdrip/bgOk.png',
 };
 
 export const BG_STATUS_HIGHT_IMG = {
-    x: px(255),
-    y: px(124),
+    x: px(216),
+    y: px(108),
     src: 'watchdrip/bgHight.png',
 };
 

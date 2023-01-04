@@ -3,8 +3,8 @@ import {Watchdrip} from "../../utils/watchdrip/watchdrip";
 import {WatchdripData} from "../../utils/watchdrip/watchdrip-data";
 import {getGlobal} from "../../shared/global";
 import {
-    ANALOG_TIME_SECONDS,
-    BATTERY_ARC,
+    // ANALOG_TIME_SECONDS,
+    // BATTERY_ARC,
     BG_DELTA_TEXT,
     BG_STALE_IMG,
     BG_STATUS_HIGHT_IMG,
@@ -21,10 +21,10 @@ import {
     IMG_LOADING_PROGRESS,
     IMG_STATUS_BT_DISCONNECTED,
     IOB_TEXT,
-    NORMAL_DIST_TEXT_IMG,
+    // NORMAL_DIST_TEXT_IMG,
     NORMAL_HEART_RATE_TEXT_IMG,
     NORMAL_STEPS_TEXT_IMG,
-    PAI_ARC,
+    // PAI_ARC,
     PHONE_BATTERY_TEXT,
     WATCH_BATTERY_TEXT,
     TIME_AM_PM,
@@ -34,8 +34,8 @@ import {
 import {BG_FILL_RECT, BG_IMG} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS, TEST_DATA} from "../../utils/config/constants";
 
-let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparator, secondsPointer, btDisconnected,
-    normalHeartRateTextImg, normalStepsTextImg, normalDistTextImg, weekImg, dateDayImg, batteryCircleArc, paiCircleArc,
+let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparator, /* secondsPointer,*/ btDisconnected,
+    normalHeartRateTextImg, normalStepsTextImg, /* normalDistTextImg, */ weekImg, dateDayImg, /* batteryCircleArc, paiCircleArc, */
     screenType;
 let bgValTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine,
     phoneBattery, watchBattery, iob, treatment, bgStatusLow, bgStatusOk, bgStatusHight, progress;
@@ -107,27 +107,27 @@ WatchFace({
 
         normalStepsTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_STEPS_TEXT_IMG);
 
-        normalDistTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_DIST_TEXT_IMG);
+        // normalDistTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_DIST_TEXT_IMG);
 
         weekImg = hmUI.createWidget(hmUI.widget.IMG_WEEK, WEEK_DAYS);
 
         dateDayImg = hmUI.createWidget(hmUI.widget.IMG_DATE, DAYS_TEXT_IMG);
 
-        secondsPointer = hmUI.createWidget(hmUI.widget.TIME_POINTER, ANALOG_TIME_SECONDS);
+        // secondsPointer = hmUI.createWidget(hmUI.widget.TIME_POINTER, ANALOG_TIME_SECONDS);
 
         btDisconnected = hmUI.createWidget(hmUI.widget.IMG_STATUS, IMG_STATUS_BT_DISCONNECTED);
 
-        batteryCircleArc = hmUI.createWidget(hmUI.widget.ARC, BATTERY_ARC);
-        paiCircleArc = hmUI.createWidget(hmUI.widget.ARC, PAI_ARC);
+        // batteryCircleArc = hmUI.createWidget(hmUI.widget.ARC, BATTERY_ARC);
+        // paiCircleArc = hmUI.createWidget(hmUI.widget.ARC, PAI_ARC);
 
         const battery = hmSensor.createSensor(hmSensor.id.BATTERY);
         battery.addEventListener(hmSensor.event.CHANGE, function () {
             scale_call();
         });
-        const pai = hmSensor.createSensor(hmSensor.id.PAI);
+        /* const pai = hmSensor.createSensor(hmSensor.id.PAI);
         pai.addEventListener(hmSensor.event.CHANGE, function () {
             scale_call();
-        });
+        }); */
 
         const widgetDelegate = hmUI.createWidget(hmUI.widget.WIDGET_DELEGATE, {
             resume_call: (function () {
@@ -142,7 +142,7 @@ WatchFace({
         bgValTimeTextWidget = hmUI.createWidget(hmUI.widget.TEXT, BG_TIME_TEXT);
         bgDeltaTextWidget = hmUI.createWidget(hmUI.widget.TEXT, BG_DELTA_TEXT);
         bgTrendImageWidget = hmUI.createWidget(hmUI.widget.IMG, BG_TREND_IMAGE);
-        //bgStaleLine = hmUI.createWidget(hmUI.widget.FILL_RECT, BG_STALE_RECT);
+        // bgStaleLine = hmUI.createWidget(hmUI.widget.FILL_RECT, BG_STALE_RECT);
         bgStaleLine = hmUI.createWidget(hmUI.widget.IMG, BG_STALE_IMG);
         phoneBattery = hmUI.createWidget(hmUI.widget.TEXT, PHONE_BATTERY_TEXT);
         watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
@@ -155,9 +155,9 @@ WatchFace({
 
         function scale_call() {
             if (screenType !== hmSetting.screen_type.AOD) {
-                batteryCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(battery.current, BATTERY_ARC.start_angle, BATTERY_ARC.end_angle))
+                // batteryCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(battery.current, BATTERY_ARC.start_angle, BATTERY_ARC.end_angle))
                 watchBattery.setProperty(hmUI.prop.MORE, { text: battery.current + '%'})
-                paiCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(pai.totalpai, PAI_ARC.start_angle, PAI_ARC.end_angle))
+                // paiCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(pai.totalpai, PAI_ARC.start_angle, PAI_ARC.end_angle))
             } else { watchBattery.setProperty(hmUI.prop.MORE, { text: battery.current + '%'}) }
         }
 
