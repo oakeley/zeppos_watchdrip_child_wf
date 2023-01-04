@@ -65,7 +65,7 @@ export const DIGITAL_TIME_SEPARATOR = {
 }; */
 
 export const NORMAL_HEART_RATE_TEXT_IMG = {
-    x: px(50),
+    x: px(53),
     y: px(158),
     w: px(50),
     padding: false,
@@ -102,16 +102,16 @@ export const NORMAL_STEPS_TEXT_IMG = {
 } */
 
 export const WEEK_DAYS = {
-    x: px(33),
-    y: px(219),
+    x: px(9),
+    y: px(212),
     week_en: weekEnArray,
     week_tc: weekEnArray,
     week_sc: weekEnArray,
 }
 
 export const DAYS_TEXT_IMG = {
-    day_startX: px(99),
-    day_startY: px(215),
+    day_startX: px(68),
+    day_startY: px(208),
     day_zero: 1,
     day_space: 1,
     day_align: hmUI.align.LEFT,
@@ -173,11 +173,11 @@ export const BG_VALUE_TEXT_IMG = {
 
 export const BG_TIME_TEXT = {
     x: px(111),
-    y: px(211),
+    y: px(209),
     w: px(114),
     h: px(33),
     color: Colors.defaultTransparent,
-    text_size: px(23),
+    text_size: px(22),
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
@@ -189,7 +189,7 @@ export const BG_DELTA_TEXT = {
     w: px(69),
     h: px(45),
     color: Colors.defaultTransparent,
-    text_size: px(28),
+    text_size: px(26),
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
@@ -198,7 +198,7 @@ export const BG_DELTA_TEXT = {
 export const BG_TREND_IMAGE = {
     src: 'watchdrip/arrows/None.png',
     x: px(147),
-    y: px(239),
+    y: px(236),
     w: px(42),
     h: px(45),
 };
