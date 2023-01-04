@@ -22,7 +22,7 @@ let smallNumAccentArr = range(10).map((v) => {
 });
 
 export const DIGITAL_TIME_HOUR = {
-    hour_startX: px(120),
+    hour_startX: px(86),
     hour_startY: px(46),
     hour_zero: true,
     hour_space: 2,
@@ -31,7 +31,7 @@ export const DIGITAL_TIME_HOUR = {
 };
 
 export const DIGITAL_TIME_MINUTES = {
-    minute_startX: px(218),
+    minute_startX: px(176),
     minute_startY: px(46),
     minute_zero: true,
     minute_space: 2,
@@ -40,7 +40,7 @@ export const DIGITAL_TIME_MINUTES = {
 };
 
 export const TIME_AM_PM = {
-    am_x: px(298),
+    am_x: px(241),
     am_y: px(84),
     am_sc_path: img('bigNum/am.png'),
     am_en_path: img('bigNum/am.png'),
@@ -51,35 +51,35 @@ export const TIME_AM_PM = {
 }
 
 export const DIGITAL_TIME_SEPARATOR = {
-    x: px(203),
+    x: px(164),
     y: px(63),
     src: img( `bigNum/sp.png`)
 };
 
 export const ANALOG_TIME_SECONDS = {
-    second_centerX: px(208),
-    second_centerY: px(208),
-    second_posX: px(6),
-    second_posY: px(201),
+    second_centerX: px(168),
+    second_centerY: px(168),
+    second_posX: px(5),
+    second_posY: px(162),
     second_path: img("point/sec.png")
 };
 
 export const NORMAL_HEART_RATE_TEXT_IMG = {
-    x: px(88),
-    y: px(175),
-    w: px(53),
+    x: px(25),
+    y: px(141),
+    w: px(50),
     padding: false,
     h_space: 1,
-    align_h: hmUI.align.RIGHT,
+    align_h: hmUI.align.CENTER_H,
     type: hmUI.data_type.HEART,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr
 }
 
 export const NORMAL_STEPS_TEXT_IMG = {
-    x: px(276),
-    y: px(175),
-    w: px(117),
+    x: px(223),
+    y: px(141),
+    w: px(95),
     padding: false,
     h_space: 1,
     align_h: hmUI.align.CENTER_H,
@@ -89,7 +89,7 @@ export const NORMAL_STEPS_TEXT_IMG = {
 }
 
 export const NORMAL_DIST_TEXT_IMG = {
-    x: px(275),
+    x: px(222),
     y: px(218),
     w: px(78),
     padding: false,
@@ -110,8 +110,8 @@ export const WEEK_DAYS = {
 }
 
 export const DAYS_TEXT_IMG = {
-    day_startX: px(109),
-    day_startY: px(218),
+    day_startX: px(99),
+    day_startY: px(215),
     day_zero: 1,
     day_space: 1,
     day_align: hmUI.align.LEFT,
@@ -127,7 +127,7 @@ export const BATTERY_ARC = {
     w: px(390),
     h: px(390),
     start_angle: -253,
-    end_angle: -196,
+    end_angle: -253,
     color: Colors.accent,
     line_width: px(9),
     show_level: hmUI.show_level.ONLY_NORMAL,
@@ -139,19 +139,19 @@ export const PAI_ARC = {
     w: px(390),
     h: px(390),
     start_angle: 73,
-    end_angle: 17,
+    end_angle: 73,
     color: Colors.accent,
     line_width: px(9),
     show_level: hmUI.show_level.ONLY_NORMAL,
 }
 
 export const BG_VALUE_NO_DATA_TEXT = {
-    x: px(155),
-    y: px(142),
+    x: px(125),
+    y: px(132),
     w: px(108),
     h: px(50),
     color: Colors.white,
-    text_size: px(42),
+    text_size: px(34),
     align_h: hmUI.align.RIGHT,
     align_v: hmUI.align.CENTER_V,
     text_style: hmUI.text_style.NONE,
@@ -159,8 +159,8 @@ export const BG_VALUE_NO_DATA_TEXT = {
 };
 
 export const BG_VALUE_TEXT_IMG = {
-    x: px(155),
-    y: px(138),
+    x: px(125),
+    y: px(128),
     w: px(108),
     color: Colors.white,
     align_h: hmUI.align.CENTER_H,
@@ -172,8 +172,8 @@ export const BG_VALUE_TEXT_IMG = {
 };
 
 export const BG_TIME_TEXT = {
-    x: px(152),
-    y: px(258),
+    x: px(125),
+    y: px(208),
     w: px(114),
     h: px(33),
     color: Colors.defaultTransparent,
@@ -184,8 +184,8 @@ export const BG_TIME_TEXT = {
 };
 
 export const BG_DELTA_TEXT = {
-    x: px(197),
-    y: px(216),
+    x: px(159),
+    y: px(174),
     w: px(69),
     h: px(45),
     color: Colors.defaultTransparent,
@@ -213,8 +213,8 @@ export const BG_STALE_RECT = {
 };
 
 export const BG_STALE_IMG = {
-    x: px(155),
-    y: px(166),
+    x: px(125),
+    y: px(134),
     src: 'watchdrip/stale.png',
     visible: false,
 };
@@ -244,24 +244,24 @@ export const TREATMENT_TEXT = {
 };
 
 export const PHONE_BATTERY_TEXT = {
-    x: px(298),
-    y: px(255),
+    x: px(270),
+    y: px(250),
     w: px(71),
     h: px(27),
     color: Colors.white,
-    text_size: px(23),
+    text_size: px(17),
     align_h: hmUI.align.LEFT,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
 };
 
 export const WATCH_BATTERY_TEXT = {
-    x: px(45),
-    y: px(255),
+    x: px(50),
+    y: px(250),
     w: px(71),
     h: px(27),
     color: Colors.white,
-    text_size: px(23),
+    text_size: px(17),
     align_h: hmUI.align.RIGHT,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
@@ -294,8 +294,8 @@ export const IMG_STATUS_BT_DISCONNECTED = {
 };
 
 export const IMG_LOADING_PROGRESS = {
-    x: px(189),
-    y: px(255),
+    x: px(152),
+    y: px(206),
     src: 'watchdrip/progress.png',
     angle:0,
     center_x: 20,

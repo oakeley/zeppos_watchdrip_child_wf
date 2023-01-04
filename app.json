@@ -68,7 +68,6 @@
         }
       ],
       "designWidth": 416
-    }
   },
   "gts4mini": {
       "module": {
@@ -93,7 +92,8 @@
         }
       ],
       "designWidth": 336
-    },
+    }
+  },
   "i18n": {
     "en-US": {
       "name": "Timer"
