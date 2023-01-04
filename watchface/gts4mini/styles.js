@@ -65,12 +65,12 @@ export const DIGITAL_TIME_SEPARATOR = {
 }; */
 
 export const NORMAL_HEART_RATE_TEXT_IMG = {
-    x: px(25),
+    x: px(50),
     y: px(158),
     w: px(50),
     padding: false,
     h_space: 1,
-    align_h: hmUI.align.CENTER_H,
+    align_h: hmUI.align.LEFT,
     type: hmUI.data_type.HEART,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr
@@ -172,24 +172,24 @@ export const BG_VALUE_TEXT_IMG = {
 };
 
 export const BG_TIME_TEXT = {
-    x: px(125),
-    y: px(208),
+    x: px(111),
+    y: px(211),
     w: px(114),
     h: px(33),
     color: Colors.defaultTransparent,
-    text_size: px(24),
+    text_size: px(23),
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
 };
 
 export const BG_DELTA_TEXT = {
-    x: px(159),
-    y: px(174),
+    x: px(134),
+    y: px(187),
     w: px(69),
     h: px(45),
     color: Colors.defaultTransparent,
-    text_size: px(30),
+    text_size: px(28),
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
@@ -197,15 +197,15 @@ export const BG_DELTA_TEXT = {
 
 export const BG_TREND_IMAGE = {
     src: 'watchdrip/arrows/None.png',
-    x: px(154),
-    y: px(220),
+    x: px(147),
+    y: px(239),
     w: px(42),
     h: px(45),
 };
 
 export const BG_STALE_RECT = {
-    x: px(155),
-    y: px(120),
+    x: px(115),
+    y: px(148),
     w: px(120),
     h: px(4),
     color: Colors.white,
@@ -213,8 +213,8 @@ export const BG_STALE_RECT = {
 };
 
 export const BG_STALE_IMG = {
-    x: px(125),
-    y: px(134),
+    x: px(115),
+    y: px(148),
     src: 'watchdrip/stale.png',
     visible: false,
 };
