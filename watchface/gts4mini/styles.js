@@ -219,7 +219,7 @@ export const BG_STALE_IMG = {
     visible: false,
 };
 
-export const IOB_TEXT = {
+/* export const IOB_TEXT = {
     x: px(88),
     y: px(302),
     w: px(243),
@@ -238,6 +238,32 @@ export const TREATMENT_TEXT = {
     h: px(32),
     color: Colors.white,
     text_size: px(22),
+    align_h: hmUI.align.CENTER_H,
+    align_v: hmUI.align.TOP,
+    text_style: hmUI.text_style.NONE,
+}; */
+
+// Xdrip modified to put ExternalStatusService.getLastStatusLine()
+export const AAPS_TEXT = {
+    x: px(18),
+    y: px(316),
+    w: px(300),
+    h: px(30),
+    color: Colors.white,
+    text_size: px(23),
+    align_h: hmUI.align.CENTER_H,
+    align_v: hmUI.align.CENTER_V,
+    text_style: hmUI.text_style.NONE,
+};
+
+// Xdrip modified to put ExternalStatusService.getLastStatusLineTime()
+export const AAPS_TIME_TEXT = {
+    x: px(18),
+    y: px(348),
+    w: px(300),
+    h: px(32),
+    color: Colors.white,
+    text_size: px(23),
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,

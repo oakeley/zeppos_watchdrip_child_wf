@@ -20,7 +20,7 @@ import {
     DIGITAL_TIME_SEPARATOR,
     IMG_LOADING_PROGRESS,
     IMG_STATUS_BT_DISCONNECTED,
-    IOB_TEXT,
+    // IOB_TEXT,
     // NORMAL_DIST_TEXT_IMG,
     NORMAL_HEART_RATE_TEXT_IMG,
     NORMAL_STEPS_TEXT_IMG,
@@ -29,7 +29,10 @@ import {
     WATCH_BATTERY_TEXT,
     TIME_AM_PM,
     TREATMENT_TEXT,
-    WEEK_DAYS
+    WEEK_DAYS,
+    //TREATMENT_TIME_TEXT,
+    AAPS_TEXT,
+    AAPS_TIME_TEXT
 } from "./styles";
 import {BG_FILL_RECT, BG_IMG} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS, TEST_DATA} from "../../utils/config/constants";
@@ -38,7 +41,7 @@ let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparat
     normalHeartRateTextImg, normalStepsTextImg, /* normalDistTextImg, */ weekImg, dateDayImg, /* batteryCircleArc, paiCircleArc, */
     screenType;
 let bgValTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine,
-    phoneBattery, watchBattery, iob, treatment, bgStatusLow, bgStatusOk, bgStatusHight, progress;
+    phoneBattery, watchBattery, /* iob, treatment, */ bgStatusLow, bgStatusOk, bgStatusHight, progress, aapsText, aapsTimeText;
 
 let globalNS, progressTimer, progressAngle;
 
@@ -146,12 +149,16 @@ WatchFace({
         bgStaleLine = hmUI.createWidget(hmUI.widget.IMG, BG_STALE_IMG);
         phoneBattery = hmUI.createWidget(hmUI.widget.TEXT, PHONE_BATTERY_TEXT);
         watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
-        iob = hmUI.createWidget(hmUI.widget.TEXT, IOB_TEXT);
-        treatment = hmUI.createWidget(hmUI.widget.TEXT, TREATMENT_TEXT);
+        // iob = hmUI.createWidget(hmUI.widget.TEXT, IOB_TEXT);
+        // treatment = hmUI.createWidget(hmUI.widget.TEXT, TREATMENT_TEXT);
         bgStatusLow = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOW_IMG);
         bgStatusOk = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_OK_IMG);
         bgStatusHight = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_HIGHT_IMG);
         progress = hmUI.createWidget(hmUI.widget.IMG, IMG_LOADING_PROGRESS);
+        // From modified xDrip ExternalStatusService.getLastStatusLine()
+        aapsText = hmUI.createWidget(hmUI.widget.TEXT, AAPS_TEXT);
+        // From modified xDrip ExternalStatusService.getLastStatusLineTime()
+        aapsTimeText = hmUI.createWidget(hmUI.widget.TEXT, AAPS_TIME_TEXT);
 
         function scale_call() {
             if (screenType !== hmSetting.screen_type.AOD) {
@@ -210,9 +217,21 @@ WatchFace({
             text: watchdripData.getStatus().getBatVal()
         });
 
-        let treatmentObj = watchdripData.getTreatment();
+        /* let treatmentObj = watchdripData.getTreatment();
         iob.setProperty(hmUI.prop.MORE, {
             text: treatmentObj.getPredictIOB()
+        }); */
+        // Fill data from modified xDrip ExternalStatusService.getLastStatusLine()
+        let treatmentObj = watchdripData.getTreatment();
+        let aapsString = "";
+        let insText = "IOB: " + treatmentObj.insulin + "U";
+        insText = insText.replace(".0U", "U");
+        aapsString = aapsString + insText + " | ";        
+        let carbText = "COB: " + treatmentObj.carbs + "g";
+        carbText = carbText.replace(".0g", "g");
+        aapsString = aapsString + carbText;
+        aapsText.setProperty(hmUI.prop.MORE, {
+            text: aapsString
         });
 
         if (TEST_DATA){
@@ -235,7 +254,7 @@ WatchFace({
 
         bgStaleLine.setProperty(hmUI.prop.VISIBLE, watchdripData.isBgStale());
 
-        let treatmentObj = watchdripData.getTreatment();
+        /* let treatmentObj = watchdripData.getTreatment();
 
         let treatmentsText = treatmentObj.getTreatments();
         if (treatmentsText !== "") {
@@ -244,6 +263,12 @@ WatchFace({
 
         treatment.setProperty(hmUI.prop.MORE, {
             text: treatmentsText
+        }); */
+
+        // Fill data from modified xDrip ExternalStatusService.getLastStatusLine()
+        let treatmentObj = watchdripData.getTreatment();
+        aapsTimeText.setProperty(hmUI.prop.MORE, {
+            text: watchdripData.getTimeAgo(treatmentObj.time)
         });
     },
 
