@@ -259,10 +259,10 @@ export const AAPS_TEXT = {
 // Xdrip modified to put ExternalStatusService.getLastStatusLineTime()
 export const AAPS_TIME_TEXT = {
     x: px(18),
-    y: px(348),
+    y: px(342),
     w: px(300),
     h: px(32),
-    color: Colors.white,
+    color: Colors.defaultTransparent,
     text_size: px(23),
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
