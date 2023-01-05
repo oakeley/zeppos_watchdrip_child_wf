@@ -226,7 +226,7 @@ WatchFace({
         let aapsString = "";
         let insText = "IOB: " + treatmentObj.insulin + " U";
         insText = insText.replace(".0 U", " U");
-        aapsString = aapsString + insText + " - ";        
+        aapsString = aapsString + insText + "  -  ";        
         let carbText = "COB: " + treatmentObj.carbs + " g";
         carbText = carbText.replace(".0 g", " g");
         aapsString = aapsString + carbText;
