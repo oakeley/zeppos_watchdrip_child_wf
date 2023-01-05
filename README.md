@@ -1,4 +1,4 @@
- # zeppos Watchface for Watchdrip for GTR3 Pro
+ # zeppos Watchface for Watchdrip for Amazfit Falcon (and some others)
  <p align="center">
  <img src="https://raw.githubusercontent.com/oakeley/zeppos_watchdrip_timer_wf/master/assets/falcon/images/preview.png" alt="Watchface preview"/>
  </p>
