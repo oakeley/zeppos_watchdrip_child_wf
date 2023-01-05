@@ -65,12 +65,12 @@ export const ANALOG_TIME_SECONDS = {
 };
 
 export const NORMAL_HEART_RATE_TEXT_IMG = {
-    x: px(88),
+    x: px(67),
     y: px(175),
     w: px(53),
     padding: false,
     h_space: 1,
-    align_h: hmUI.align.RIGHT,
+    align_h: hmUI.align.CENTER_H,
     type: hmUI.data_type.HEART,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr
@@ -89,12 +89,12 @@ export const NORMAL_STEPS_TEXT_IMG = {
 }
 
 export const NORMAL_DIST_TEXT_IMG = {
-    x: px(275),
-    y: px(218),
+    x: px(300),
+    y: px(215),
     w: px(78),
     padding: false,
     h_space: 1,
-    align_h: hmUI.align.RIGHT,
+    align_h: hmUI.align.CENTER_H,
     type: hmUI.data_type.DISTANCE,
     dot_image: img('smallNumAccent/d.png'),
     show_level: hmUI.show_level.ONLY_NORMAL,
@@ -110,8 +110,8 @@ export const WEEK_DAYS = {
 }
 
 export const DAYS_TEXT_IMG = {
-    day_startX: px(109),
-    day_startY: px(218),
+    day_startX: px(100),
+    day_startY: px(215),
     day_zero: 1,
     day_space: 1,
     day_align: hmUI.align.LEFT,
@@ -127,7 +127,7 @@ export const BATTERY_ARC = {
     w: px(390),
     h: px(390),
     start_angle: -253,
-    end_angle: -196,
+    end_angle: -253,
     color: Colors.accent,
     line_width: px(9),
     show_level: hmUI.show_level.ONLY_NORMAL,
@@ -138,7 +138,7 @@ export const PAI_ARC = {
     y: px(7),
     w: px(390),
     h: px(390),
-    start_angle: 73,
+    start_angle: 17,
     end_angle: 17,
     color: Colors.accent,
     line_width: px(9),

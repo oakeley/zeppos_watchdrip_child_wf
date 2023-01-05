@@ -155,9 +155,9 @@ WatchFace({
 
         function scale_call() {
             if (screenType !== hmSetting.screen_type.AOD) {
-                batteryCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(battery.current, BATTERY_ARC.start_angle, BATTERY_ARC.end_angle))
+                // batteryCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(battery.current, BATTERY_ARC.start_angle, BATTERY_ARC.end_angle))
                 watchBattery.setProperty(hmUI.prop.MORE, { text: battery.current + '%'})
-                paiCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(pai.totalpai, PAI_ARC.start_angle, PAI_ARC.end_angle))
+                // paiCircleArc.setProperty(hmUI.prop.MORE, getArcEndByVal(pai.totalpai, PAI_ARC.start_angle, PAI_ARC.end_angle))
             } else { watchBattery.setProperty(hmUI.prop.MORE, { text: battery.current + '%'}) }
         }
 
