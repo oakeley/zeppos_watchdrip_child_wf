@@ -224,11 +224,11 @@ WatchFace({
         // Fill data from modified xDrip ExternalStatusService.getLastStatusLine()
         let treatmentObj = watchdripData.getTreatment();
         let aapsString = "";
-        let insText = "IOB: " + treatmentObj.insulin + "U";
-        insText = insText.replace(".0U", "U");
-        aapsString = aapsString + insText + " | ";        
-        let carbText = "COB: " + treatmentObj.carbs + "g";
-        carbText = carbText.replace(".0g", "g");
+        let insText = "IOB: " + treatmentObj.insulin + " U";
+        insText = insText.replace(".0 U", " U");
+        aapsString = aapsString + insText + " - ";        
+        let carbText = "COB: " + treatmentObj.carbs + " g";
+        carbText = carbText.replace(".0 g", " g");
         aapsString = aapsString + carbText;
         aapsText.setProperty(hmUI.prop.MORE, {
             text: aapsString
