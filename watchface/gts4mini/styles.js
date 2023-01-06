@@ -312,8 +312,8 @@ export const BG_STATUS_HIGHT_IMG = {
 };
 
 export const IMG_STATUS_BT_DISCONNECTED = {
-    x: px(66),
-    y: px(107),
+    x: px(30),
+    y: px(30),
     src: img('status/bt_disconnect.png'),
     type: hmUI.system_status.DISCONNECT,
     show_level: hmUI.show_level.ONLY_NORMAL,
@@ -328,3 +328,52 @@ export const IMG_LOADING_PROGRESS = {
     center_y: 20,
     visible: false,
 };
+
+/*
+export const EDIT_GROUP_LEFT = {
+    edit_id: 101,
+    x: 12,
+    y: 115,
+    w: 85,
+    h: 85,
+    select_image: img('mask/select.png'),
+    un_select_image: img('mask/select.png'),
+    default_type: hmUI.edit_type.HEART,
+    optional_types: [
+        {
+            type: hmUI.edit_type.HEART,
+            preview: img('preview/heart.png')
+        },
+        {
+            type: hmUI.edit_type.STEP,
+            preview: img('preview/steps.png')
+        }
+    ],
+    count: 1,
+    tips_BG: img('mask/text_tag.png'),
+    tips_x: 31 - x,
+    tips_y: 79 - y,
+    tips_width: 110
+    //tips_margin: 10 // optional, default value: 0
+};
+
+// 100% edit mask
+export const EDIT_MASK_100 = {
+    x: 0,
+    y: 0,
+    w: 336,
+    h: 384,
+    src: img('mask/mask100.png'),
+    show_level: hmUI.show_level.ONLY_EDIT
+};
+
+// 70% edit mask
+export const EDIT_MASK_70 = {
+    x: 0,
+    y: 0,
+    w: 336,
+    h: 384,
+    src: img('mask/mask70.png'),
+    show_level: hmUI.show_level.ONLY_EDIT
+};
+*/

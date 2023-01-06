@@ -28,18 +28,21 @@ import {
     PHONE_BATTERY_TEXT,
     WATCH_BATTERY_TEXT,
     TIME_AM_PM,
-    TREATMENT_TEXT,
+    // TREATMENT_TEXT,
     WEEK_DAYS,
-    //TREATMENT_TIME_TEXT,
+    // TREATMENT_TIME_TEXT,
     AAPS_TEXT,
-    AAPS_TIME_TEXT
+    AAPS_TIME_TEXT,
+    // EDIT_GROUP_LEFT,
+    // EDIT_MASK_70,
+    // EDIT_MASK_100
 } from "./styles";
 import {BG_FILL_RECT, BG_IMG} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS, TEST_DATA} from "../../utils/config/constants";
 
 let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparator, /* secondsPointer,*/ btDisconnected,
     normalHeartRateTextImg, normalStepsTextImg, /* normalDistTextImg, */ weekImg, dateDayImg, /* batteryCircleArc, paiCircleArc, */
-    screenType;
+    screenType /*, editGroupLeft, mask, maskCover */;
 let bgValTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine,
     phoneBattery, watchBattery, /* iob, treatment, */ bgStatusLow, bgStatusOk, bgStatusHight, progress, aapsText, aapsTimeText;
 
@@ -122,6 +125,24 @@ WatchFace({
 
         // batteryCircleArc = hmUI.createWidget(hmUI.widget.ARC, BATTERY_ARC);
         // paiCircleArc = hmUI.createWidget(hmUI.widget.ARC, PAI_ARC);
+
+        /*
+        // Editable Components Init
+        // 100% edit mask
+        maskCover = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_MASK, EDIT_MASK_100);
+        //70% edit mask
+        mask = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_FG_MASK, EDIT_MASK_70);
+        // Left editable widget
+        editGroupLeft = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, EDIT_GROUP_LEFT)
+        const editLeftType = editGroupLeft.getProperty(hmUI.prop.CURRENT_TYPE);
+        switch (editLeftType) {
+            case hmUI.data_type.HEART:
+                //this.drawHeartWidget(EDIT_GROUP_LEFT.x, EDIT_GROUP_LEFT.y);
+                break
+            case hmUI.data_type.STEP:
+                break
+        };
+        */
 
         const battery = hmSensor.createSensor(hmSensor.id.BATTERY);
         battery.addEventListener(hmSensor.event.CHANGE, function () {
