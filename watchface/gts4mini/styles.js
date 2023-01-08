@@ -23,7 +23,7 @@ let smallNumAccentArr = range(10).map((v) => {
 
 export const DIGITAL_TIME_HOUR = {
     hour_startX: px(86),
-    hour_startY: px(26),
+    hour_startY: px(6),
     hour_zero: true,
     hour_space: 2,
     hour_align: hmUI.align.CENTER_H,
@@ -32,7 +32,7 @@ export const DIGITAL_TIME_HOUR = {
 
 export const DIGITAL_TIME_MINUTES = {
     minute_startX: px(176),
-    minute_startY: px(26),
+    minute_startY: px(6),
     minute_zero: true,
     minute_space: 2,
     minute_align: hmUI.align.CENTER_H,
@@ -52,7 +52,7 @@ export const TIME_AM_PM = {
 
 export const DIGITAL_TIME_SEPARATOR = {
     x: px(164),
-    y: px(43),
+    y: px(23),
     src: img( `bigNum/sp.png`)
 };
 
@@ -64,7 +64,7 @@ export const DIGITAL_TIME_SEPARATOR = {
     second_path: img("point/sec.png")
 }; */
 
-export const NORMAL_HEART_RATE_TEXT_IMG = {
+/* export const NORMAL_HEART_RATE_TEXT_IMG = {
     x: px(53),
     y: px(158),
     w: px(50),
@@ -74,9 +74,9 @@ export const NORMAL_HEART_RATE_TEXT_IMG = {
     type: hmUI.data_type.HEART,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr
-}
+} */
 
-export const NORMAL_STEPS_TEXT_IMG = {
+/* export const NORMAL_STEPS_TEXT_IMG = {
     x: px(236),
     y: px(158),
     w: px(95),
@@ -86,7 +86,7 @@ export const NORMAL_STEPS_TEXT_IMG = {
     type: hmUI.data_type.STEP,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr
-}
+} */
 
 /* export const NORMAL_DIST_TEXT_IMG = {
     x: px(222),
@@ -102,16 +102,16 @@ export const NORMAL_STEPS_TEXT_IMG = {
 } */
 
 export const WEEK_DAYS = {
-    x: px(9),
-    y: px(212),
+    x: px(105),
+    y: px(78),
     week_en: weekEnArray,
     week_tc: weekEnArray,
     week_sc: weekEnArray,
 }
 
 export const DAYS_TEXT_IMG = {
-    day_startX: px(68),
-    day_startY: px(208),
+    day_startX: px(160),
+    day_startY: px(75),
     day_zero: 1,
     day_space: 1,
     day_align: hmUI.align.LEFT,
@@ -119,6 +119,21 @@ export const DAYS_TEXT_IMG = {
     day_sc_array: smallNumAccentArr,
     day_tc_array: smallNumAccentArr,
     day_en_array: smallNumAccentArr,
+    day_unit_sc: img('smallNumAccent/d.png'), // dot
+    day_unit_tc: img('smallNumAccent/d.png'),
+    day_unit_en: img('smallNumAccent/d.png'),
+    month_startX: px(200),
+    month_startY: px(75),
+    month_zero: 1,
+    month_space: 1,
+    month_align: hmUI.align.LEFT,
+    month_is_character: false,
+    month_sc_array: smallNumAccentArr,
+    month_tc_array: smallNumAccentArr,
+    month_en_array: smallNumAccentArr,
+    month_unit_sc: img('smallNumAccent/d.png'), // dot
+    month_unit_tc: img('smallNumAccent/d.png'),
+    month_unit_en: img('smallNumAccent/d.png')
 }
 
 /* export const BATTERY_ARC = {
@@ -271,11 +286,11 @@ export const AAPS_TIME_TEXT = {
 
 export const PHONE_BATTERY_TEXT = {
     x: px(260),
-    y: px(240),
+    y: px(263),
     w: px(71),
     h: px(27),
     color: Colors.white,
-    text_size: px(21),
+    text_size: px(22),
     align_h: hmUI.align.LEFT,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
@@ -283,11 +298,11 @@ export const PHONE_BATTERY_TEXT = {
 
 export const WATCH_BATTERY_TEXT = {
     x: px(0),
-    y: px(240),
+    y: px(263),
     w: px(71),
     h: px(27),
     color: Colors.white,
-    text_size: px(21),
+    text_size: px(22),
     align_h: hmUI.align.RIGHT,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
@@ -353,10 +368,10 @@ export const EDIT_MASK_70 = {
 const leftX = 13;
 const leftY = 120;
 const leftW = 85;
-const leftH = 85;
+const leftH = 70;
 const leftIconHeight = 40;
 const leftIconWidth = 40;
-const leftIconMargin = 5;
+const leftIconMargin = 7;
 
 export const EDIT_LEFT_GROUP = {
     edit_id: 101,
@@ -426,10 +441,10 @@ export const EDIT_LEFT_STEP_TEXT_IMG = {
 const rightX = 238;
 const rightY = 120;
 const rightW = 85;
-const rightH = 85;
+const rightH = 70;
 const rightIconHeight = 40;
 const rightIconWidth = 40;
-const rightIconMargin = 5;
+const rightIconMargin = 7;
 
 export const EDIT_RIGHT_GROUP = {
     edit_id: 102,
