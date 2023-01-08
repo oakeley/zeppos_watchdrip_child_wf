@@ -22,7 +22,7 @@ let smallNumAccentArr = range(10).map((v) => {
 });
 
 export const DIGITAL_TIME_HOUR = {
-    hour_startX: px(86),
+    hour_startX: px(84),
     hour_startY: px(6),
     hour_zero: true,
     hour_space: 2,
@@ -31,7 +31,7 @@ export const DIGITAL_TIME_HOUR = {
 };
 
 export const DIGITAL_TIME_MINUTES = {
-    minute_startX: px(176),
+    minute_startX: px(178),
     minute_startY: px(6),
     minute_zero: true,
     minute_space: 2,
@@ -40,12 +40,12 @@ export const DIGITAL_TIME_MINUTES = {
 };
 
 export const TIME_AM_PM = {
-    am_x: px(241),
-    am_y: px(64),
+    am_x: px(258),
+    am_y: px(42),
     am_sc_path: img('bigNum/am.png'),
     am_en_path: img('bigNum/am.png'),
-    pm_x: px(298),
-    pm_y: px(64),
+    pm_x: px(258),
+    pm_y: px(42),
     pm_sc_path: img('bigNum/pm.png'),
     pm_en_path: img('bigNum/pm.png'),
 }
@@ -53,7 +53,7 @@ export const TIME_AM_PM = {
 export const DIGITAL_TIME_SEPARATOR = {
     x: px(164),
     y: px(23),
-    src: img( `bigNum/sp.png`)
+    src: img('bigNum/sp.png')
 };
 
 export const WEEK_DAYS = {
