@@ -192,7 +192,7 @@ export const AAPS_TIME_TEXT = {
 };
 
 export const PHONE_BATTERY_TEXT = {
-    x: px(258),
+    x: px(259),
     y: px(276),
     w: px(70),
     h: px(27),
@@ -205,7 +205,7 @@ export const PHONE_BATTERY_TEXT = {
 
 export const WATCH_BATTERY_TEXT = {
     x: px(1),
-    y: px(277),
+    y: px(276),
     w: px(70),
     h: px(27),
     color: Colors.white,
@@ -285,7 +285,6 @@ export const EDIT_GROUP_DEFAULTS = {
     h: editWidgetH,
     select_image: img('mask/select.png'),
     un_select_image: img('mask/un_select.png'),
-    default_type: hmUI.edit_type.HEART,
     optional_types: [
         {
             type: hmUI.edit_type.HEART,
@@ -294,12 +293,18 @@ export const EDIT_GROUP_DEFAULTS = {
         {
             type: hmUI.edit_type.STEP,
             preview: img('widgets/steps.png')
+        },
+        {
+            type: hmUI.edit_type.WEATHER_CURRENT,
+            preview: img('widgets/temp.png')
+        },
+        {
+            type: hmUI.edit_type.DISTANCE,
+            preview: img('widgets/distance.png')
         }
     ],
-    count: 2,
+    count: 4,
     tips_BG: img('mask/text_tag.png'),
-    tips_x: 0,
-    tips_y: -45,
     tips_width: 110,
     tips_margin: 5 // optional, default value: 0
 };    
@@ -312,7 +317,10 @@ const topLeftY = 115;
 export const EDIT_TOP_LEFT_GROUP = {
     edit_id: 101,
     x: topLeftX,
-    y: topLeftY
+    y: topLeftY,
+    tips_x: 0,
+    tips_y: -45,
+    default_type: hmUI.edit_type.HEART,
 }; 
 
 // Default styles for all IMG widgets
@@ -345,7 +353,10 @@ const topRightY = 115;
 export const EDIT_TOP_RIGHT_GROUP = {
     edit_id: 102,
     x: topRightX,
-    y: topRightY
+    y: topRightY,
+    tips_x: -25,
+    tips_y: -45,
+    default_type: hmUI.edit_type.STEP
 }; 
 
 // Default styles for all IMG widgets
@@ -378,7 +389,10 @@ const bottomLeftY = 200;
 export const EDIT_BOTTOM_LEFT_GROUP = {
     edit_id: 103,
     x: bottomLeftX,
-    y: bottomLeftY
+    y: bottomLeftY,
+    tips_x: 0,
+    tips_y: 75,
+    default_type: hmUI.edit_type.WEATHER_CURRENT
 }; 
 
 // Default styles for all IMG widgets
@@ -411,7 +425,10 @@ const bottomRightY = 200;
 export const EDIT_BOTTOM_RIGHT_GROUP = {
     edit_id: 104,
     x: bottomRightX,
-    y: bottomRightY
+    y: bottomRightY,
+    tips_x: -25,
+    tips_y: 75,
+    default_type: hmUI.edit_type.DISTANCE,
 }; 
 
 // Default styles for all IMG widgets
@@ -450,8 +467,24 @@ export const EDIT_HEART_TEXT_IMG = {
 // STEP widget
 export const EDIT_STEP_IMG = {
     src: img('widgets/steps.png') // 40x40px
-};    
+};
 export const EDIT_STEP_TEXT_IMG = {
     type: hmUI.data_type.STEP
+};
+
+// HEART widget
+export const EDIT_DISTANCE_IMG = {
+    src: img('widgets/distance.png') // 40x40px
+};
+export const EDIT_DISTANCE_TEXT_IMG = {
+    type: hmUI.data_type.DISTANCE
+};
+
+// WEATHER_CURRENT widget
+export const EDIT_WEATHER_CURRENT_IMG = {
+    src: img('widgets/temp.png') // 40x40px
+};
+export const EDIT_WEATHER_CURRENT_TEXT_IMG = {
+    type: hmUI.data_type.WEATHER_CURRENT
 };
 // END EDIT Widgets

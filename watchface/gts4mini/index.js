@@ -49,7 +49,11 @@ import {
     EDIT_HEART_IMG,
     EDIT_HEART_TEXT_IMG,
     EDIT_STEP_IMG,
-    EDIT_STEP_TEXT_IMG
+    EDIT_STEP_TEXT_IMG,
+    EDIT_DISTANCE_IMG,
+    EDIT_DISTANCE_TEXT_IMG,
+    EDIT_WEATHER_CURRENT_IMG,
+    EDIT_WEATHER_CURRENT_TEXT_IMG
 } from "./styles";
 import {BG_FILL_RECT, BG_IMG} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS, TEST_DATA} from "../../utils/config/constants";
@@ -122,6 +126,14 @@ WatchFace({
                 hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_IMG, EDIT_STEP_IMG));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_TEXT_IMG, EDIT_STEP_TEXT_IMG));
                 break;
+            case hmUI.edit_type.WEATHER_CURRENT:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_IMG, EDIT_WEATHER_CURRENT_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_TEXT_IMG, EDIT_WEATHER_CURRENT_TEXT_IMG));
+                break;
+            case hmUI.edit_type.DISTANCE:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_IMG, EDIT_DISTANCE_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_TEXT_IMG, EDIT_DISTANCE_TEXT_IMG));
+                break;    
         }
     },
     // draw editable Widget TOP RIGHT
@@ -134,6 +146,14 @@ WatchFace({
             case hmUI.edit_type.STEP:
                 hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_IMG, EDIT_STEP_IMG));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG, EDIT_STEP_TEXT_IMG));
+                break;
+            case hmUI.edit_type.WEATHER_CURRENT:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_IMG, EDIT_WEATHER_CURRENT_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG, EDIT_WEATHER_CURRENT_TEXT_IMG));
+                break;
+            case hmUI.edit_type.DISTANCE:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_IMG, EDIT_DISTANCE_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG, EDIT_DISTANCE_TEXT_IMG));
                 break;
         }
     },
@@ -148,6 +168,14 @@ WatchFace({
                 hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_IMG, EDIT_STEP_IMG));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG, EDIT_STEP_TEXT_IMG));
                 break;
+            case hmUI.edit_type.WEATHER_CURRENT:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_IMG, EDIT_WEATHER_CURRENT_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG, EDIT_WEATHER_CURRENT_TEXT_IMG));
+                break;
+            case hmUI.edit_type.DISTANCE:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_IMG, EDIT_DISTANCE_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG, EDIT_DISTANCE_TEXT_IMG));
+                break;
         }
     },
     // draw editable Widget BOTTOM RIGHT
@@ -160,6 +188,14 @@ WatchFace({
             case hmUI.edit_type.STEP:
                 hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_IMG, EDIT_STEP_IMG));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG, EDIT_STEP_TEXT_IMG));
+                break;
+            case hmUI.edit_type.WEATHER_CURRENT:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_IMG, EDIT_WEATHER_CURRENT_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG, EDIT_WEATHER_CURRENT_TEXT_IMG));
+                break;
+            case hmUI.edit_type.DISTANCE:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_IMG, EDIT_DISTANCE_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG, EDIT_DISTANCE_TEXT_IMG));
                 break;
         }
     },
