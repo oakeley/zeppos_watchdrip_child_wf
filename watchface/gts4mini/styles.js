@@ -289,11 +289,11 @@ export const EDIT_GROUP_DEFAULTS = {
     optional_types: [
         {
             type: hmUI.edit_type.HEART,
-            preview: img('preview/heart.png')
+            preview: img('widgets/heart.png')
         },
         {
             type: hmUI.edit_type.STEP,
-            preview: img('preview/steps.png')
+            preview: img('widgets/steps.png')
         }
     ],
     count: 2,
@@ -441,7 +441,7 @@ export const EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG = {
 // These styles are merged with the above default styles.
 // HEART widget
 export const EDIT_HEART_IMG = {
-    src: img('preview/heart.png') // 40x40px
+    src: img('widgets/heart.png') // 40x40px
 };
 export const EDIT_HEART_TEXT_IMG = {
     type: hmUI.data_type.HEART
@@ -449,7 +449,7 @@ export const EDIT_HEART_TEXT_IMG = {
 
 // STEP widget
 export const EDIT_STEP_IMG = {
-    src: img('preview/steps.png') // 40x40px
+    src: img('widgets/steps.png') // 40x40px
 };    
 export const EDIT_STEP_TEXT_IMG = {
     type: hmUI.data_type.STEP
