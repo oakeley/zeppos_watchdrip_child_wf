@@ -75,17 +75,6 @@ function initDebug() {
     debug.setLines(12);
 }
 
-function getArcEndByVal(value, start_angle, end_angle) {
-    let progress = value / 100;
-    if (progress > 1) progress = 1;
-    let offset = end_angle - start_angle;
-    offset = offset * progress;
-    let end_angle_draw = start_angle + offset;
-    return {
-        end_angle: end_angle_draw
-    }
-}
-
 function startLoader() {
     progress.setProperty(hmUI.prop.VISIBLE, true);
     progressAngle = 0;
