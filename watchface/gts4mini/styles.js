@@ -193,7 +193,7 @@ export const AAPS_TIME_TEXT = {
 
 export const PHONE_BATTERY_TEXT = {
     x: px(258),
-    y: px(274),
+    y: px(276),
     w: px(70),
     h: px(27),
     color: Colors.white,
@@ -205,7 +205,7 @@ export const PHONE_BATTERY_TEXT = {
 
 export const WATCH_BATTERY_TEXT = {
     x: px(1),
-    y: px(273),
+    y: px(277),
     w: px(70),
     h: px(27),
     color: Colors.white,
