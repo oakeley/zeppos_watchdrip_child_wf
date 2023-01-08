@@ -109,34 +109,27 @@ WatchFace({
     drawWidgetLeft(editType) {
         switch (editType) {
             case hmUI.edit_type.HEART:
-            {
-                hmUI.createWidget(hmUI.widget.IMG, EDIT_LEFT_HEART_IMG);
+                // TODO: Split into default styles and specific styles and merge with Object.assign()
+                hmUI.createWidget(hmUI.widget.IMG, Object.assign({}, EDIT_LEFT_HEART_IMG, { /* Specific styles export */ }));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_LEFT_HEART_TEXT_IMG);
                 break;
-            }
             case hmUI.edit_type.STEP:
-            {
                 hmUI.createWidget(hmUI.widget.IMG, EDIT_LEFT_STEP_IMG);
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_LEFT_STEP_TEXT_IMG);
                 break;
-            }
         }
     },
     // draw editable Widget RIGHT
     drawWidgetRight(editType) {
         switch (editType) {
             case hmUI.edit_type.HEART:
-            {
                 hmUI.createWidget(hmUI.widget.IMG, EDIT_RIGHT_HEART_IMG);
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_RIGHT_HEART_TEXT_IMG);
                 break;
-            }
             case hmUI.edit_type.STEP:
-            {
                 hmUI.createWidget(hmUI.widget.IMG, EDIT_RIGHT_STEP_IMG);
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_RIGHT_STEP_TEXT_IMG);
                 break;
-            }
         }
     },
     // Init View
