@@ -23,7 +23,7 @@ import {
     // IOB_TEXT,
     // NORMAL_DIST_TEXT_IMG,
     // NORMAL_HEART_RATE_TEXT_IMG,
-    NORMAL_STEPS_TEXT_IMG,
+    //NORMAL_STEPS_TEXT_IMG,
     // PAI_ARC,
     PHONE_BATTERY_TEXT,
     WATCH_BATTERY_TEXT,
@@ -38,12 +38,16 @@ import {
     EDIT_MASK_100,
     // Left Edit Group
     EDIT_LEFT_GROUP,
+    EDIT_LEFT_DEFAULT_IMG,
+    EDIT_LEFT_DEFAULT_TEXT_IMG,
     EDIT_LEFT_HEART_IMG,
     EDIT_LEFT_HEART_TEXT_IMG,
     EDIT_LEFT_STEP_IMG,
     EDIT_LEFT_STEP_TEXT_IMG,
     // Right Edit Group
     EDIT_RIGHT_GROUP,
+    EDIT_RIGHT_DEFAULT_IMG,
+    EDIT_RIGHT_DEFAULT_TEXT_IMG,
     EDIT_RIGHT_HEART_IMG,
     EDIT_RIGHT_HEART_TEXT_IMG,
     EDIT_RIGHT_STEP_IMG,
@@ -104,18 +108,18 @@ function stopLoader() {
     progress.setProperty(hmUI.prop.VISIBLE, false);
 }
 
+
 WatchFace({
     // draw editable Widget LEFT
     drawWidgetLeft(editType) {
         switch (editType) {
             case hmUI.edit_type.HEART:
-                // TODO: Split into default styles and specific styles and merge with Object.assign()
-                hmUI.createWidget(hmUI.widget.IMG, Object.assign({}, EDIT_LEFT_HEART_IMG, { /* Specific styles export */ }));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_LEFT_HEART_TEXT_IMG);
+                hmUI.createWidget(hmUI.widget.IMG, Object.assign({}, EDIT_LEFT_DEFAULT_IMG, EDIT_LEFT_HEART_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, Object.assign({}, EDIT_LEFT_DEFAULT_TEXT_IMG, EDIT_LEFT_HEART_TEXT_IMG));
                 break;
             case hmUI.edit_type.STEP:
-                hmUI.createWidget(hmUI.widget.IMG, EDIT_LEFT_STEP_IMG);
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_LEFT_STEP_TEXT_IMG);
+                hmUI.createWidget(hmUI.widget.IMG, Object.assign({}, EDIT_LEFT_DEFAULT_IMG, EDIT_LEFT_STEP_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, Object.assign({}, EDIT_LEFT_DEFAULT_TEXT_IMG, EDIT_LEFT_STEP_TEXT_IMG));
                 break;
         }
     },
@@ -123,12 +127,12 @@ WatchFace({
     drawWidgetRight(editType) {
         switch (editType) {
             case hmUI.edit_type.HEART:
-                hmUI.createWidget(hmUI.widget.IMG, EDIT_RIGHT_HEART_IMG);
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_RIGHT_HEART_TEXT_IMG);
+                hmUI.createWidget(hmUI.widget.IMG, Object.assign({}, EDIT_RIGHT_DEFAULT_IMG, EDIT_RIGHT_HEART_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, Object.assign({}, EDIT_RIGHT_DEFAULT_TEXT_IMG, EDIT_RIGHT_HEART_TEXT_IMG));
                 break;
             case hmUI.edit_type.STEP:
-                hmUI.createWidget(hmUI.widget.IMG, EDIT_RIGHT_STEP_IMG);
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_RIGHT_STEP_TEXT_IMG);
+                hmUI.createWidget(hmUI.widget.IMG, Object.assign({}, EDIT_RIGHT_DEFAULT_IMG, EDIT_RIGHT_STEP_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, Object.assign({}, EDIT_RIGHT_DEFAULT_TEXT_IMG, EDIT_RIGHT_STEP_TEXT_IMG));
                 break;
         }
     },

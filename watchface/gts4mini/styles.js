@@ -379,52 +379,45 @@ export const EDIT_LEFT_GROUP = {
     ],
     count: 2,
     tips_BG: img('mask/text_tag.png'),
-    tips_x: -10,
+    tips_x: 0,
     tips_y: -45,
     tips_width: 110,
     tips_margin: 5 // optional, default value: 0
 }; 
 
 // HEART widget
-export const EDIT_LEFT_HEART_IMG = {
+export const EDIT_LEFT_DEFAULT_IMG = {
     x: px(leftX),
     y: px(leftY),
     w: px(leftW), // full width to center
     pos_x: px((leftW - leftIconWidth) / 2), // center the image
-    src: img('preview/heart.png'), // 40x40px
     show_level: hmUI.show_level.ONLY_NORMAL
 };
-export const EDIT_LEFT_HEART_TEXT_IMG = {
+export const EDIT_LEFT_DEFAULT_TEXT_IMG = {
     x: px(leftX),
     y: px(leftY + leftIconHeight + leftIconMargin),
     w: px(leftW),
     padding: false,
     h_space: 1,
     align_h: hmUI.align.CENTER_H,
-    type: hmUI.data_type.HEART,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr
 };
 
+// HEART widget
+export const EDIT_LEFT_HEART_IMG = {
+    src: img('preview/heart.png') // 40x40px
+};
+export const EDIT_LEFT_HEART_TEXT_IMG = {
+    type: hmUI.data_type.HEART
+};
+
 // STEP widget
 export const EDIT_LEFT_STEP_IMG = {
-    x: px(leftX),
-    y: px(leftY),
-    w: px(leftW), // full width to center
-    pos_x: px((leftW - leftIconWidth) / 2), // center the image
-    src: img('preview/steps.png'), // 40x40px
-    show_level: hmUI.show_level.ONLY_NORMAL
+    src: img('preview/steps.png') // 40x40px
 };    
 export const EDIT_LEFT_STEP_TEXT_IMG = {
-    x: px(leftX),
-    y: px(leftY + leftIconHeight + leftIconMargin),
-    w: px(leftW),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.CENTER_H,
-    type: hmUI.data_type.STEP,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
+    type: hmUI.data_type.STEP
 };
 // END EDIT Left Widget
 
@@ -459,52 +452,44 @@ export const EDIT_RIGHT_GROUP = {
     ],
     count: 2,
     tips_BG: img('mask/text_tag.png'),
-    tips_x: -10,
+    tips_x: -25,
     tips_y: -45,
     tips_width: 110,
     tips_margin: 5 // optional, default value: 0
 }; 
 
-// HEART widget
-export const EDIT_RIGHT_HEART_IMG = {
+// Defauult styles for all widgets
+export const EDIT_RIGHT_DEFAULT_IMG = {
     x: px(rightX),
     y: px(rightY),
     w: px(rightW), // full width to center
     pos_x: px((rightW - rightIconWidth) / 2), // center the image
-    src: img('preview/heart.png'), // 40x40px
     show_level: hmUI.show_level.ONLY_NORMAL
 };
-export const EDIT_RIGHT_HEART_TEXT_IMG = {
+export const EDIT_RIGHT_DEFAULT_TEXT_IMG = {
     x: px(rightX),
     y: px(rightY + rightIconHeight + rightIconMargin),
     w: px(rightW),
     padding: false,
     h_space: 1,
     align_h: hmUI.align.CENTER_H,
-    type: hmUI.data_type.HEART,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr
+};
+
+// HEART widget
+export const EDIT_RIGHT_HEART_IMG = {
+    src: img('preview/heart.png'), // 40x40px
+};
+export const EDIT_RIGHT_HEART_TEXT_IMG = {
+    type: hmUI.data_type.HEART
 };
 
 // STEP widget
 export const EDIT_RIGHT_STEP_IMG = {
-    x: px(rightX),
-    y: px(rightY),
-    w: px(rightW), // full width to center
-    pos_x: px((rightW - rightIconWidth) / 2), // center the image
-    src: img('preview/steps.png'), // 40x40px
-    show_level: hmUI.show_level.ONLY_NORMAL
+    src: img('preview/steps.png') // 40x40px
 };    
 export const EDIT_RIGHT_STEP_TEXT_IMG = {
-    x: px(rightX),
-    y: px(rightY + rightIconHeight + rightIconMargin),
-    w: px(rightW),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.CENTER_H,
-    type: hmUI.data_type.STEP,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
+    type: hmUI.data_type.STEP
 };
 // END EDIT Right Widget
-
