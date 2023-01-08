@@ -104,6 +104,7 @@ function mergeStyles(styleObj1, styleObj2) {
 
 
 WatchFace({
+    // TODO: Refactor into a single function: 2 switches in sequence. 1st save widget defaults, 2nd merge in specific styles
     // draw editable Widget TOP LEFT
     drawWidgetTopLeft(editType) {
         switch (editType) {
