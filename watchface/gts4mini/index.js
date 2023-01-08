@@ -22,7 +22,7 @@ import {
     IMG_STATUS_BT_DISCONNECTED,
     // IOB_TEXT,
     // NORMAL_DIST_TEXT_IMG,
-    NORMAL_HEART_RATE_TEXT_IMG,
+    // NORMAL_HEART_RATE_TEXT_IMG,
     NORMAL_STEPS_TEXT_IMG,
     // PAI_ARC,
     PHONE_BATTERY_TEXT,
@@ -33,16 +33,28 @@ import {
     // TREATMENT_TIME_TEXT,
     AAPS_TEXT,
     AAPS_TIME_TEXT,
-    // EDIT_GROUP_LEFT,
-    // EDIT_MASK_70,
-    // EDIT_MASK_100
+    // Edit masks
+    EDIT_MASK_70,
+    EDIT_MASK_100,
+    // Left Edit Group
+    EDIT_LEFT_GROUP,
+    EDIT_LEFT_HEART_IMG,
+    EDIT_LEFT_HEART_TEXT_IMG,
+    EDIT_LEFT_STEP_IMG,
+    EDIT_LEFT_STEP_TEXT_IMG,
+    // Right Edit Group
+    EDIT_RIGHT_GROUP,
+    EDIT_RIGHT_HEART_IMG,
+    EDIT_RIGHT_HEART_TEXT_IMG,
+    EDIT_RIGHT_STEP_IMG,
+    EDIT_RIGHT_STEP_TEXT_IMG
 } from "./styles";
 import {BG_FILL_RECT, BG_IMG} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS, TEST_DATA} from "../../utils/config/constants";
 
 let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparator, /* secondsPointer,*/ btDisconnected,
-    normalHeartRateTextImg, normalStepsTextImg, /* normalDistTextImg, */ weekImg, dateDayImg, /* batteryCircleArc, paiCircleArc, */
-    screenType /*, editGroupLeft, mask, maskCover */;
+    /*normalHeartRateTextImg, */ /* normalStepsTextImg, */ /* normalDistTextImg, */ weekImg, dateDayImg, /* batteryCircleArc, paiCircleArc, */
+    screenType, mask, maskCover, editGroupLeft, editGroupRight;
 let bgValTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine,
     phoneBattery, watchBattery, /* iob, treatment, */ bgStatusLow, bgStatusOk, bgStatusHight, progress, aapsText, aapsTimeText;
 
@@ -93,6 +105,41 @@ function stopLoader() {
 }
 
 WatchFace({
+    // draw editable Widget LEFT
+    drawWidgetLeft(editType) {
+        switch (editType) {
+            case hmUI.edit_type.HEART:
+            {
+                hmUI.createWidget(hmUI.widget.IMG, EDIT_LEFT_HEART_IMG);
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_LEFT_HEART_TEXT_IMG);
+                break;
+            }
+            case hmUI.edit_type.STEP:
+            {
+                hmUI.createWidget(hmUI.widget.IMG, EDIT_LEFT_STEP_IMG);
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_LEFT_STEP_TEXT_IMG);
+                break;
+            }
+        }
+    },
+    // draw editable Widget RIGHT
+    drawWidgetRight(editType) {
+        switch (editType) {
+            case hmUI.edit_type.HEART:
+            {
+                hmUI.createWidget(hmUI.widget.IMG, EDIT_RIGHT_HEART_IMG);
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_RIGHT_HEART_TEXT_IMG);
+                break;
+            }
+            case hmUI.edit_type.STEP:
+            {
+                hmUI.createWidget(hmUI.widget.IMG, EDIT_RIGHT_STEP_IMG);
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, EDIT_RIGHT_STEP_TEXT_IMG);
+                break;
+            }
+        }
+    },
+    // Init View
     initView() {
         screenType = hmSetting.getScreenType();
         if (screenType === hmSetting.screen_type.AOD) {
@@ -109,9 +156,9 @@ WatchFace({
 
         digitalClockSeparator = hmUI.createWidget(hmUI.widget.IMG, DIGITAL_TIME_SEPARATOR);
 
-        normalHeartRateTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_HEART_RATE_TEXT_IMG);
+        // normalHeartRateTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_HEART_RATE_TEXT_IMG);
 
-        normalStepsTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_STEPS_TEXT_IMG);
+        // normalStepsTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_STEPS_TEXT_IMG);
 
         // normalDistTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_DIST_TEXT_IMG);
 
@@ -126,23 +173,20 @@ WatchFace({
         // batteryCircleArc = hmUI.createWidget(hmUI.widget.ARC, BATTERY_ARC);
         // paiCircleArc = hmUI.createWidget(hmUI.widget.ARC, PAI_ARC);
 
-        /*
-        // Editable Components Init
+        
+        // BEGIN Editable Components Init
         // 100% edit mask
         maskCover = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_MASK, EDIT_MASK_100);
-        //70% edit mask
+        // 70% edit mask
         mask = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_FG_MASK, EDIT_MASK_70);
         // Left editable widget
-        editGroupLeft = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, EDIT_GROUP_LEFT)
+        editGroupLeft = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, EDIT_LEFT_GROUP);
         const editLeftType = editGroupLeft.getProperty(hmUI.prop.CURRENT_TYPE);
-        switch (editLeftType) {
-            case hmUI.data_type.HEART:
-                //this.drawHeartWidget(EDIT_GROUP_LEFT.x, EDIT_GROUP_LEFT.y);
-                break
-            case hmUI.data_type.STEP:
-                break
-        };
-        */
+        this.drawWidgetLeft(editLeftType);
+        // Right editable widget
+        editGroupRight = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, EDIT_RIGHT_GROUP);
+        const editRightType = editGroupRight.getProperty(hmUI.prop.CURRENT_TYPE);
+        this.drawWidgetRight(editRightType);
 
         const battery = hmSensor.createSensor(hmSensor.id.BATTERY);
         battery.addEventListener(hmSensor.event.CHANGE, function () {
@@ -247,7 +291,7 @@ WatchFace({
         let aapsString = "";
         let insText = "IOB: " + treatmentObj.insulin + " U";
         insText = insText.replace(".0 U", " U");
-        aapsString = aapsString + insText + "  -  ";        
+        aapsString = aapsString + insText + " - ";        
         let carbText = "COB: " + treatmentObj.carbs + " g";
         carbText = carbText.replace(".0 g", " g");
         aapsString = aapsString + carbText;
