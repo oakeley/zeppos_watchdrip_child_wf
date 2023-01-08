@@ -56,51 +56,6 @@ export const DIGITAL_TIME_SEPARATOR = {
     src: img( `bigNum/sp.png`)
 };
 
-/* export const ANALOG_TIME_SECONDS = {
-    second_centerX: px(168),
-    second_centerY: px(168),
-    second_posX: px(5),
-    second_posY: px(162),
-    second_path: img("point/sec.png")
-}; */
-
-/* export const NORMAL_HEART_RATE_TEXT_IMG = {
-    x: px(53),
-    y: px(158),
-    w: px(50),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.LEFT,
-    type: hmUI.data_type.HEART,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
-} */
-
-/* export const NORMAL_STEPS_TEXT_IMG = {
-    x: px(236),
-    y: px(158),
-    w: px(95),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.CENTER_H,
-    type: hmUI.data_type.STEP,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
-} */
-
-/* export const NORMAL_DIST_TEXT_IMG = {
-    x: px(222),
-    y: px(218),
-    w: px(78),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.RIGHT,
-    type: hmUI.data_type.DISTANCE,
-    dot_image: img('smallNumAccent/d.png'),
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumAccentArr
-} */
-
 export const WEEK_DAYS = {
     x: px(105),
     y: px(78),
@@ -109,7 +64,7 @@ export const WEEK_DAYS = {
     week_sc: weekEnArray,
 }
 
-export const DAYS_TEXT_IMG = {
+export const DAYS_MONTHS_TEXT_IMG = {
     day_startX: px(160),
     day_startY: px(75),
     day_zero: 1,
@@ -135,30 +90,6 @@ export const DAYS_TEXT_IMG = {
     month_unit_tc: img('smallNumAccent/d.png'),
     month_unit_en: img('smallNumAccent/d.png')
 }
-
-/* export const BATTERY_ARC = {
-    x: px(21),
-    y: px(8),
-    w: px(390),
-    h: px(390),
-    start_angle: -253,
-    end_angle: -253,
-    color: Colors.accent,
-    line_width: px(9),
-    show_level: hmUI.show_level.ONLY_NORMAL,
-}
-
-export const PAI_ARC = {
-    x: px(7),
-    y: px(7),
-    w: px(390),
-    h: px(390),
-    start_angle: 73,
-    end_angle: 73,
-    color: Colors.accent,
-    line_width: px(9),
-    show_level: hmUI.show_level.ONLY_NORMAL,
-} */
 
 export const BG_VALUE_NO_DATA_TEXT = {
     x: px(114),
@@ -234,30 +165,6 @@ export const BG_STALE_IMG = {
     visible: false,
 };
 
-/* export const IOB_TEXT = {
-    x: px(88),
-    y: px(302),
-    w: px(243),
-    h: px(30),
-    color: Colors.white,
-    text_size: px(22),
-    align_h: hmUI.align.CENTER_H,
-    align_v: hmUI.align.CENTER_V,
-    text_style: hmUI.text_style.NONE,
-};
-
-export const TREATMENT_TEXT = {
-    x: px(113),
-    y: px(328),
-    w: px(190),
-    h: px(32),
-    color: Colors.white,
-    text_size: px(22),
-    align_h: hmUI.align.CENTER_H,
-    align_v: hmUI.align.TOP,
-    text_style: hmUI.text_style.NONE,
-}; */
-
 // Xdrip modified to put ExternalStatusService.getLastStatusLine()
 export const AAPS_TEXT = {
     x: px(18),
@@ -285,9 +192,9 @@ export const AAPS_TIME_TEXT = {
 };
 
 export const PHONE_BATTERY_TEXT = {
-    x: px(260),
-    y: px(263),
-    w: px(71),
+    x: px(258),
+    y: px(274),
+    w: px(70),
     h: px(27),
     color: Colors.white,
     text_size: px(22),
@@ -297,9 +204,9 @@ export const PHONE_BATTERY_TEXT = {
 };
 
 export const WATCH_BATTERY_TEXT = {
-    x: px(0),
-    y: px(263),
-    w: px(71),
+    x: px(1),
+    y: px(273),
+    w: px(70),
     h: px(27),
     color: Colors.white,
     text_size: px(22),
@@ -344,6 +251,7 @@ export const IMG_LOADING_PROGRESS = {
     visible: false,
 };
 
+
 // 100% edit mask
 export const EDIT_MASK_100 = {
     x: 0,
@@ -364,21 +272,17 @@ export const EDIT_MASK_70 = {
     show_level: hmUI.show_level.ONLY_EDIT
 };
 
-// BEGIN EDIT Left Widget
-const leftX = 13;
-const leftY = 120;
-const leftW = 85;
-const leftH = 70;
-const leftIconHeight = 40;
-const leftIconWidth = 40;
-const leftIconMargin = 7;
 
-export const EDIT_LEFT_GROUP = {
-    edit_id: 101,
-    x: leftX,
-    y: leftY,
-    w: leftW,
-    h: leftH,
+// BEGIN EDIT group default styles
+const editWidgetW = 85;
+const editWidgetH = 70;
+const editWidgetIconHeight = 40;
+const editWidgetIconWidth = 40;
+const editWidgetIconMargin = 7;
+
+export const EDIT_GROUP_DEFAULTS = {
+    w: editWidgetW,
+    h: editWidgetH,
     select_image: img('mask/select.png'),
     un_select_image: img('mask/un_select.png'),
     default_type: hmUI.edit_type.HEART,
@@ -398,113 +302,156 @@ export const EDIT_LEFT_GROUP = {
     tips_y: -45,
     tips_width: 110,
     tips_margin: 5 // optional, default value: 0
+};    
+
+
+// BEGIN EDIT Top Left Widgets
+const topLeftX = 12;
+const topLeftY = 115;
+
+export const EDIT_TOP_LEFT_GROUP = {
+    edit_id: 101,
+    x: topLeftX,
+    y: topLeftY
 }; 
 
-// HEART widget
-export const EDIT_LEFT_DEFAULT_IMG = {
-    x: px(leftX),
-    y: px(leftY),
-    w: px(leftW), // full width to center
-    pos_x: px((leftW - leftIconWidth) / 2), // center the image
+// Default styles for all IMG widgets
+export const EDIT_TOP_LEFT_DEFAULT_IMG = {
+    x: px(topLeftX),
+    y: px(topLeftY),
+    w: px(editWidgetW), // full width to center
+    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
     show_level: hmUI.show_level.ONLY_NORMAL
 };
-export const EDIT_LEFT_DEFAULT_TEXT_IMG = {
-    x: px(leftX),
-    y: px(leftY + leftIconHeight + leftIconMargin),
-    w: px(leftW),
+
+// Default styles for all TEXT_IMG widgets
+export const EDIT_TOP_LEFT_DEFAULT_TEXT_IMG = {
+    x: px(topLeftX),
+    y: px(topLeftY + editWidgetIconHeight + editWidgetIconMargin),
+    w: px(editWidgetW),
     padding: false,
     h_space: 1,
     align_h: hmUI.align.CENTER_H,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr
 };
+// END EDIT Top Left Widgets
 
+
+// BEGIN EDIT Top Right Widgets
+const topRightX = 239;
+const topRightY = 115;
+
+export const EDIT_TOP_RIGHT_GROUP = {
+    edit_id: 102,
+    x: topRightX,
+    y: topRightY
+}; 
+
+// Default styles for all IMG widgets
+export const EDIT_TOP_RIGHT_DEFAULT_IMG = {
+    x: px(topRightX),
+    y: px(topRightY),
+    w: px(editWidgetW), // full width to center
+    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
+    show_level: hmUI.show_level.ONLY_NORMAL
+};
+
+// Default styles for all TEXT_IMG widgets
+export const EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG = {
+    x: px(topRightX),
+    y: px(topRightY + editWidgetIconHeight + editWidgetIconMargin),
+    w: px(editWidgetW),
+    padding: false,
+    h_space: 1,
+    align_h: hmUI.align.CENTER_H,
+    show_level: hmUI.show_level.ONLY_NORMAL,
+    font_array: smallNumArr
+};
+// END EDIT Top Right Widgets
+
+
+// BEGIN EDIT Bottom Left Widgets
+const bottomLeftX = 12;
+const bottomLeftY = 200;
+
+export const EDIT_BOTTOM_LEFT_GROUP = {
+    edit_id: 103,
+    x: bottomLeftX,
+    y: bottomLeftY
+}; 
+
+// Default styles for all IMG widgets
+export const EDIT_BOTTOM_LEFT_DEFAULT_IMG = {
+    x: px(bottomLeftX),
+    y: px(bottomLeftY),
+    w: px(editWidgetW), // full width to center
+    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
+    show_level: hmUI.show_level.ONLY_NORMAL
+};
+
+// Default styles for all TEXT_IMG widgets
+export const EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG = {
+    x: px(bottomLeftX),
+    y: px(bottomLeftY + editWidgetIconHeight + editWidgetIconMargin),
+    w: px(editWidgetW),
+    padding: false,
+    h_space: 1,
+    align_h: hmUI.align.CENTER_H,
+    show_level: hmUI.show_level.ONLY_NORMAL,
+    font_array: smallNumArr
+};
+// END EDIT Bottom Left Widgets
+
+
+// BEGIN EDIT Bottom Right Widgets
+const bottomRightX = 239;
+const bottomRightY = 200;
+
+export const EDIT_BOTTOM_RIGHT_GROUP = {
+    edit_id: 104,
+    x: bottomRightX,
+    y: bottomRightY
+}; 
+
+// Default styles for all IMG widgets
+export const EDIT_BOTTOM_RIGHT_DEFAULT_IMG = {
+    x: px(bottomRightX),
+    y: px(bottomRightY),
+    w: px(editWidgetW), // full width to center
+    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
+    show_level: hmUI.show_level.ONLY_NORMAL
+};
+
+// Default styles for all TEXT_IMG widgets
+export const EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG = {
+    x: px(bottomRightX),
+    y: px(bottomRightY + editWidgetIconHeight + editWidgetIconMargin),
+    w: px(editWidgetW),
+    padding: false,
+    h_space: 1,
+    align_h: hmUI.align.CENTER_H,
+    show_level: hmUI.show_level.ONLY_NORMAL,
+    font_array: smallNumArr
+};
+// END EDIT Bottom Right Widgets
+
+
+// BEGIN EDIT Widgets
+// These styles are merged with the above default styles.
 // HEART widget
-export const EDIT_LEFT_HEART_IMG = {
+export const EDIT_HEART_IMG = {
     src: img('preview/heart.png') // 40x40px
 };
-export const EDIT_LEFT_HEART_TEXT_IMG = {
+export const EDIT_HEART_TEXT_IMG = {
     type: hmUI.data_type.HEART
 };
 
 // STEP widget
-export const EDIT_LEFT_STEP_IMG = {
+export const EDIT_STEP_IMG = {
     src: img('preview/steps.png') // 40x40px
 };    
-export const EDIT_LEFT_STEP_TEXT_IMG = {
+export const EDIT_STEP_TEXT_IMG = {
     type: hmUI.data_type.STEP
 };
-// END EDIT Left Widget
-
-
-// BEGIN EDIT Right Widget
-const rightX = 238;
-const rightY = 120;
-const rightW = 85;
-const rightH = 70;
-const rightIconHeight = 40;
-const rightIconWidth = 40;
-const rightIconMargin = 7;
-
-export const EDIT_RIGHT_GROUP = {
-    edit_id: 102,
-    x: rightX,
-    y: rightY,
-    w: rightW,
-    h: rightH,
-    select_image: img('mask/select.png'),
-    un_select_image: img('mask/un_select.png'),
-    default_type: hmUI.edit_type.STEP,
-    optional_types: [
-        {
-            type: hmUI.edit_type.HEART,
-            preview: img('preview/heart.png')
-        },
-        {
-            type: hmUI.edit_type.STEP,
-            preview: img('preview/steps.png')
-        }
-    ],
-    count: 2,
-    tips_BG: img('mask/text_tag.png'),
-    tips_x: -25,
-    tips_y: -45,
-    tips_width: 110,
-    tips_margin: 5 // optional, default value: 0
-}; 
-
-// Defauult styles for all widgets
-export const EDIT_RIGHT_DEFAULT_IMG = {
-    x: px(rightX),
-    y: px(rightY),
-    w: px(rightW), // full width to center
-    pos_x: px((rightW - rightIconWidth) / 2), // center the image
-    show_level: hmUI.show_level.ONLY_NORMAL
-};
-export const EDIT_RIGHT_DEFAULT_TEXT_IMG = {
-    x: px(rightX),
-    y: px(rightY + rightIconHeight + rightIconMargin),
-    w: px(rightW),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.CENTER_H,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
-};
-
-// HEART widget
-export const EDIT_RIGHT_HEART_IMG = {
-    src: img('preview/heart.png'), // 40x40px
-};
-export const EDIT_RIGHT_HEART_TEXT_IMG = {
-    type: hmUI.data_type.HEART
-};
-
-// STEP widget
-export const EDIT_RIGHT_STEP_IMG = {
-    src: img('preview/steps.png') // 40x40px
-};    
-export const EDIT_RIGHT_STEP_TEXT_IMG = {
-    type: hmUI.data_type.STEP
-};
-// END EDIT Right Widget
+// END EDIT Widgets
