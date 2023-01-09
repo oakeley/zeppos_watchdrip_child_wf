@@ -57,7 +57,7 @@ import {
     EDIT_WEATHER_CURRENT_TEXT_IMG
 } from "./styles";
 import {BG_IMG} from "../../utils/config/styles_global";
-import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS, TEST_DATA} from "../../utils/config/constants";
+import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS} from "../../utils/config/constants";
 
 let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparator, btDisconnected, weekImg, 
     dateDayMonthsImg, mask, maskCover, editGroupTopLeft, editGroupTopRight, editGroupBottomLeft, editGroupBottomRight;
@@ -236,13 +236,6 @@ WatchFace({
         carbText = carbText.replace(".0 g", " g");
         aapsString = aapsString + carbText;
         aapsText.setProperty(hmUI.prop.TEXT, aapsString);
-
-        if (TEST_DATA){
-            bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
-            bgStatusOk.setProperty(hmUI.prop.VISIBLE, true);
-            bgStatusHight.setProperty(hmUI.prop.VISIBLE, true);
-            bgValTimeTextWidget.setProperty(hmUI.prop.VISIBLE, true);
-        }
     },
 
     /**
