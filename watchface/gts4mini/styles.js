@@ -324,7 +324,7 @@ export const EDIT_DEFAULT_TEXT_IMG = {
     align_h: hmUI.align.CENTER_H,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr,
-    dont_path: img('smallNum/d.png')
+    dot_image: img('smallNum/d.png')
 };
 // END edit group default styles
 
