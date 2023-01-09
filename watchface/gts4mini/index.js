@@ -55,12 +55,12 @@ import {
     EDIT_WEATHER_CURRENT_IMG,
     EDIT_WEATHER_CURRENT_TEXT_IMG
 } from "./styles";
-import {BG_FILL_RECT, BG_IMG} from "../../utils/config/styles_global";
+import {BG_IMG} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS, TEST_DATA} from "../../utils/config/constants";
 
 let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparator, btDisconnected, weekImg, 
-    dateDayMonthsImg, screenType, mask, maskCover, editGroupTopLeft, editGroupTopRight, editGroupBottomLeft, editGroupBottomRight;
-let bgValTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine, 
+    dateDayMonthsImg, mask, maskCover, editGroupTopLeft, editGroupTopRight, editGroupBottomLeft, editGroupBottomRight;
+let bgValNoDataTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine, 
     phoneBattery, watchBattery, bgStatusLow, bgStatusOk, bgStatusHight, progress, aapsText, aapsTimeText;
 
 let globalNS, progressTimer, progressAngle;
@@ -194,12 +194,7 @@ WatchFace({
     },
     // Init View
     initView() {
-        screenType = hmSetting.getScreenType();
-        if (screenType === hmSetting.screen_type.AOD) {
-            imgBg = hmUI.createWidget(hmUI.widget.FILL_RECT, BG_FILL_RECT);
-        } else {
-            imgBg = hmUI.createWidget(hmUI.widget.IMG, BG_IMG);
-        }
+        imgBg = hmUI.createWidget(hmUI.widget.IMG, BG_IMG);
 
         digitalClockHour = hmUI.createWidget(hmUI.widget.IMG_TIME, DIGITAL_TIME_HOUR);
         digitalClockMinutes = hmUI.createWidget(hmUI.widget.IMG_TIME, DIGITAL_TIME_MINUTES);
@@ -210,6 +205,17 @@ WatchFace({
         dateDayMonthsImg = hmUI.createWidget(hmUI.widget.IMG_DATE, DAYS_MONTHS_TEXT_IMG);
 
         btDisconnected = hmUI.createWidget(hmUI.widget.IMG_STATUS, IMG_STATUS_BT_DISCONNECTED);
+
+        watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
+        const battery = hmSensor.createSensor(hmSensor.id.BATTERY);
+        battery.addEventListener(hmSensor.event.CHANGE, function() {
+            watchBattery.setProperty(hmUI.prop.TEXT, battery.current + '%');
+        });
+        const widgetDelegate = hmUI.createWidget(hmUI.widget.WIDGET_DELEGATE, {
+            resume_call: (function() {
+                watchBattery.setProperty(hmUI.prop.TEXT, battery.current + '%');
+            })
+        });
 
         
         // BEGIN editable components init
@@ -235,27 +241,15 @@ WatchFace({
         this.drawWidgetBottomRight(editBottomRightType);
         // END editable components init
 
-        const battery = hmSensor.createSensor(hmSensor.id.BATTERY);
-        battery.addEventListener(hmSensor.event.CHANGE, function () {
-            scale_call();
-        });
-
-        const widgetDelegate = hmUI.createWidget(hmUI.widget.WIDGET_DELEGATE, {
-            resume_call: (function () {
-                screenType = hmSetting.getScreenType();
-                scale_call();
-            })
-        });
 
         //init watchdrip related widgets
-        bgValTextWidget = hmUI.createWidget(hmUI.widget.TEXT, BG_VALUE_NO_DATA_TEXT);
+        bgValNoDataTextWidget = hmUI.createWidget(hmUI.widget.TEXT, BG_VALUE_NO_DATA_TEXT);
         bgValTextImgWidget = hmUI.createWidget(hmUI.widget.TEXT_IMG, BG_VALUE_TEXT_IMG);
         bgValTimeTextWidget = hmUI.createWidget(hmUI.widget.TEXT, BG_TIME_TEXT);
         bgDeltaTextWidget = hmUI.createWidget(hmUI.widget.TEXT, BG_DELTA_TEXT);
         bgTrendImageWidget = hmUI.createWidget(hmUI.widget.IMG, BG_TREND_IMAGE);
         bgStaleLine = hmUI.createWidget(hmUI.widget.IMG, BG_STALE_IMG);
         phoneBattery = hmUI.createWidget(hmUI.widget.TEXT, PHONE_BATTERY_TEXT);
-        watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
         bgStatusLow = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOW_IMG);
         bgStatusOk = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_OK_IMG);
         bgStatusHight = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_HIGHT_IMG);
@@ -264,16 +258,6 @@ WatchFace({
         aapsText = hmUI.createWidget(hmUI.widget.TEXT, AAPS_TEXT);
         // From modified xDrip ExternalStatusService.getLastStatusLineTime()
         aapsTimeText = hmUI.createWidget(hmUI.widget.TEXT, AAPS_TIME_TEXT);
-
-        function scale_call() {
-            if (screenType !== hmSetting.screen_type.AOD) {
-                watchBattery.setProperty(hmUI.prop.MORE, { text: battery.current + '%'})
-            } else {
-                watchBattery.setProperty(hmUI.prop.MORE, { text: battery.current + '%'})
-            }
-        }
-
-        scale_call();
     },
     updateStart() {
         bgValTimeTextWidget.setProperty(hmUI.prop.VISIBLE, false);
@@ -307,20 +291,16 @@ WatchFace({
         if (bgObj.isHasData()) {
             bgValTextImgWidget.setProperty(hmUI.prop.TEXT, bgObj.getBGVal());
             bgValTextImgWidget.setProperty(hmUI.prop.VISIBLE, true);
-            bgValTextWidget.setProperty(hmUI.prop.VISIBLE, false);
+            bgValNoDataTextWidget.setProperty(hmUI.prop.VISIBLE, false);
         } else {
-            bgValTextWidget.setProperty(hmUI.prop.VISIBLE, true);
+            bgValNoDataTextWidget.setProperty(hmUI.prop.VISIBLE, true);
             bgValTextImgWidget.setProperty(hmUI.prop.VISIBLE, false);
         }
-        bgDeltaTextWidget.setProperty(hmUI.prop.MORE, {
-            text: bgObj.delta
-        });
+        bgDeltaTextWidget.setProperty(hmUI.prop.TEXT, bgObj.delta);
 
         bgTrendImageWidget.setProperty(hmUI.prop.SRC, bgObj.getArrowResource());
 
-        phoneBattery.setProperty(hmUI.prop.MORE, {
-            text: watchdripData.getStatus().getBatVal()
-        });
+        phoneBattery.setProperty(hmUI.prop.TEXT, watchdripData.getStatus().getBatVal());
 
         // Fill data from modified xDrip ExternalStatusService.getLastStatusLine()
         let treatmentObj = watchdripData.getTreatment();
@@ -331,9 +311,7 @@ WatchFace({
         let carbText = "COB: " + treatmentObj.carbs + " g";
         carbText = carbText.replace(".0 g", " g");
         aapsString = aapsString + carbText;
-        aapsText.setProperty(hmUI.prop.MORE, {
-            text: aapsString
-        });
+        aapsText.setProperty(hmUI.prop.TEXT, aapsString);
 
         if (TEST_DATA){
             bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
@@ -349,17 +327,13 @@ WatchFace({
     updateTimesWidget(watchdripData) {
         if (watchdripData === undefined) return;
         let bgObj = watchdripData.getBg();
-        bgValTimeTextWidget.setProperty(hmUI.prop.MORE, {
-            text: watchdripData.getTimeAgo(bgObj.time),
-        });
+        bgValTimeTextWidget.setProperty(hmUI.prop.TEXT, watchdripData.getTimeAgo(bgObj.time));
 
         bgStaleLine.setProperty(hmUI.prop.VISIBLE, watchdripData.isBgStale());
 
         // Fill data from modified xDrip ExternalStatusService.getLastStatusLine()
         let treatmentObj = watchdripData.getTreatment();
-        aapsTimeText.setProperty(hmUI.prop.MORE, {
-            text: watchdripData.getTimeAgo(treatmentObj.time)
-        });
+        aapsTimeText.setProperty(hmUI.prop.TEXT, watchdripData.getTimeAgo(treatmentObj.time));
     },
 
     onInit() {
