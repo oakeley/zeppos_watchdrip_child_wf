@@ -213,8 +213,6 @@ WatchFace({
             } else {
                 bgStatusOk.setProperty(hmUI.prop.VISIBLE, true);
             }
-        }
-        if (bgObj.isHasData()) {
             bgValTextImgWidget.setProperty(hmUI.prop.TEXT, bgObj.getBGVal());
             bgValTextImgWidget.setProperty(hmUI.prop.VISIBLE, true);
             bgValNoDataTextWidget.setProperty(hmUI.prop.VISIBLE, false);
