@@ -1,4 +1,3 @@
-import {DebugText} from "../../shared/debug";
 import {Watchdrip} from "../../utils/watchdrip/watchdrip";
 import {WatchdripData} from "../../utils/watchdrip/watchdrip-data";
 import {getGlobal} from "../../shared/global";
@@ -67,15 +66,10 @@ let bgValNoDataTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextW
 
 let globalNS, progressTimer, progressAngle;
 
-let debug, watchdrip;
+let watchdrip;
 
 export const logger = Logger.getLogger("timer-page");
 
-function initDebug() {
-    globalNS.debug = new DebugText();
-    debug = globalNS.debug;
-    debug.setLines(12);
-}
 
 function startLoader() {
     progress.setProperty(hmUI.prop.VISIBLE, true);
@@ -279,8 +273,6 @@ WatchFace({
     build() {
         logger.log("wf on build invoke");
         globalNS = getGlobal();
-        // initDebug();
-        // debug.log("build");
         this.initView();
         globalNS.watchdrip = new Watchdrip();
         watchdrip = globalNS.watchdrip;
@@ -297,10 +289,10 @@ WatchFace({
     },
 
     onShow() {
-        debug.log("onShow");
+        logger.log("onShow");
     },
 
     onHide() {
-        debug.log("onHide");
+        logger.log("onHide");
     },
 });
