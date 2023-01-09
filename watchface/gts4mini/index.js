@@ -29,22 +29,24 @@ import {
     EDIT_MASK_100,
     // Default edit group styles
     EDIT_GROUP_DEFAULTS,
+    EDIT_DEFAULT_IMG,
+    EDIT_DEFAULT_TEXT_IMG,
     // Top Left Edit Group
     EDIT_TOP_LEFT_GROUP,
-    EDIT_TOP_LEFT_DEFAULT_IMG,
-    EDIT_TOP_LEFT_DEFAULT_TEXT_IMG,
+    EDIT_TOP_LEFT_IMG,
+    EDIT_TOP_LEFT_TEXT_IMG,
     // Top Right Edit Group
     EDIT_TOP_RIGHT_GROUP,
-    EDIT_TOP_RIGHT_DEFAULT_IMG,
-    EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG,
+    EDIT_TOP_RIGHT_IMG,
+    EDIT_TOP_RIGHT_TEXT_IMG,
     // Bottom Left Edit Group
     EDIT_BOTTOM_LEFT_GROUP,
-    EDIT_BOTTOM_LEFT_DEFAULT_IMG,
-    EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG,
+    EDIT_BOTTOM_LEFT_IMG,
+    EDIT_BOTTOM_LEFT_TEXT_IMG,
     // Bottom Right Edit Group
     EDIT_BOTTOM_RIGHT_GROUP,
-    EDIT_BOTTOM_RIGHT_DEFAULT_IMG,
-    EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG,
+    EDIT_BOTTOM_RIGHT_IMG,
+    EDIT_BOTTOM_RIGHT_TEXT_IMG,
     // Editable Widgets specific styles
     EDIT_HEART_IMG,
     EDIT_HEART_TEXT_IMG,
@@ -104,92 +106,25 @@ function mergeStyles(styleObj1, styleObj2) {
 
 
 WatchFace({
-    // TODO: Refactor into a single function: 2 switches in sequence. 1st save widget defaults, 2nd merge in specific styles
-    drawWidget(editType, editID){
-
-    },
-    // draw editable Widget TOP LEFT
-    drawWidgetTopLeft(editType) {
+    // draws the editable widgets
+    drawWidget(defaultImgStyle, defaultTextImgStyle, editType){
         switch (editType) {
             case hmUI.edit_type.HEART:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_IMG, EDIT_HEART_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_TEXT_IMG, EDIT_HEART_TEXT_IMG));
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_HEART_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_HEART_TEXT_IMG));
                 break;
             case hmUI.edit_type.STEP:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_IMG, EDIT_STEP_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_TEXT_IMG, EDIT_STEP_TEXT_IMG));
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_STEP_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_STEP_TEXT_IMG));
                 break;
             case hmUI.edit_type.WEATHER_CURRENT:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_IMG, EDIT_WEATHER_CURRENT_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_TEXT_IMG, EDIT_WEATHER_CURRENT_TEXT_IMG));
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_WEATHER_CURRENT_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_WEATHER_CURRENT_TEXT_IMG));
                 break;
             case hmUI.edit_type.DISTANCE:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_IMG, EDIT_DISTANCE_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_LEFT_DEFAULT_TEXT_IMG, EDIT_DISTANCE_TEXT_IMG));
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_DISTANCE_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_DISTANCE_TEXT_IMG));
                 break;    
-        }
-    },
-    // draw editable Widget TOP RIGHT
-    drawWidgetTopRight(editType) {
-        switch (editType) {
-            case hmUI.edit_type.HEART:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_IMG, EDIT_HEART_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG, EDIT_HEART_TEXT_IMG));
-                break;
-            case hmUI.edit_type.STEP:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_IMG, EDIT_STEP_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG, EDIT_STEP_TEXT_IMG));
-                break;
-            case hmUI.edit_type.WEATHER_CURRENT:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_IMG, EDIT_WEATHER_CURRENT_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG, EDIT_WEATHER_CURRENT_TEXT_IMG));
-                break;
-            case hmUI.edit_type.DISTANCE:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_IMG, EDIT_DISTANCE_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG, EDIT_DISTANCE_TEXT_IMG));
-                break;
-        }
-    },
-    // draw editable Widget BOTTOM LEFT
-    drawWidgetBottomLeft(editType) {
-        switch (editType) {
-            case hmUI.edit_type.HEART:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_IMG, EDIT_HEART_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG, EDIT_HEART_TEXT_IMG));
-                break;
-            case hmUI.edit_type.STEP:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_IMG, EDIT_STEP_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG, EDIT_STEP_TEXT_IMG));
-                break;
-            case hmUI.edit_type.WEATHER_CURRENT:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_IMG, EDIT_WEATHER_CURRENT_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG, EDIT_WEATHER_CURRENT_TEXT_IMG));
-                break;
-            case hmUI.edit_type.DISTANCE:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_IMG, EDIT_DISTANCE_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG, EDIT_DISTANCE_TEXT_IMG));
-                break;
-        }
-    },
-    // draw editable Widget BOTTOM RIGHT
-    drawWidgetBottomRight(editType) {
-        switch (editType) {
-            case hmUI.edit_type.HEART:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_IMG, EDIT_HEART_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG, EDIT_HEART_TEXT_IMG));
-                break;
-            case hmUI.edit_type.STEP:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_IMG, EDIT_STEP_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG, EDIT_STEP_TEXT_IMG));
-                break;
-            case hmUI.edit_type.WEATHER_CURRENT:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_IMG, EDIT_WEATHER_CURRENT_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG, EDIT_WEATHER_CURRENT_TEXT_IMG));
-                break;
-            case hmUI.edit_type.DISTANCE:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_IMG, EDIT_DISTANCE_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG, EDIT_DISTANCE_TEXT_IMG));
-                break;
         }
     },
     // Init View
@@ -226,19 +161,19 @@ WatchFace({
         // Top Left editable widget
         editGroupTopLeft = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, mergeStyles(EDIT_GROUP_DEFAULTS, EDIT_TOP_LEFT_GROUP));
         const editTopLeftType = editGroupTopLeft.getProperty(hmUI.prop.CURRENT_TYPE);
-        this.drawWidgetTopLeft(editTopLeftType);
+        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_TOP_LEFT_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_TOP_LEFT_TEXT_IMG), editTopLeftType);
         // Top Right editable widget
         editGroupTopRight = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, mergeStyles(EDIT_GROUP_DEFAULTS, EDIT_TOP_RIGHT_GROUP));
         const editTopRightType = editGroupTopRight.getProperty(hmUI.prop.CURRENT_TYPE);
-        this.drawWidgetTopRight(editTopRightType);
+        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_TOP_RIGHT_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_TOP_RIGHT_TEXT_IMG), editTopRightType);
         // Bottom Left editable widget
         editGroupBottomLeft = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, mergeStyles(EDIT_GROUP_DEFAULTS, EDIT_BOTTOM_LEFT_GROUP));
         const editBottomLeftType = editGroupBottomLeft.getProperty(hmUI.prop.CURRENT_TYPE);
-        this.drawWidgetBottomLeft(editBottomLeftType);
+        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_BOTTOM_LEFT_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_BOTTOM_LEFT_TEXT_IMG), editBottomLeftType);
         // Bottom Right editable widget
         editGroupBottomRight = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, mergeStyles(EDIT_GROUP_DEFAULTS, EDIT_BOTTOM_RIGHT_GROUP));
         const editBottomRightType = editGroupBottomRight.getProperty(hmUI.prop.CURRENT_TYPE);
-        this.drawWidgetBottomRight(editBottomRightType);
+        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_BOTTOM_RIGHT_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_BOTTOM_RIGHT_TEXT_IMG), editBottomRightType);
         // END editable components init
 
 

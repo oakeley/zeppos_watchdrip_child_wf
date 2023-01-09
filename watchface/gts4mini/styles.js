@@ -273,7 +273,7 @@ export const EDIT_MASK_70 = {
 };
 
 
-// BEGIN EDIT group default styles
+// BEGIN edit group default styles
 const editWidgetW = 85;
 const editWidgetH = 70;
 const editWidgetIconHeight = 40;
@@ -307,10 +307,28 @@ export const EDIT_GROUP_DEFAULTS = {
     tips_BG: img('mask/text_tag.png'),
     tips_width: 110,
     tips_margin: 5 // optional, default value: 0
-};    
+};
+
+// Default styles for all IMG widgets 
+export const EDIT_DEFAULT_IMG = {
+    w: px(editWidgetW), // full width to center
+    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
+    show_level: hmUI.show_level.ONLY_NORMAL
+};
+
+// Default styles for all TEXT_IMG widgets
+export const EDIT_DEFAULT_TEXT_IMG = {
+    w: px(editWidgetW),
+    padding: false,
+    h_space: 1,
+    align_h: hmUI.align.CENTER_H,
+    show_level: hmUI.show_level.ONLY_NORMAL,
+    font_array: smallNumArr
+};
+// END edit group default styles
 
 
-// BEGIN EDIT Top Left Widgets
+// BEGIN Top Left Edit Widgets
 const topLeftX = 12;
 const topLeftY = 115;
 
@@ -320,33 +338,24 @@ export const EDIT_TOP_LEFT_GROUP = {
     y: topLeftY,
     tips_x: 0,
     tips_y: -45,
-    default_type: hmUI.edit_type.HEART,
+    default_type: hmUI.edit_type.HEART
 }; 
 
-// Default styles for all IMG widgets
-export const EDIT_TOP_LEFT_DEFAULT_IMG = {
+// Styles for all Top Left IMG widgets
+export const EDIT_TOP_LEFT_IMG = {
     x: px(topLeftX),
-    y: px(topLeftY),
-    w: px(editWidgetW), // full width to center
-    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
-    show_level: hmUI.show_level.ONLY_NORMAL
+    y: px(topLeftY)
 };
 
-// Default styles for all TEXT_IMG widgets
-export const EDIT_TOP_LEFT_DEFAULT_TEXT_IMG = {
+// Styles for all Top Left TEXT_IMG widgets
+export const EDIT_TOP_LEFT_TEXT_IMG = {
     x: px(topLeftX),
-    y: px(topLeftY + editWidgetIconHeight + editWidgetIconMargin),
-    w: px(editWidgetW),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.CENTER_H,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
+    y: px(topLeftY + editWidgetIconHeight + editWidgetIconMargin)
 };
-// END EDIT Top Left Widgets
+// END Top Left Edit Widgets
 
 
-// BEGIN EDIT Top Right Widgets
+// BEGIN Top Right Edit Widgets
 const topRightX = 239;
 const topRightY = 115;
 
@@ -359,30 +368,21 @@ export const EDIT_TOP_RIGHT_GROUP = {
     default_type: hmUI.edit_type.STEP
 }; 
 
-// Default styles for all IMG widgets
-export const EDIT_TOP_RIGHT_DEFAULT_IMG = {
+// Default styles for all Top Right IMG widgets
+export const EDIT_TOP_RIGHT_IMG = {
     x: px(topRightX),
-    y: px(topRightY),
-    w: px(editWidgetW), // full width to center
-    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
-    show_level: hmUI.show_level.ONLY_NORMAL
+    y: px(topRightY)
 };
 
-// Default styles for all TEXT_IMG widgets
-export const EDIT_TOP_RIGHT_DEFAULT_TEXT_IMG = {
+// Styles for all Top Right TEXT_IMG widgets
+export const EDIT_TOP_RIGHT_TEXT_IMG = {
     x: px(topRightX),
-    y: px(topRightY + editWidgetIconHeight + editWidgetIconMargin),
-    w: px(editWidgetW),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.CENTER_H,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
+    y: px(topRightY + editWidgetIconHeight + editWidgetIconMargin)
 };
-// END EDIT Top Right Widgets
+// END Top Right Edit Widgets
 
 
-// BEGIN EDIT Bottom Left Widgets
+// BEGIN Bottom Left Edit Widgets
 const bottomLeftX = 12;
 const bottomLeftY = 200;
 
@@ -395,30 +395,21 @@ export const EDIT_BOTTOM_LEFT_GROUP = {
     default_type: hmUI.edit_type.WEATHER_CURRENT
 }; 
 
-// Default styles for all IMG widgets
-export const EDIT_BOTTOM_LEFT_DEFAULT_IMG = {
+// Styles for all Bottom Left IMG widgets
+export const EDIT_BOTTOM_LEFT_IMG = {
     x: px(bottomLeftX),
-    y: px(bottomLeftY),
-    w: px(editWidgetW), // full width to center
-    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
-    show_level: hmUI.show_level.ONLY_NORMAL
+    y: px(bottomLeftY)
 };
 
-// Default styles for all TEXT_IMG widgets
-export const EDIT_BOTTOM_LEFT_DEFAULT_TEXT_IMG = {
+// Styles for all Bottom Left TEXT_IMG widgets
+export const EDIT_BOTTOM_LEFT_TEXT_IMG = {
     x: px(bottomLeftX),
-    y: px(bottomLeftY + editWidgetIconHeight + editWidgetIconMargin),
-    w: px(editWidgetW),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.CENTER_H,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
+    y: px(bottomLeftY + editWidgetIconHeight + editWidgetIconMargin)
 };
-// END EDIT Bottom Left Widgets
+// END Bottom Left Edit Widgets
 
 
-// BEGIN EDIT Bottom Right Widgets
+// BEGIN Bottom Right Edit Widgets
 const bottomRightX = 239;
 const bottomRightY = 200;
 
@@ -428,33 +419,24 @@ export const EDIT_BOTTOM_RIGHT_GROUP = {
     y: bottomRightY,
     tips_x: -25,
     tips_y: 75,
-    default_type: hmUI.edit_type.DISTANCE,
+    default_type: hmUI.edit_type.DISTANCE
 }; 
 
-// Default styles for all IMG widgets
-export const EDIT_BOTTOM_RIGHT_DEFAULT_IMG = {
+// Styles for all Bottom Right IMG widgets
+export const EDIT_BOTTOM_RIGHT_IMG = {
     x: px(bottomRightX),
-    y: px(bottomRightY),
-    w: px(editWidgetW), // full width to center
-    pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
-    show_level: hmUI.show_level.ONLY_NORMAL
+    y: px(bottomRightY)
 };
 
-// Default styles for all TEXT_IMG widgets
-export const EDIT_BOTTOM_RIGHT_DEFAULT_TEXT_IMG = {
+// Default styles for all Bottom Right TEXT_IMG widgets
+export const EDIT_BOTTOM_RIGHT_TEXT_IMG = {
     x: px(bottomRightX),
-    y: px(bottomRightY + editWidgetIconHeight + editWidgetIconMargin),
-    w: px(editWidgetW),
-    padding: false,
-    h_space: 1,
-    align_h: hmUI.align.CENTER_H,
-    show_level: hmUI.show_level.ONLY_NORMAL,
-    font_array: smallNumArr
+    y: px(bottomRightY + editWidgetIconHeight + editWidgetIconMargin)
 };
-// END EDIT Bottom Right Widgets
+// END Bottom Right Edit Widgets
 
 
-// BEGIN EDIT Widgets
+// BEGIN Edit Widgets
 // These styles are merged with the above default styles.
 // HEART widget
 export const EDIT_HEART_IMG = {
@@ -472,7 +454,7 @@ export const EDIT_STEP_TEXT_IMG = {
     type: hmUI.data_type.STEP
 };
 
-// HEART widget
+// DISTANCE widget
 export const EDIT_DISTANCE_IMG = {
     src: img('widgets/distance.png') // 40x40px
 };
@@ -487,4 +469,4 @@ export const EDIT_WEATHER_CURRENT_IMG = {
 export const EDIT_WEATHER_CURRENT_TEXT_IMG = {
     type: hmUI.data_type.WEATHER_CURRENT
 };
-// END EDIT Widgets
+// END Edit Widgets
