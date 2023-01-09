@@ -343,13 +343,13 @@ export const EDIT_TOP_LEFT_GROUP = {
 }; 
 
 // Styles for all Top Left IMG widgets
-export const EDIT_TOP_LEFT_IMG = {
+export const EDIT_TL_IMG = {
     x: px(topLeftX),
     y: px(topLeftY)
 };
 
 // Styles for all Top Left TEXT_IMG widgets
-export const EDIT_TOP_LEFT_TEXT_IMG = {
+export const EDIT_TL_TEXT_IMG = {
     x: px(topLeftX),
     y: px(topLeftY + editWidgetIconHeight + editWidgetIconMargin)
 };
@@ -370,13 +370,13 @@ export const EDIT_TOP_RIGHT_GROUP = {
 }; 
 
 // Default styles for all Top Right IMG widgets
-export const EDIT_TOP_RIGHT_IMG = {
+export const EDIT_TR_IMG = {
     x: px(topRightX),
     y: px(topRightY)
 };
 
 // Styles for all Top Right TEXT_IMG widgets
-export const EDIT_TOP_RIGHT_TEXT_IMG = {
+export const EDIT_TR_TEXT_IMG = {
     x: px(topRightX),
     y: px(topRightY + editWidgetIconHeight + editWidgetIconMargin)
 };
@@ -397,13 +397,13 @@ export const EDIT_BOTTOM_LEFT_GROUP = {
 }; 
 
 // Styles for all Bottom Left IMG widgets
-export const EDIT_BOTTOM_LEFT_IMG = {
+export const EDIT_BL_IMG = {
     x: px(bottomLeftX),
     y: px(bottomLeftY)
 };
 
 // Styles for all Bottom Left TEXT_IMG widgets
-export const EDIT_BOTTOM_LEFT_TEXT_IMG = {
+export const EDIT_BL_TEXT_IMG = {
     x: px(bottomLeftX),
     y: px(bottomLeftY + editWidgetIconHeight + editWidgetIconMargin)
 };
@@ -424,13 +424,13 @@ export const EDIT_BOTTOM_RIGHT_GROUP = {
 }; 
 
 // Styles for all Bottom Right IMG widgets
-export const EDIT_BOTTOM_RIGHT_IMG = {
+export const EDIT_BR_IMG = {
     x: px(bottomRightX),
     y: px(bottomRightY)
 };
 
 // Default styles for all Bottom Right TEXT_IMG widgets
-export const EDIT_BOTTOM_RIGHT_TEXT_IMG = {
+export const EDIT_BR_TEXT_IMG = {
     x: px(bottomRightX),
     y: px(bottomRightY + editWidgetIconHeight + editWidgetIconMargin)
 };

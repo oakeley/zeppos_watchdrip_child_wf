@@ -33,20 +33,20 @@ import {
     EDIT_DEFAULT_TEXT_IMG,
     // Top Left Edit Group
     EDIT_TOP_LEFT_GROUP,
-    EDIT_TOP_LEFT_IMG,
-    EDIT_TOP_LEFT_TEXT_IMG,
+    EDIT_TL_IMG,
+    EDIT_TL_TEXT_IMG,
     // Top Right Edit Group
     EDIT_TOP_RIGHT_GROUP,
-    EDIT_TOP_RIGHT_IMG,
-    EDIT_TOP_RIGHT_TEXT_IMG,
+    EDIT_TR_IMG,
+    EDIT_TR_TEXT_IMG,
     // Bottom Left Edit Group
     EDIT_BOTTOM_LEFT_GROUP,
-    EDIT_BOTTOM_LEFT_IMG,
-    EDIT_BOTTOM_LEFT_TEXT_IMG,
+    EDIT_BL_IMG,
+    EDIT_BL_TEXT_IMG,
     // Bottom Right Edit Group
     EDIT_BOTTOM_RIGHT_GROUP,
-    EDIT_BOTTOM_RIGHT_IMG,
-    EDIT_BOTTOM_RIGHT_TEXT_IMG,
+    EDIT_BR_IMG,
+    EDIT_BR_TEXT_IMG,
     // Editable Widgets specific styles
     EDIT_HEART_IMG,
     EDIT_HEART_TEXT_IMG,
@@ -127,6 +127,7 @@ WatchFace({
                 break;    
         }
     },
+
     // Init View
     initView() {
         imgBg = hmUI.createWidget(hmUI.widget.IMG, BG_IMG);
@@ -161,19 +162,19 @@ WatchFace({
         // Top Left editable widget
         editGroupTopLeft = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, mergeStyles(EDIT_GROUP_DEFAULTS, EDIT_TOP_LEFT_GROUP));
         const editTopLeftType = editGroupTopLeft.getProperty(hmUI.prop.CURRENT_TYPE);
-        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_TOP_LEFT_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_TOP_LEFT_TEXT_IMG), editTopLeftType);
+        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_TL_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_TL_TEXT_IMG), editTopLeftType);
         // Top Right editable widget
         editGroupTopRight = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, mergeStyles(EDIT_GROUP_DEFAULTS, EDIT_TOP_RIGHT_GROUP));
         const editTopRightType = editGroupTopRight.getProperty(hmUI.prop.CURRENT_TYPE);
-        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_TOP_RIGHT_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_TOP_RIGHT_TEXT_IMG), editTopRightType);
+        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_TR_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_TR_TEXT_IMG), editTopRightType);
         // Bottom Left editable widget
         editGroupBottomLeft = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, mergeStyles(EDIT_GROUP_DEFAULTS, EDIT_BOTTOM_LEFT_GROUP));
         const editBottomLeftType = editGroupBottomLeft.getProperty(hmUI.prop.CURRENT_TYPE);
-        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_BOTTOM_LEFT_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_BOTTOM_LEFT_TEXT_IMG), editBottomLeftType);
+        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_BL_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_BL_TEXT_IMG), editBottomLeftType);
         // Bottom Right editable widget
         editGroupBottomRight = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_GROUP, mergeStyles(EDIT_GROUP_DEFAULTS, EDIT_BOTTOM_RIGHT_GROUP));
         const editBottomRightType = editGroupBottomRight.getProperty(hmUI.prop.CURRENT_TYPE);
-        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_BOTTOM_RIGHT_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_BOTTOM_RIGHT_TEXT_IMG), editBottomRightType);
+        this.drawWidget(mergeStyles(EDIT_DEFAULT_IMG, EDIT_BR_IMG), mergeStyles(EDIT_DEFAULT_TEXT_IMG, EDIT_BR_TEXT_IMG), editBottomRightType);
         // END editable components init
 
 
@@ -278,8 +279,8 @@ WatchFace({
     build() {
         logger.log("wf on build invoke");
         globalNS = getGlobal();
-        initDebug();
-        debug.log("build");
+        // initDebug();
+        // debug.log("build");
         this.initView();
         globalNS.watchdrip = new Watchdrip();
         watchdrip = globalNS.watchdrip;
