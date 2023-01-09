@@ -141,11 +141,7 @@ WatchFace({
         battery.addEventListener(hmSensor.event.CHANGE, function() {
             watchBattery.setProperty(hmUI.prop.TEXT, battery.current + '%');
         });
-        const widgetDelegate = hmUI.createWidget(hmUI.widget.WIDGET_DELEGATE, {
-            resume_call: (function() {
-                watchBattery.setProperty(hmUI.prop.TEXT, battery.current + '%');
-            })
-        });
+        watchBattery.setProperty(hmUI.prop.TEXT, battery.current + '%');
 
         
         // BEGIN editable components init
