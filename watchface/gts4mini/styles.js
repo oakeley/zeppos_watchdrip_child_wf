@@ -27,7 +27,7 @@ export const DIGITAL_TIME_HOUR = {
     hour_zero: true,
     hour_space: 2,
     hour_align: hmUI.align.CENTER_H,
-    hour_array: bigNumArr,
+    hour_array: bigNumArr
 };
 
 export const DIGITAL_TIME_MINUTES = {
@@ -36,7 +36,7 @@ export const DIGITAL_TIME_MINUTES = {
     minute_zero: true,
     minute_space: 2,
     minute_align: hmUI.align.CENTER_H,
-    minute_array: bigNumArr,
+    minute_array: bigNumArr
 };
 
 export const TIME_AM_PM = {
