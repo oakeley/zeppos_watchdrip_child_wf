@@ -468,7 +468,7 @@ export const EDIT_DISTANCE_TEXT_IMG = {
 };
 
 // WEATHER_CURRENT widget
-export const EDIT_WEATHER_CONDITION_IMG = {
+export const EDIT_WEATHER_CONDITION_IMG_LEVEL = {
     image_array: weatherArr, // 40x40px
     image_length: weatherArr.length,
     type: hmUI.data_type.WEATHER

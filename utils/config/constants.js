@@ -1,6 +1,6 @@
 import {MINUTE_IN_MS, SECOND_IN_MS} from "../../shared/date";
 
-export const DATA_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 1;
+export const DATA_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 30;
 export const DATA_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 1;
 
 export const DATA_STALE_TIME_MS = 30 * 1000;

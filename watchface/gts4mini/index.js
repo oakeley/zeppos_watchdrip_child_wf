@@ -54,7 +54,7 @@ import {
     EDIT_STEP_TEXT_IMG,
     EDIT_DISTANCE_IMG,
     EDIT_DISTANCE_TEXT_IMG,
-    EDIT_WEATHER_CONDITION_IMG,
+    EDIT_WEATHER_CONDITION_IMG_LEVEL,
     EDIT_WEATHER_CURRENT_TEXT_IMG
 } from "./styles";
 import {BG_IMG} from "../../utils/config/styles_global";
@@ -68,8 +68,6 @@ let bgValNoDataTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextW
 let globalNS, progressTimer, progressAngle;
 
 let debug, watchdrip;
-
-const batterySensor = hmSensor.createSensor(hmSensor.id.BATTERY);
 
 export const logger = Logger.getLogger("timer-page");
 
@@ -103,6 +101,12 @@ function stopLoader() {
     progress.setProperty(hmUI.prop.VISIBLE, false);
 }
 
+/*
+const updateWatchBattery = function() {
+    watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
+}
+*/
+
 function mergeStyles(styleObj1, styleObj2) {
     return Object.assign({}, styleObj1, styleObj2);
 }
@@ -121,7 +125,7 @@ WatchFace({
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_STEP_TEXT_IMG));
                 break;
             case hmUI.edit_type.WEATHER:
-                hmUI.createWidget(hmUI.widget.IMG_LEVEL, mergeStyles(defaultImgStyle, EDIT_WEATHER_CONDITION_IMG));
+                hmUI.createWidget(hmUI.widget.IMG_LEVEL, mergeStyles(defaultImgStyle, EDIT_WEATHER_CONDITION_IMG_LEVEL));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_WEATHER_CURRENT_TEXT_IMG));
                 break;
             case hmUI.edit_type.DISTANCE:
@@ -146,7 +150,9 @@ WatchFace({
         btDisconnected = hmUI.createWidget(hmUI.widget.IMG_STATUS, IMG_STATUS_BT_DISCONNECTED);
 
         watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
+        const batterySensor = hmSensor.createSensor(hmSensor.id.BATTERY);
         watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
+        //updateWatchBattery();
 
         
         // BEGIN editable components init
@@ -263,9 +269,7 @@ WatchFace({
     onInit() {
         logger.log("wf on init invoke");
 
-        batterySensor.addEventListener(hmSensor.event.CHANGE, function() {
-            watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
-        });
+        //batterySensor.addEventListener(hmSensor.event.CHANGE, updateWatchBattery);
     },
 
     build() {
@@ -286,6 +290,8 @@ WatchFace({
     onDestroy() {
         logger.log("wf on destroy invoke");
         watchdrip.destroy();
+
+        //batterySensor.removeEventListener(hmSensor.event.CHANGE, updateWatchBattery);
     },
 
     onShow() {
