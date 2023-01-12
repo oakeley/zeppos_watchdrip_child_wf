@@ -54,7 +54,7 @@ import {
     EDIT_STEP_TEXT_IMG,
     EDIT_DISTANCE_IMG,
     EDIT_DISTANCE_TEXT_IMG,
-    EDIT_WEATHER_CURRENT_IMG,
+    EDIT_WEATHER_CONDITION_IMG,
     EDIT_WEATHER_CURRENT_TEXT_IMG
 } from "./styles";
 import {BG_IMG} from "../../utils/config/styles_global";
@@ -120,8 +120,8 @@ WatchFace({
                 hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_STEP_IMG));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_STEP_TEXT_IMG));
                 break;
-            case hmUI.edit_type.WEATHER_CURRENT:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_WEATHER_CURRENT_IMG));
+            case hmUI.edit_type.WEATHER:
+                hmUI.createWidget(hmUI.widget.IMG_LEVEL, mergeStyles(defaultImgStyle, EDIT_WEATHER_CONDITION_IMG));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_WEATHER_CURRENT_TEXT_IMG));
                 break;
             case hmUI.edit_type.DISTANCE:
@@ -262,7 +262,7 @@ WatchFace({
 
     onInit() {
         logger.log("wf on init invoke");
-        
+
         batterySensor.addEventListener(hmSensor.event.CHANGE, function() {
             watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
         });

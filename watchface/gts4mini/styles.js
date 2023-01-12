@@ -21,6 +21,10 @@ let smallNumAccentArr = range(10).map((v) => {
     return img(`smallNumAccent/${v}.png`);
 });
 
+let weatherArr = range(29).map((v) => {
+    return img(`weather/${v}.png`);
+});
+
 export const DIGITAL_TIME_HOUR = {
     hour_startX: px(84),
     hour_startY: px(6),
@@ -295,7 +299,7 @@ export const EDIT_GROUP_DEFAULTS = {
             preview: img('widgets/steps.png')
         },
         {
-            type: hmUI.edit_type.WEATHER_CURRENT,
+            type: hmUI.edit_type.WEATHER,
             preview: img('widgets/temp.png')
         },
         {
@@ -393,7 +397,7 @@ export const EDIT_BOTTOM_LEFT_GROUP = {
     y: bottomLeftY,
     tips_x: 0,
     tips_y: 75,
-    default_type: hmUI.edit_type.WEATHER_CURRENT
+    default_type: hmUI.edit_type.WEATHER
 }; 
 
 // Styles for all Bottom Left IMG widgets
@@ -464,8 +468,10 @@ export const EDIT_DISTANCE_TEXT_IMG = {
 };
 
 // WEATHER_CURRENT widget
-export const EDIT_WEATHER_CURRENT_IMG = {
-    src: img('widgets/temp.png') // 40x40px
+export const EDIT_WEATHER_CONDITION_IMG = {
+    image_array: weatherArr, // 40x40px
+    image_length: weatherArr.length,
+    type: hmUI.data_type.WEATHER
 };
 export const EDIT_WEATHER_CURRENT_TEXT_IMG = {
     type: hmUI.data_type.WEATHER_CURRENT
