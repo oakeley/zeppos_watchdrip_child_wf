@@ -69,6 +69,8 @@ let globalNS, progressTimer, progressAngle;
 
 let debug, watchdrip;
 
+const batterySensor = hmSensor.createSensor(hmSensor.id.BATTERY);
+
 export const logger = Logger.getLogger("timer-page");
 
 function initDebug() {
@@ -144,11 +146,7 @@ WatchFace({
         btDisconnected = hmUI.createWidget(hmUI.widget.IMG_STATUS, IMG_STATUS_BT_DISCONNECTED);
 
         watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
-        const battery = hmSensor.createSensor(hmSensor.id.BATTERY);
-        battery.addEventListener(hmSensor.event.CHANGE, function() {
-            watchBattery.setProperty(hmUI.prop.TEXT, battery.current + '%');
-        });
-        watchBattery.setProperty(hmUI.prop.TEXT, battery.current + '%');
+        watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
 
         
         // BEGIN editable components init
@@ -264,6 +262,10 @@ WatchFace({
 
     onInit() {
         logger.log("wf on init invoke");
+        
+        batterySensor.addEventListener(hmSensor.event.CHANGE, function() {
+            watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
+        });
     },
 
     build() {
