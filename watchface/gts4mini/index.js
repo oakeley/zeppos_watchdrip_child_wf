@@ -101,11 +101,10 @@ function stopLoader() {
     progress.setProperty(hmUI.prop.VISIBLE, false);
 }
 
-/*
+const batterySensor = hmSensor.createSensor(hmSensor.id.BATTERY);
 const updateWatchBattery = function() {
     watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
 }
-*/
 
 function mergeStyles(styleObj1, styleObj2) {
     return Object.assign({}, styleObj1, styleObj2);
@@ -150,9 +149,7 @@ WatchFace({
         btDisconnected = hmUI.createWidget(hmUI.widget.IMG_STATUS, IMG_STATUS_BT_DISCONNECTED);
 
         watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
-        const batterySensor = hmSensor.createSensor(hmSensor.id.BATTERY);
-        watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
-        //updateWatchBattery();
+        updateWatchBattery();
 
         
         // BEGIN editable components init
@@ -269,7 +266,7 @@ WatchFace({
     onInit() {
         logger.log("wf on init invoke");
 
-        //batterySensor.addEventListener(hmSensor.event.CHANGE, updateWatchBattery);
+        batterySensor.addEventListener(hmSensor.event.CHANGE, updateWatchBattery);
     },
 
     build() {
@@ -291,7 +288,7 @@ WatchFace({
         logger.log("wf on destroy invoke");
         watchdrip.destroy();
 
-        //batterySensor.removeEventListener(hmSensor.event.CHANGE, updateWatchBattery);
+        batterySensor.removeEventListener(hmSensor.event.CHANGE, updateWatchBattery);
     },
 
     onShow() {
