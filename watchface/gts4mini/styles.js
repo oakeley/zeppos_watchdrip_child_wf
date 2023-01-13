@@ -477,16 +477,28 @@ export const EDIT_DISTANCE_IMG = {
     src: img('widgets/distance.png') // 40x40px
 };
 export const EDIT_DISTANCE_TEXT_IMG = {
-    type: hmUI.data_type.DISTANCE
+    type: hmUI.data_type.DISTANCE,
+    unit_sc: img('smallNum/unit-distance-metric.png'),
+    unit_tc: img('smallNum/unit-distance-metric.png'),
+    unit_en: img('smallNum/unit-distance-metric.png'),
+    imperial_unit_sc: img('smallNum/unit-distance-imperial.png'),
+    imperial_unit_tc: img('smallNum/unit-distance-imperial.png'),
+    imperial_unit_en: img('smallNum/unit-distance-imperial.png')
 };
 
-// WEATHER_CURRENT widget
+// WEATHER_CURRENT widget unit-temperature-imperial.png
 export const EDIT_WEATHER_CONDITION_IMG_LEVEL = {
     image_array: weatherArr, // 40x40px
     image_length: weatherArr.length,
     type: hmUI.data_type.WEATHER
 };
 export const EDIT_WEATHER_CURRENT_TEXT_IMG = {
-    type: hmUI.data_type.WEATHER_CURRENT
+    type: hmUI.data_type.WEATHER_CURRENT,
+    unit_sc: img('smallNum/unit-temperature-metric.png'),
+    unit_tc: img('smallNum/unit-temperature-metric.png'),
+    unit_en: img('smallNum/unit-temperature-metric.png'),
+    imperial_unit_sc: img('smallNum/unit-temperature-imperial.png'),
+    imperial_unit_tc: img('smallNum/unit-temperature-imperial.png'),
+    imperial_unit_en: img('smallNum/unit-temperature-imperial.png')
 };
 // END Edit Widgets
