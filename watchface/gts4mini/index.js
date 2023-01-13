@@ -144,10 +144,14 @@ WatchFace({
         btDisconnected = hmUI.createWidget(hmUI.widget.IMG_STATUS, IMG_STATUS_BT_DISCONNECTED);
 
         watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
-        const batterySensor = hmSensor.createSensor(hmSensor.id.BATTERY);
-        watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
-        batterySensor.addEventListener(hmSensor.event.CHANGE, function(){
-            watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
+        
+        // UI lifecycle proxy
+        const widgetDelegate = hmUI.createWidget(hmUI.widget.WIDGET_DELEGATE, {
+            resume_call: (function() {
+                // Update watch battery
+                const batterySensor = hmSensor.createSensor(hmSensor.id.BATTERY);
+                watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
+            })
         });
 
         
