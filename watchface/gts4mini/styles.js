@@ -22,7 +22,7 @@ let weatherArr = range(29).map((v) => {
 });
 
 export const DIGITAL_TIME = {
-    hour_startX: px(83),
+    hour_startX: px(84),
     hour_startY: px(6),
     hour_zero: true,
     hour_space: 2,
@@ -43,7 +43,8 @@ export const DIGITAL_TIME = {
     pm_x: px(258),
     pm_y: px(42),
     pm_sc_path: img('bigNum/pm.png'),
-    pm_en_path: img('bigNum/pm.png')
+    pm_en_path: img('bigNum/pm.png'),
+    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT
 };
 
 const dateX = 97;
@@ -84,7 +85,8 @@ export const DATE_TEXT_IMG = {
     year_align: hmUI.align.LEFT,
     year_sc_array: smallNumAccentArr,
     year_tc_array: smallNumAccentArr,
-    year_en_array: smallNumAccentArr
+    year_en_array: smallNumAccentArr,
+    show_level: hmUI.show_level.ONLY_NORMAL
 }
 
 export const BG_VALUE_NO_DATA_TEXT = {
@@ -97,7 +99,8 @@ export const BG_VALUE_NO_DATA_TEXT = {
     align_h: hmUI.align.RIGHT,
     align_v: hmUI.align.CENTER_V,
     text_style: hmUI.text_style.NONE,
-    text: 'No data'
+    text: 'No data',
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const BG_VALUE_TEXT_IMG = {
@@ -110,7 +113,8 @@ export const BG_VALUE_TEXT_IMG = {
     font_array: bgNumArr,
     text: '0',
     visible: false,
-    h_space:1
+    h_space:1,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const BG_TIME_TEXT = {
@@ -123,6 +127,7 @@ export const BG_TIME_TEXT = {
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const BG_DELTA_TEXT = {
@@ -135,6 +140,7 @@ export const BG_DELTA_TEXT = {
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const BG_TREND_IMAGE = {
@@ -143,15 +149,7 @@ export const BG_TREND_IMAGE = {
     y: px(253),
     w: px(42),
     h: px(45),
-};
-
-export const BG_STALE_RECT = {
-    x: px(115),
-    y: px(148),
-    w: px(120),
-    h: px(4),
-    color: Colors.white,
-    visible: false,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const BG_STALE_IMG = {
@@ -159,6 +157,7 @@ export const BG_STALE_IMG = {
     y: px(148),
     src: 'watchdrip/stale.png',
     visible: false,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 // Xdrip modified to put ExternalStatusService.getLastStatusLine()
@@ -172,6 +171,7 @@ export const AAPS_TEXT = {
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.CENTER_V,
     text_style: hmUI.text_style.NONE,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 // Xdrip modified to put ExternalStatusService.getLastStatusLineTime()
@@ -185,6 +185,7 @@ export const AAPS_TIME_TEXT = {
     align_h: hmUI.align.CENTER_H,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const PHONE_BATTERY_TEXT = {
@@ -197,6 +198,7 @@ export const PHONE_BATTERY_TEXT = {
     align_h: hmUI.align.LEFT,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const WATCH_BATTERY_TEXT = {
@@ -209,24 +211,28 @@ export const WATCH_BATTERY_TEXT = {
     align_h: hmUI.align.RIGHT,
     align_v: hmUI.align.TOP,
     text_style: hmUI.text_style.NONE,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const BG_STATUS_LOW_IMG = {
     x: px(105),
     y: px(108),
     src: 'watchdrip/bgLow.png',
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const BG_STATUS_OK_IMG = {
     x: px(125),
     y: px(108),
     src: 'watchdrip/bgOk.png',
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const BG_STATUS_HIGH_IMG = {
     x: px(216),
     y: px(108),
     src: 'watchdrip/bgHight.png',
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const IMG_STATUS_BT_DISCONNECTED = {
@@ -234,7 +240,7 @@ export const IMG_STATUS_BT_DISCONNECTED = {
     y: px(30),
     src: img('status/bt_disconnect.png'),
     type: hmUI.system_status.DISCONNECT,
-    show_level: hmUI.show_level.ONLY_NORMAL,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const IMG_LOADING_PROGRESS = {
@@ -245,6 +251,7 @@ export const IMG_LOADING_PROGRESS = {
     center_x: 20,
     center_y: 20,
     visible: false,
+    show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 
@@ -302,7 +309,8 @@ export const EDIT_GROUP_DEFAULTS = {
     count: 4,
     tips_BG: img('mask/text_tag.png'),
     tips_width: 110,
-    tips_margin: 5 // optional, default value: 0
+    tips_margin: 5, // optional, default value: 0
+    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT
 };
 
 // Default styles for all IMG widgets 

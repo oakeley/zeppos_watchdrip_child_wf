@@ -30,5 +30,5 @@ export const BG_IMG = {
     w: px(DEVICE_WIDTH),
     h: px(DEVICE_HEIGHT),
     src: img("bg/bg.png"),
-    show_level: hmUI.show_level.ONLY_NORMAL
+    show_level: hmUI.show_level.ONLY_NORMAL  | hmUI.show_level.ONLY_EDIT
 }

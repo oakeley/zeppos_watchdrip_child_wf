@@ -18,7 +18,6 @@ import {
     IMG_STATUS_BT_DISCONNECTED,
     PHONE_BATTERY_TEXT,
     WATCH_BATTERY_TEXT,
-    // WEEK_DAYS,
     AAPS_TEXT,
     AAPS_TIME_TEXT,
     // Edit masks
