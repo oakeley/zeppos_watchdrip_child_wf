@@ -5,23 +5,20 @@ import {getGlobal} from "../../shared/global";
 import {
     BG_DELTA_TEXT,
     BG_STALE_IMG,
-    BG_STATUS_HIGHT_IMG,
+    BG_STATUS_HIGH_IMG,
     BG_STATUS_LOW_IMG,
     BG_STATUS_OK_IMG,
     BG_TIME_TEXT,
     BG_TREND_IMAGE,
     BG_VALUE_NO_DATA_TEXT,
     BG_VALUE_TEXT_IMG,
-    DAYS_MONTHS_TEXT_IMG,
-    DIGITAL_TIME_HOUR,
-    DIGITAL_TIME_MINUTES,
-    DIGITAL_TIME_SEPARATOR,
+    DATE_TEXT_IMG,
+    DIGITAL_TIME,
     IMG_LOADING_PROGRESS,
     IMG_STATUS_BT_DISCONNECTED,
     PHONE_BATTERY_TEXT,
     WATCH_BATTERY_TEXT,
-    TIME_AM_PM,
-    WEEK_DAYS,
+    // WEEK_DAYS,
     AAPS_TEXT,
     AAPS_TIME_TEXT,
     // Edit masks
@@ -60,10 +57,10 @@ import {
 import {BG_IMG} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS} from "../../utils/config/constants";
 
-let imgBg, digitalClockHour, digitalClockMinutes, timeAM_PM, digitalClockSeparator, btDisconnected, weekImg, 
-    dateDayMonthsImg, mask, maskCover, editGroupTopLeft, editGroupTopRight, editGroupBottomLeft, editGroupBottomRight;
+let imgBg, digitalClock, btDisconnected, dateImg, mask, maskCover, editGroupTopLeft, editGroupTopRight, 
+    editGroupBottomLeft, editGroupBottomRight;
 let bgValNoDataTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine, 
-    phoneBattery, watchBattery, bgStatusLow, bgStatusOk, bgStatusHight, progress, aapsText, aapsTimeText;
+    phoneBattery, watchBattery, bgStatusLow, bgStatusOk, bgStatusHigh, progress, aapsText, aapsTimeText;
 
 let globalNS, progressTimer, progressAngle;
 
@@ -133,13 +130,9 @@ WatchFace({
     initView() {
         imgBg = hmUI.createWidget(hmUI.widget.IMG, BG_IMG);
 
-        digitalClockHour = hmUI.createWidget(hmUI.widget.IMG_TIME, DIGITAL_TIME_HOUR);
-        digitalClockMinutes = hmUI.createWidget(hmUI.widget.IMG_TIME, DIGITAL_TIME_MINUTES);
-        timeAM_PM = hmUI.createWidget(hmUI.widget.IMG_TIME, TIME_AM_PM);
-        digitalClockSeparator = hmUI.createWidget(hmUI.widget.IMG, DIGITAL_TIME_SEPARATOR);
+        digitalClock = hmUI.createWidget(hmUI.widget.IMG_TIME, DIGITAL_TIME);
 
-        weekImg = hmUI.createWidget(hmUI.widget.IMG_WEEK, WEEK_DAYS);
-        dateDayMonthsImg = hmUI.createWidget(hmUI.widget.IMG_DATE, DAYS_MONTHS_TEXT_IMG);
+        dateTextImg = hmUI.createWidget(hmUI.widget.IMG_DATE, DATE_TEXT_IMG);
 
         btDisconnected = hmUI.createWidget(hmUI.widget.IMG_STATUS, IMG_STATUS_BT_DISCONNECTED);
 
@@ -189,7 +182,7 @@ WatchFace({
         phoneBattery = hmUI.createWidget(hmUI.widget.TEXT, PHONE_BATTERY_TEXT);
         bgStatusLow = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOW_IMG);
         bgStatusOk = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_OK_IMG);
-        bgStatusHight = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_HIGHT_IMG);
+        bgStatusHigh = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_HIGH_IMG);
         progress = hmUI.createWidget(hmUI.widget.IMG, IMG_LOADING_PROGRESS);
         // From modified xDrip ExternalStatusService.getLastStatusLine()
         aapsText = hmUI.createWidget(hmUI.widget.TEXT, AAPS_TEXT);
@@ -214,11 +207,11 @@ WatchFace({
 
         bgStatusLow.setProperty(hmUI.prop.VISIBLE, false);
         bgStatusOk.setProperty(hmUI.prop.VISIBLE, false);
-        bgStatusHight.setProperty(hmUI.prop.VISIBLE, false);
+        bgStatusHigh.setProperty(hmUI.prop.VISIBLE, false);
 
         if (bgObj.isHasData()) {
             if (bgObj.isHigh) {
-                bgStatusHight.setProperty(hmUI.prop.VISIBLE, true);
+                bgStatusHigh.setProperty(hmUI.prop.VISIBLE, true);
             } else if (bgObj.isLow) {
                 bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
             } else {

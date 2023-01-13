@@ -5,10 +5,6 @@ let bgNumArr = range(10).map((v) => {
     return img(`bgNum/${v}.png`);
 });
 
-let weekEnArray = range(1, 8).map((v) => {
-    return img(`week_en/${v}.png`);
-});
-
 let bigNumArr = range(10).map((v) => {
     return img(`bigNum/${v}.png`);
 });
@@ -25,25 +21,21 @@ let weatherArr = range(29).map((v) => {
     return img(`weather/${v}.png`);
 });
 
-export const DIGITAL_TIME_HOUR = {
-    hour_startX: px(84),
+export const DIGITAL_TIME = {
+    hour_startX: px(83),
     hour_startY: px(6),
     hour_zero: true,
     hour_space: 2,
     hour_align: hmUI.align.CENTER_H,
-    hour_array: bigNumArr
-};
-
-export const DIGITAL_TIME_MINUTES = {
-    minute_startX: px(178),
-    minute_startY: px(6),
+    hour_array: bigNumArr,
+    hour_unit_sc: img('bigNum/sp.png'), // colon
+    hour_unit_tc: img('bigNum/sp.png'),
+    hour_unit_en: img('bigNum/sp.png'),
     minute_zero: true,
     minute_space: 2,
     minute_align: hmUI.align.CENTER_H,
-    minute_array: bigNumArr
-};
-
-export const TIME_AM_PM = {
+    minute_array: bigNumArr,
+    minute_follow: 1,
     am_x: px(258),
     am_y: px(42),
     am_sc_path: img('bigNum/am.png'),
@@ -51,48 +43,48 @@ export const TIME_AM_PM = {
     pm_x: px(258),
     pm_y: px(42),
     pm_sc_path: img('bigNum/pm.png'),
-    pm_en_path: img('bigNum/pm.png'),
-}
-
-export const DIGITAL_TIME_SEPARATOR = {
-    x: px(164),
-    y: px(23),
-    src: img('bigNum/sp.png')
+    pm_en_path: img('bigNum/pm.png')
 };
 
-export const WEEK_DAYS = {
-    x: px(105),
-    y: px(78),
-    week_en: weekEnArray,
-    week_tc: weekEnArray,
-    week_sc: weekEnArray,
-}
-
-export const DAYS_MONTHS_TEXT_IMG = {
-    day_startX: px(160),
-    day_startY: px(75),
+const dateX = 97;
+const dateY = 75;
+const dateFontWidth = 15;
+const dateDotWidth = 7;
+const dateFontSpacing = 1;
+export const DATE_TEXT_IMG = {
+    day_startX: px(dateX),
+    day_startY: px(dateY),
     day_zero: 1,
-    day_space: 1,
+    day_space: dateFontSpacing,
+    day_follow: 0,
     day_align: hmUI.align.LEFT,
-    day_is_character: false,
     day_sc_array: smallNumAccentArr,
     day_tc_array: smallNumAccentArr,
     day_en_array: smallNumAccentArr,
     day_unit_sc: img('smallNumAccent/d.png'), // dot
     day_unit_tc: img('smallNumAccent/d.png'),
     day_unit_en: img('smallNumAccent/d.png'),
-    month_startX: px(200),
-    month_startY: px(75),
+    month_startX: px(dateX + (dateFontWidth * 2) + dateDotWidth + (dateFontSpacing * 3)),
+    month_startY: px(dateY),
+    month_follow: 0,
     month_zero: 1,
-    month_space: 1,
+    month_space: dateFontSpacing,
     month_align: hmUI.align.LEFT,
-    month_is_character: false,
     month_sc_array: smallNumAccentArr,
     month_tc_array: smallNumAccentArr,
     month_en_array: smallNumAccentArr,
     month_unit_sc: img('smallNumAccent/d.png'), // dot
     month_unit_tc: img('smallNumAccent/d.png'),
-    month_unit_en: img('smallNumAccent/d.png')
+    month_unit_en: img('smallNumAccent/d.png'),
+    year_startX: px(dateX + (dateFontWidth * 4) + (dateDotWidth * 2) + (dateFontSpacing * 6)),
+    year_startY: px(dateY),
+    year_follow: 0,
+    year_zero: 1,
+    year_space: dateFontSpacing,
+    year_align: hmUI.align.LEFT,
+    year_sc_array: smallNumAccentArr,
+    year_tc_array: smallNumAccentArr,
+    year_en_array: smallNumAccentArr
 }
 
 export const BG_VALUE_NO_DATA_TEXT = {
@@ -231,7 +223,7 @@ export const BG_STATUS_OK_IMG = {
     src: 'watchdrip/bgOk.png',
 };
 
-export const BG_STATUS_HIGHT_IMG = {
+export const BG_STATUS_HIGH_IMG = {
     x: px(216),
     y: px(108),
     src: 'watchdrip/bgHight.png',
