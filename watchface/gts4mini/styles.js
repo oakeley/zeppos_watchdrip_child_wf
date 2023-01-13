@@ -17,6 +17,10 @@ let smallNumAccentArr = range(10).map((v) => {
     return img(`smallNumAccent/${v}.png`);
 });
 
+let weekEnArr = range(1, 8).map((v) => {
+    return img(`week_en/${v}.png`);
+});
+
 let weatherArr = range(29).map((v) => {
     return img(`weather/${v}.png`);
 });
@@ -47,9 +51,9 @@ export const DIGITAL_TIME = {
     show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT
 };
 
-const dateX = 97;
+const dateX = 163;
 const dateY = 75;
-const dateFontWidth = 15;
+const dateFontWidth = 16; // widest image in font array
 const dateDotWidth = 7;
 const dateFontSpacing = 1;
 export const DATE_TEXT_IMG = {
@@ -77,7 +81,7 @@ export const DATE_TEXT_IMG = {
     month_unit_sc: img('smallNumAccent/d.png'), // dot
     month_unit_tc: img('smallNumAccent/d.png'),
     month_unit_en: img('smallNumAccent/d.png'),
-    year_startX: px(dateX + (dateFontWidth * 4) + (dateDotWidth * 2) + (dateFontSpacing * 6)),
+    /*year_startX: px(dateX + (dateFontWidth * 4) + (dateDotWidth * 2) + (dateFontSpacing * 6)),
     year_startY: px(dateY),
     year_follow: 0,
     year_zero: 1,
@@ -85,9 +89,18 @@ export const DATE_TEXT_IMG = {
     year_align: hmUI.align.LEFT,
     year_sc_array: smallNumAccentArr,
     year_tc_array: smallNumAccentArr,
-    year_en_array: smallNumAccentArr,
+    year_en_array: smallNumAccentArr,*/
     show_level: hmUI.show_level.ONLY_NORMAL
-}
+};
+
+export const WEEK_DAYS_IMG = {
+    x: px(101),
+    y: (75),
+    week_en: weekEnArr,
+    week_tc: weekEnArr,
+    week_sc: weekEnArr,
+    show_level: hmUI.show_level.ONLY_NORMAL
+};
 
 export const BG_VALUE_NO_DATA_TEXT = {
     x: px(114),

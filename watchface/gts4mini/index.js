@@ -12,6 +12,7 @@ import {
     BG_TREND_IMAGE,
     BG_VALUE_NO_DATA_TEXT,
     BG_VALUE_TEXT_IMG,
+    WEEK_DAYS_IMG,
     DATE_TEXT_IMG,
     DIGITAL_TIME,
     IMG_LOADING_PROGRESS,
@@ -56,7 +57,7 @@ import {
 import {BG_IMG} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS} from "../../utils/config/constants";
 
-let imgBg, digitalClock, btDisconnected, dateImg, mask, maskCover, editGroupTopLeft, editGroupTopRight, 
+let imgBg, digitalClock, btDisconnected, daysImg, dateImg, mask, maskCover, editGroupTopLeft, editGroupTopRight, 
     editGroupBottomLeft, editGroupBottomRight;
 let bgValNoDataTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine, 
     phoneBattery, watchBattery, bgStatusLow, bgStatusOk, bgStatusHigh, progress, aapsText, aapsTimeText;
@@ -130,6 +131,8 @@ WatchFace({
         imgBg = hmUI.createWidget(hmUI.widget.IMG, BG_IMG);
 
         digitalClock = hmUI.createWidget(hmUI.widget.IMG_TIME, DIGITAL_TIME);
+
+        daysImg = hmUI.createWidget(hmUI.widget.IMG_WEEK, WEEK_DAYS_IMG);
 
         dateTextImg = hmUI.createWidget(hmUI.widget.IMG_DATE, DATE_TEXT_IMG);
 
