@@ -105,23 +105,23 @@ function mergeStyles(styleObj1, styleObj2) {
 
 WatchFace({
     // draws the editable widgets
-    drawWidget(defaultImgStyle, defaultTextImgStyle, editType){
+    drawWidget(imgStyle, textImgStyle, editType){
         switch (editType) {
             case hmUI.edit_type.HEART:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_HEART_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_HEART_TEXT_IMG));
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(imgStyle, EDIT_HEART_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_HEART_TEXT_IMG));
                 break;
             case hmUI.edit_type.STEP:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_STEP_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_STEP_TEXT_IMG));
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(imgStyle, EDIT_STEP_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_STEP_TEXT_IMG));
                 break;
             case hmUI.edit_type.WEATHER:
-                hmUI.createWidget(hmUI.widget.IMG_LEVEL, mergeStyles(defaultImgStyle, EDIT_WEATHER_CONDITION_IMG_LEVEL));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_WEATHER_CURRENT_TEXT_IMG));
+                hmUI.createWidget(hmUI.widget.IMG_LEVEL, mergeStyles(imgStyle, EDIT_WEATHER_CONDITION_IMG_LEVEL));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_WEATHER_CURRENT_TEXT_IMG));
                 break;
             case hmUI.edit_type.DISTANCE:
-                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(defaultImgStyle, EDIT_DISTANCE_IMG));
-                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(defaultTextImgStyle, EDIT_DISTANCE_TEXT_IMG));
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(imgStyle, EDIT_DISTANCE_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_DISTANCE_TEXT_IMG));
                 break;    
         }
     },

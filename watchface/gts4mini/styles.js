@@ -52,7 +52,7 @@ export const DIGITAL_TIME = {
 };
 
 const dateX = px(163);
-const dateY = 75;
+const dateY = px(75);
 const dateFontWidth = 16; // widest image in font array
 const dateDotWidth = 7;
 const dateFontSpacing = 1;
@@ -195,7 +195,7 @@ export const AAPS_TIME_TEXT = {
 export const PHONE_BATTERY_TEXT = {
     x: px(259),
     y: px(276),
-    w: px(70),
+    w: px(65),
     h: px(27),
     color: Colors.white,
     text_size: px(22),
@@ -206,9 +206,9 @@ export const PHONE_BATTERY_TEXT = {
 };
 
 export const WATCH_BATTERY_TEXT = {
-    x: px(1),
+    x: px(5),
     y: px(276),
-    w: px(70),
+    w: px(65),
     h: px(27),
     color: Colors.white,
     text_size: px(22),
@@ -251,7 +251,7 @@ export const IMG_LOADING_PROGRESS = {
     x: px(152),
     y: px(206),
     src: 'watchdrip/progress.png',
-    angle:0,
+    angle: 0,
     center_x: 20,
     center_y: 20,
     visible: false,
@@ -261,35 +261,35 @@ export const IMG_LOADING_PROGRESS = {
 
 // 100% edit mask
 export const EDIT_MASK_100 = {
-    x: 0,
-    y: 0,
-    w: 336,
-    h: 384,
+    x: px(0),
+    y: px(0),
+    w: px(336),
+    h: px(384),
     src: img('mask/mask100.png'),
     show_level: hmUI.show_level.ONLY_EDIT
 };
 
 // 70% edit mask
 export const EDIT_MASK_70 = {
-    x: 0,
-    y: 0,
-    w: 336,
-    h: 384,
+    x: px(0),
+    y: px(0),
+    w: px(336),
+    h: px(384),
     src: img('mask/mask70.png'),
     show_level: hmUI.show_level.ONLY_EDIT
 };
 
 
 // BEGIN edit group default styles
-const editWidgetW = 85;
-const editWidgetH = 70;
+const editWidgetW = px(85);
+const editWidgetH = px(70);
 const editWidgetIconHeight = 40;
 const editWidgetIconWidth = 40;
 const editWidgetIconMargin = 7;
 
 export const EDIT_GROUP_DEFAULTS = {
-    w: editWidgetW,
-    h: editWidgetH,
+    w: px(editWidgetW),
+    h: px(editWidgetH),
     select_image: img('mask/select.png'),
     un_select_image: img('mask/un_select.png'),
     optional_types: [
@@ -338,13 +338,13 @@ export const EDIT_DEFAULT_TEXT_IMG = {
 
 
 // BEGIN Top Left Edit Widgets
-const topLeftX = 12;
-const topLeftY = 115;
+const topLeftX = px(12);
+const topLeftY = px(115);
 
 export const EDIT_TOP_LEFT_GROUP = {
     edit_id: 101,
-    x: topLeftX,
-    y: topLeftY,
+    x: px(topLeftX),
+    y: px(topLeftY),
     tips_x: 0,
     tips_y: -45,
     default_type: hmUI.edit_type.HEART
@@ -365,13 +365,13 @@ export const EDIT_TL_TEXT_IMG = {
 
 
 // BEGIN Top Right Edit Widgets
-const topRightX = 239;
-const topRightY = 115;
+const topRightX = px(239);
+const topRightY = px(115);
 
 export const EDIT_TOP_RIGHT_GROUP = {
     edit_id: 102,
-    x: topRightX,
-    y: topRightY,
+    x: px(topRightX),
+    y: px(topRightY),
     tips_x: -25,
     tips_y: -45,
     default_type: hmUI.edit_type.STEP
@@ -392,13 +392,13 @@ export const EDIT_TR_TEXT_IMG = {
 
 
 // BEGIN Bottom Left Edit Widgets
-const bottomLeftX = 12;
-const bottomLeftY = 200;
+const bottomLeftX = px(12);
+const bottomLeftY = px(200);
 
 export const EDIT_BOTTOM_LEFT_GROUP = {
     edit_id: 103,
-    x: bottomLeftX,
-    y: bottomLeftY,
+    x: px(bottomLeftX),
+    y: px(bottomLeftY),
     tips_x: 0,
     tips_y: 75,
     default_type: hmUI.edit_type.WEATHER
@@ -419,13 +419,13 @@ export const EDIT_BL_TEXT_IMG = {
 
 
 // BEGIN Bottom Right Edit Widgets
-const bottomRightX = 239;
-const bottomRightY = 200;
+const bottomRightX = px(239);
+const bottomRightY = px(200);
 
 export const EDIT_BOTTOM_RIGHT_GROUP = {
     edit_id: 104,
-    x: bottomRightX,
-    y: bottomRightY,
+    x: px(bottomRightX),
+    y: px(bottomRightY),
     tips_x: -25,
     tips_y: 75,
     default_type: hmUI.edit_type.DISTANCE
