@@ -52,7 +52,13 @@ import {
     EDIT_DISTANCE_IMG,
     EDIT_DISTANCE_TEXT_IMG,
     EDIT_WEATHER_CONDITION_IMG_LEVEL,
-    EDIT_WEATHER_CURRENT_TEXT_IMG
+    EDIT_WEATHER_CURRENT_TEXT_IMG,
+    EDIT_PAI_IMG,
+    EDIT_PAI_TEXT_IMG,
+    EDIT_UVI_IMG,
+    EDIT_UVI_TEXT_IMG,
+    EDIT_ALTIMETER_IMG,
+    EDIT_ALTIMETER_TEXT_IMG
 } from "./styles";
 import {BG_IMG, BG_FILL_RECT} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS} from "../../utils/config/constants";
@@ -122,7 +128,19 @@ WatchFace({
             case hmUI.edit_type.DISTANCE:
                 hmUI.createWidget(hmUI.widget.IMG, mergeStyles(imgStyle, EDIT_DISTANCE_IMG));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_DISTANCE_TEXT_IMG));
-                break;    
+                break; 
+            case hmUI.edit_type.ALTIMETER:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(imgStyle, EDIT_ALTIMETER_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_ALTIMETER_TEXT_IMG));
+                break;
+            case hmUI.edit_type.UVI:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(imgStyle, EDIT_UVI_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_UVI_TEXT_IMG));
+                break;
+            case hmUI.edit_type.PAI:
+                hmUI.createWidget(hmUI.widget.IMG, mergeStyles(imgStyle, EDIT_PAI_IMG));
+                hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_PAI_TEXT_IMG));
+                break;              
         }
     },
 

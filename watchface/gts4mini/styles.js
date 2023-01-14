@@ -109,7 +109,7 @@ export const BG_VALUE_NO_DATA_TEXT = {
 
 export const BG_VALUE_TEXT_IMG = {
     x: px(114),
-    y: px(122),
+    y: px(125),
     w: px(108),
     color: Colors.white,
     align_h: hmUI.align.CENTER_H,
@@ -302,15 +302,27 @@ export const EDIT_GROUP_DEFAULTS = {
             preview: img('widgets/steps.png')
         },
         {
+            type: hmUI.edit_type.DISTANCE,
+            preview: img('widgets/distance.png')
+        },
+        {
+            type: hmUI.edit_type.PAI_DAILY,
+            preview: img('widgets/pai.png')
+        },
+        {
             type: hmUI.edit_type.WEATHER,
             preview: img('widgets/temp.png')
         },
         {
-            type: hmUI.edit_type.DISTANCE,
-            preview: img('widgets/distance.png')
+            type: hmUI.edit_type.ALTIMETER,
+            preview: img('widgets/air-pressure.png')
+        },
+        {
+            type: hmUI.edit_type.UVI,
+            preview: img('widgets/uvi.png')
         }
     ],
-    count: 4,
+    count: 7,
     tips_BG: img('mask/text_tag.png'),
     tips_width: 110,
     tips_margin: 5, // optional, default value: 0
@@ -478,7 +490,7 @@ export const EDIT_DISTANCE_TEXT_IMG = {
     align_h: hmUI.align.LEFT  // override alignment because of unit
 };
 
-// WEATHER_CURRENT widget unit-temperature-imperial.png
+// WEATHER widget
 export const EDIT_WEATHER_CONDITION_IMG_LEVEL = {
     image_array: weatherArr, // 90x40px
     image_length: weatherArr.length,
@@ -492,5 +504,29 @@ export const EDIT_WEATHER_CURRENT_TEXT_IMG = {
     imperial_unit_sc: img('smallNum/unit-temperature-imperial.png'),
     imperial_unit_tc: img('smallNum/unit-temperature-imperial.png'),
     imperial_unit_en: img('smallNum/unit-temperature-imperial.png')
+};
+
+// STEP widget
+export const EDIT_PAI_IMG = {
+    src: img('widgets/pai.png') // 40x40px
+};
+export const EDIT_PAI_TEXT_IMG = {
+    type: hmUI.data_type.PAI_DAILY
+};
+
+// STEP widget
+export const EDIT_UVI_IMG = {
+    src: img('widgets/uvi.png') // 40x40px
+};
+export const EDIT_UVI_TEXT_IMG = {
+    type: hmUI.data_type.UVI
+};
+
+// STEP widget
+export const EDIT_ALTIMETER_IMG = {
+    src: img('widgets/air-pressure.png') // 40x40px
+};
+export const EDIT_ALTIMETER_TEXT_IMG = {
+    type: hmUI.data_type.ALTIMETER
 };
 // END Edit Widgets
