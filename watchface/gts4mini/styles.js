@@ -281,7 +281,7 @@ export const EDIT_MASK_70 = {
 
 
 // BEGIN edit group default styles
-const editWidgetW = px(85);
+const editWidgetW = px(90);
 const editWidgetH = px(70);
 const editWidgetIconHeight = 40;
 const editWidgetIconWidth = 40;
@@ -338,8 +338,8 @@ export const EDIT_DEFAULT_TEXT_IMG = {
 
 
 // BEGIN Top Left Edit Widgets
-const topLeftX = px(12);
-const topLeftY = px(115);
+const topLeftX = px(7);
+const topLeftY = px(110);
 
 export const EDIT_TOP_LEFT_GROUP = {
     edit_id: 101,
@@ -366,7 +366,7 @@ export const EDIT_TL_TEXT_IMG = {
 
 // BEGIN Top Right Edit Widgets
 const topRightX = px(239);
-const topRightY = px(115);
+const topRightY = px(110);
 
 export const EDIT_TOP_RIGHT_GROUP = {
     edit_id: 102,
@@ -392,8 +392,8 @@ export const EDIT_TR_TEXT_IMG = {
 
 
 // BEGIN Bottom Left Edit Widgets
-const bottomLeftX = px(12);
-const bottomLeftY = px(200);
+const bottomLeftX = px(7);
+const bottomLeftY = px(195);
 
 export const EDIT_BOTTOM_LEFT_GROUP = {
     edit_id: 103,
@@ -420,7 +420,7 @@ export const EDIT_BL_TEXT_IMG = {
 
 // BEGIN Bottom Right Edit Widgets
 const bottomRightX = px(239);
-const bottomRightY = px(200);
+const bottomRightY = px(195);
 
 export const EDIT_BOTTOM_RIGHT_GROUP = {
     edit_id: 104,
@@ -480,7 +480,7 @@ export const EDIT_DISTANCE_TEXT_IMG = {
 
 // WEATHER_CURRENT widget unit-temperature-imperial.png
 export const EDIT_WEATHER_CONDITION_IMG_LEVEL = {
-    image_array: weatherArr, // 70x40px
+    image_array: weatherArr, // 90x40px
     image_length: weatherArr.length,
     type: hmUI.data_type.WEATHER
 };
