@@ -22,6 +22,7 @@ export const BG_FILL_RECT = {
     w: px(DEVICE_WIDTH),
     h: px(DEVICE_HEIGHT),
     color: Colors.black,
+    show_level: hmUI.show_level.ONAL_AOD
 }
 
 export const BG_IMG = {

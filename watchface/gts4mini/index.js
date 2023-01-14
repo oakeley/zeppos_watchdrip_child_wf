@@ -54,7 +54,7 @@ import {
     EDIT_WEATHER_CONDITION_IMG_LEVEL,
     EDIT_WEATHER_CURRENT_TEXT_IMG
 } from "./styles";
-import {BG_IMG} from "../../utils/config/styles_global";
+import {BG_IMG, BG_FILL_RECT} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS} from "../../utils/config/constants";
 
 let imgBg, digitalClock, btDisconnected, daysImg, dateImg, mask, maskCover, editGroupTopLeft, editGroupTopRight, 
@@ -62,7 +62,7 @@ let imgBg, digitalClock, btDisconnected, daysImg, dateImg, mask, maskCover, edit
 let bgValNoDataTextWidget, bgValTextImgWidget, bgValTimeTextWidget, bgDeltaTextWidget, bgTrendImageWidget, bgStaleLine, 
     phoneBattery, watchBattery, bgStatusLow, bgStatusOk, bgStatusHigh, progress, aapsText, aapsTimeText;
 
-let globalNS, progressTimer, progressAngle;
+let globalNS, progressTimer, progressAngle, screenType;
 
 let debug, watchdrip;
 
@@ -128,7 +128,12 @@ WatchFace({
 
     // Init View
     initView() {
-        imgBg = hmUI.createWidget(hmUI.widget.IMG, BG_IMG);
+        screenType = hmSetting.getScreenType();
+        if (screenType === hmSetting.screen_type.AOD) {
+            imgBg = hmUI.createWidget(hmUI.widget.FILL_RECT, BG_FILL_RECT);
+        } else {
+            imgBg = hmUI.createWidget(hmUI.widget.IMG, BG_IMG);
+        }
 
         digitalClock = hmUI.createWidget(hmUI.widget.IMG_TIME, DIGITAL_TIME);
 

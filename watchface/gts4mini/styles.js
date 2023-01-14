@@ -48,10 +48,10 @@ export const DIGITAL_TIME = {
     pm_y: px(42),
     pm_sc_path: img('bigNum/pm.png'),
     pm_en_path: img('bigNum/pm.png'),
-    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT
+    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT | hmUI.show_level.ONAL_AOD
 };
 
-const dateX = 163;
+const dateX = px(163);
 const dateY = 75;
 const dateFontWidth = 16; // widest image in font array
 const dateDotWidth = 7;
@@ -81,21 +81,12 @@ export const DATE_TEXT_IMG = {
     month_unit_sc: img('smallNumAccent/d.png'), // dot
     month_unit_tc: img('smallNumAccent/d.png'),
     month_unit_en: img('smallNumAccent/d.png'),
-    /*year_startX: px(dateX + (dateFontWidth * 4) + (dateDotWidth * 2) + (dateFontSpacing * 6)),
-    year_startY: px(dateY),
-    year_follow: 0,
-    year_zero: 1,
-    year_space: dateFontSpacing,
-    year_align: hmUI.align.LEFT,
-    year_sc_array: smallNumAccentArr,
-    year_tc_array: smallNumAccentArr,
-    year_en_array: smallNumAccentArr,*/
     show_level: hmUI.show_level.ONLY_NORMAL
 };
 
 export const WEEK_DAYS_IMG = {
     x: px(101),
-    y: (75),
+    y: px(75),
     week_en: weekEnArr,
     week_tc: weekEnArr,
     week_sc: weekEnArr,
@@ -127,7 +118,7 @@ export const BG_VALUE_TEXT_IMG = {
     text: '0',
     visible: false,
     h_space:1,
-    show_level: hmUI.show_level.ONLY_NORMAL
+    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONAL_AOD
 };
 
 export const BG_TIME_TEXT = {
