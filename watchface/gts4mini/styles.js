@@ -474,12 +474,13 @@ export const EDIT_DISTANCE_TEXT_IMG = {
     unit_en: img('smallNum/unit-distance-metric.png'),
     imperial_unit_sc: img('smallNum/unit-distance-imperial.png'),
     imperial_unit_tc: img('smallNum/unit-distance-imperial.png'),
-    imperial_unit_en: img('smallNum/unit-distance-imperial.png')
+    imperial_unit_en: img('smallNum/unit-distance-imperial.png'),
+    align_h: hmUI.align.LEFT  // override alignment because of unit
 };
 
 // WEATHER_CURRENT widget unit-temperature-imperial.png
 export const EDIT_WEATHER_CONDITION_IMG_LEVEL = {
-    image_array: weatherArr, // 40x40px
+    image_array: weatherArr, // 70x40px
     image_length: weatherArr.length,
     type: hmUI.data_type.WEATHER
 };
