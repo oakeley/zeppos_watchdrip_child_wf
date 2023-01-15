@@ -23,7 +23,7 @@ export const BG_FILL_RECT = {
     h: px(DEVICE_HEIGHT),
     color: Colors.black,
     show_level: hmUI.show_level.ONAL_AOD
-}
+};
 
 export const BG_IMG = {
     x: px(0),
@@ -32,4 +32,4 @@ export const BG_IMG = {
     h: px(DEVICE_HEIGHT),
     src: img("bg/bg.png"),
     show_level: hmUI.show_level.ONLY_NORMAL
-}
+};
