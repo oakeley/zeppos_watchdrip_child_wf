@@ -278,7 +278,7 @@ WatchFace({
             // Fill data from modified xDrip ExternalStatusService.getLastStatusLine()    
             case CUSTOM_WIDGETS.AAPS:
                 let aapsString = "";
-                let insText = "IOB: " + treatmentObj.insulin + " U";
+                let insText = "IOB: " + treatmentObj.insulin.toFixed(2) + " U";
                 insText = insText.replace(".0 U", " U");
                 aapsString = aapsString + insText + " - ";        
                 let carbText = "COB: " + treatmentObj.carbs + " g";

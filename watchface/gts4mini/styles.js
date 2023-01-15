@@ -173,7 +173,7 @@ export const AAPS_TEXT = {
     x: px(18),
     y: px(316),
     w: px(300),
-    h: px(28),
+    h: px(30),
     color: Colors.white,
     text_size: px(23),
     align_h: hmUI.align.CENTER_H,
@@ -185,13 +185,13 @@ export const AAPS_TEXT = {
 // Xdrip modified to put ExternalStatusService.getLastStatusLineTime()
 export const AAPS_TIME_TEXT = {
     x: px(50),
-    y: px(345),
+    y: px(347),
     w: px(236),
-    h: px(28),
+    h: px(30),
     color: Colors.defaultTransparent,
     text_size: px(23),
     align_h: hmUI.align.CENTER_H,
-    align_v: hmUI.align.TOP,
+    align_v: hmUI.align.CENTER_V,
     text_style: hmUI.text_style.NONE,
     show_level: hmUI.show_level.ONLY_NORMAL
 };
