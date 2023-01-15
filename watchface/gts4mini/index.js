@@ -58,7 +58,8 @@ import {
     EDIT_UVI_IMG,
     EDIT_UVI_TEXT_IMG,
     EDIT_ALTIMETER_IMG,
-    EDIT_ALTIMETER_TEXT_IMG
+    EDIT_ALTIMETER_TEXT_IMG,
+    EDIT_MOON_IMG_LEVEL
 } from "./styles";
 import {BG_IMG, BG_FILL_RECT} from "../../utils/config/styles_global";
 import {PROGRESS_ANGLE_INC, PROGRESS_UPDATE_INTERVAL_MS} from "../../utils/config/constants";
@@ -140,6 +141,9 @@ WatchFace({
             case hmUI.edit_type.PAI:
                 hmUI.createWidget(hmUI.widget.IMG, mergeStyles(imgStyle, EDIT_PAI_IMG));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(textImgStyle, EDIT_PAI_TEXT_IMG));
+                break;
+            case hmUI.edit_type.MOON:
+                hmUI.createWidget(hmUI.widget.IMG_LEVEL, mergeStyles(imgStyle, EDIT_MOON_IMG_LEVEL));
                 break;              
         }
     },

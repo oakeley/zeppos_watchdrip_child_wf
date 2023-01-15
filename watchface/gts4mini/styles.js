@@ -25,6 +25,10 @@ let weatherArr = range(29).map((v) => {
     return img(`weather/${v}.png`);
 });
 
+let moonArr = range(1, 30).map((v) => {
+    return img(`moon/${v}.png`);
+});
+
 export const DIGITAL_TIME = {
     hour_startX: px(84),
     hour_startY: px(6),
@@ -320,9 +324,13 @@ export const EDIT_GROUP_DEFAULTS = {
         {
             type: hmUI.edit_type.UVI,
             preview: img('widgets/uvi.png')
+        },
+        {
+            type: hmUI.edit_type.MOON,
+            preview: img('widgets/moon.png')
         }
     ],
-    count: 7,
+    count: 8,
     tips_BG: img('mask/text_tag.png'),
     tips_width: 110,
     tips_margin: 5, // optional, default value: 0
@@ -528,5 +536,12 @@ export const EDIT_ALTIMETER_IMG = {
 };
 export const EDIT_ALTIMETER_TEXT_IMG = {
     type: hmUI.data_type.ALTIMETER
+};
+
+// MOON widget
+export const EDIT_MOON_IMG_LEVEL = {
+    image_array: moonArr, // 90x70px
+    image_length: moonArr.length,
+    type: hmUI.data_type.WEATHER
 };
 // END Edit Widgets
