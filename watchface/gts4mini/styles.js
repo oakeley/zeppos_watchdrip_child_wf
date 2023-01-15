@@ -173,7 +173,7 @@ export const AAPS_TEXT = {
     x: px(18),
     y: px(316),
     w: px(300),
-    h: px(30),
+    h: px(28),
     color: Colors.white,
     text_size: px(23),
     align_h: hmUI.align.CENTER_H,
@@ -184,10 +184,10 @@ export const AAPS_TEXT = {
 
 // Xdrip modified to put ExternalStatusService.getLastStatusLineTime()
 export const AAPS_TIME_TEXT = {
-    x: px(18),
-    y: px(342),
-    w: px(300),
-    h: px(32),
+    x: px(50),
+    y: px(345),
+    w: px(236),
+    h: px(28),
     color: Colors.defaultTransparent,
     text_size: px(23),
     align_h: hmUI.align.CENTER_H,
@@ -282,6 +282,48 @@ export const EDIT_MASK_70 = {
     src: img('mask/mask70.png'),
     show_level: hmUI.show_level.ONLY_EDIT
 };
+
+
+// BEGIN edit group treatments aaps/xdrip data
+export const CUSTOM_WIDGETS = {
+    XDRIP: 100001,
+    AAPS: 100002
+};
+
+export const EDIT_GROUP_AAPS_XDRIP = {
+    edit_id: 105,
+    x: px(50),
+    y: px(316),
+    w: px(236),
+    h: px(57),
+    select_image: img('mask/select-wide.png'),
+    un_select_image: img('mask/un_select-wide.png'),
+    optional_types: [
+        {
+            type: CUSTOM_WIDGETS.XDRIP,
+            title_sc: 'xDrip+ default treatments data',
+            title_tc: 'xDrip+ default treatments data',
+            title_en: 'xDrip+ default treatments data',
+            preview: img('widgets/xdrip.png')
+        },
+        {
+            type: CUSTOM_WIDGETS.AAPS,
+            title_sc: 'AAPS IOB/COB data (requires modified xDrip+)',
+            title_tc: 'AAPS IOB/COB data (requires modified xDrip+)',
+            title_en: 'AAPS IOB/COB data (requires modified xDrip+)',
+            preview: img('widgets/aaps.png')
+        }
+    ],
+    count: 2,
+    default_type: CUSTOM_WIDGETS.XDRIP,
+    tips_BG: img('mask/text_tag-wide.png'),
+    tips_width: 300,
+    tips_margin: 5, // optional, default value: 0,
+    tips_x: -32,
+    tips_y: -45,
+    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT
+};
+// END edit group treatments aaps/xdrip data
 
 
 // BEGIN edit group default styles
