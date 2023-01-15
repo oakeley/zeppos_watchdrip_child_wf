@@ -268,6 +268,7 @@ WatchFace({
         phoneBattery.setProperty(hmUI.prop.TEXT, watchdripData.getStatus().getBatVal());
 
         let treatmentObj = watchdripData.getTreatment();
+        // treatments formatting according to user selection
         const editTypeAAPSxDrip = editGroupAAPSxDrip.getProperty(hmUI.prop.CURRENT_TYPE);
         switch (editTypeAAPSxDrip) {
             // default xDrip data
@@ -299,6 +300,7 @@ WatchFace({
         bgStaleLine.setProperty(hmUI.prop.VISIBLE, watchdripData.isBgStale());
 
         let treatmentObj = watchdripData.getTreatment();
+        // treatments formatting according to user selection
         const editTypeAAPSxDrip = editGroupAAPSxDrip.getProperty(hmUI.prop.CURRENT_TYPE);
         switch (editTypeAAPSxDrip) {
             // default xDrip data
