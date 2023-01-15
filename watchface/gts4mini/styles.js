@@ -52,7 +52,7 @@ export const DIGITAL_TIME = {
     pm_y: px(42),
     pm_sc_path: img('bigNum/pm.png'),
     pm_en_path: img('bigNum/pm.png'),
-    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT | hmUI.show_level.ONAL_AOD
+    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONAL_AOD
 };
 
 const dateX = px(163);
