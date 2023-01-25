@@ -1,32 +1,44 @@
 import {img,range} from "../../utils/helper";
 import {Colors} from "../../utils/config/constants";
 
-let bgNumArr = range(10).map((v) => {
+const bgNumArr = range(10).map((v) => {
     return img(`bgNum/${v}.png`);
 });
 
-let bigNumArr = range(10).map((v) => {
+const bgNumAODArr = range(10).map((v) => {
+    return img(`bgNumAOD/${v}.png`);
+});
+
+const bigNumArr = range(10).map((v) => {
     return img(`bigNum/${v}.png`);
 });
 
-let smallNumArr = range(10).map((v) => {
+const bigNumAODArr = range(10).map((v) => {
+    return img(`bigNumAOD/${v}.png`);
+});
+
+const smallNumArr = range(10).map((v) => {
     return img(`smallNum/${v}.png`);
 });
 
-let smallNumAccentArr = range(10).map((v) => {
+const smallNumAccentArr = range(10).map((v) => {
     return img(`smallNumAccent/${v}.png`);
 });
 
-let weekEnArr = range(1, 8).map((v) => {
+const weekEnArr = range(1, 8).map((v) => {
     return img(`week_en/${v}.png`);
 });
 
-let weatherArr = range(29).map((v) => {
+const weatherArr = range(29).map((v) => {
     return img(`weather/${v}.png`);
 });
 
-let moonArr = range(1, 30).map((v) => {
+const moonArr = range(1, 30).map((v) => {
     return img(`moon/${v}.png`);
+});
+
+const stepsArr = range(10).map((v) => {
+    return img(`widgets/progress-right-10-100/progress${v}.png`);
 });
 
 export const DIGITAL_TIME = {
@@ -52,7 +64,26 @@ export const DIGITAL_TIME = {
     pm_y: px(42),
     pm_sc_path: img('bigNum/pm.png'),
     pm_en_path: img('bigNum/pm.png'),
-    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONAL_AOD
+    show_level: hmUI.show_level.ONLY_NORMAL
+};
+
+export const DIGITAL_TIME_AOD = {
+    hour_startX: px(54),
+    hour_startY: px(122),
+    hour_array: bigNumAODArr,
+    hour_unit_sc: img('bigNumAOD/sp.png'), // colon
+    hour_unit_tc: img('bigNumAOD/sp.png'),
+    hour_unit_en: img('bigNumAOD/sp.png'),
+    minute_array: bigNumAODArr,
+    am_sc_path: img('bigNumAOD/am.png'),
+    am_en_path: img('bigNumAOD/am.png'),
+    am_x: px(281),
+    am_y: px(151),
+    pm_sc_path: img('bigNumAOD/pm.png'),
+    pm_en_path: img('bigNumAOD/pm.png'),
+    pm_x: px(281),
+    pm_y: px(151),
+    show_level: hmUI.show_level.ONAL_AOD
 };
 
 const dateX = px(163);
@@ -115,14 +146,22 @@ export const BG_VALUE_TEXT_IMG = {
     x: px(114),
     y: px(125),
     w: px(108),
-    color: Colors.white,
     align_h: hmUI.align.CENTER_H,
     dot_image: img('bgNum/d.png'),
     font_array: bgNumArr,
     text: '0',
     visible: false,
     h_space:1,
-    show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONAL_AOD
+    show_level: hmUI.show_level.ONLY_NORMAL
+};
+
+export const BG_VALUE_TEXT_IMG_AOD = {
+    x: px(65),
+    y: px(201),
+    w: px(206),
+    dot_image: img('bgNumAOD/d.png'),
+    font_array: bgNumAODArr,
+    show_level: hmUI.show_level.ONAL_AOD
 };
 
 export const BG_TIME_TEXT = {
@@ -239,7 +278,7 @@ export const BG_STATUS_OK_IMG = {
 export const BG_STATUS_HIGH_IMG = {
     x: px(216),
     y: px(108),
-    src: 'watchdrip/bgHight.png',
+    src: 'watchdrip/bgHigh.png',
     show_level: hmUI.show_level.ONLY_NORMAL
 };
 
@@ -286,8 +325,9 @@ export const EDIT_MASK_70 = {
 
 // BEGIN edit group treatments aaps/xdrip data
 export const CUSTOM_WIDGETS = {
-    XDRIP: 100001,
-    AAPS: 100002
+    NONE: 100001,
+    XDRIP: 100002,
+    AAPS: 100003
 };
 
 export const EDIT_GROUP_AAPS_XDRIP = {
@@ -312,13 +352,21 @@ export const EDIT_GROUP_AAPS_XDRIP = {
             title_tc: 'AAPS IOB/COB data (requires modified xDrip+)',
             title_en: 'AAPS IOB/COB data (requires modified xDrip+)',
             preview: img('widgets/aaps.png')
+        },
+        // custom empty widget, nothing is rendered
+        {
+            type: CUSTOM_WIDGETS.NONE,
+            title_sc: 'None (empty space)',
+            title_tc: 'None (empty space)',
+            title_en: 'None (empty space)',
+            preview: img('widgets/empty.png')
         }
     ],
-    count: 2,
+    count: 3,
     default_type: CUSTOM_WIDGETS.XDRIP,
     tips_BG: img('mask/text_tag-wide.png'),
     tips_width: 300,
-    tips_margin: 5, // optional, default value: 0,
+    tips_margin: 0, // optional, default value: 0,
     tips_x: -32,
     tips_y: -45,
     show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT
@@ -344,12 +392,24 @@ export const EDIT_GROUP_DEFAULTS = {
             preview: img('widgets/heart.png')
         },
         {
+            type: hmUI.edit_type.SPO2,
+            preview: img('widgets/spo2.png')
+        },
+        {
             type: hmUI.edit_type.STEP,
-            preview: img('widgets/steps.png')
+            preview: img('widgets/steps/steps.png')
         },
         {
             type: hmUI.edit_type.DISTANCE,
             preview: img('widgets/distance.png')
+        },
+        {
+            type: hmUI.edit_type.CAL,
+            preview: img('widgets/calories.png')
+        },
+        {
+            type: hmUI.edit_type.STAND,
+            preview: img('widgets/stand.png')
         },
         {
             type: hmUI.edit_type.PAI_DAILY,
@@ -368,21 +428,41 @@ export const EDIT_GROUP_DEFAULTS = {
             preview: img('widgets/uvi.png')
         },
         {
+            type: hmUI.edit_type.AQI,
+            preview: img('widgets/aqi.png')
+        },
+        {
             type: hmUI.edit_type.MOON,
             preview: img('widgets/moon.png')
+        },
+        // custom empty widget, nothing is rendered
+        {
+            type: CUSTOM_WIDGETS.NONE,
+            title_sc: 'None (empty space)',
+            title_tc: 'None (empty space)',
+            title_en: 'None (empty space)',
+            preview: img('widgets/empty.png')
         }
     ],
-    count: 8,
+    count: 13,
     tips_BG: img('mask/text_tag.png'),
     tips_width: 110,
-    tips_margin: 5, // optional, default value: 0
+    tips_margin: 0, // optional, default value: 0
     show_level: hmUI.show_level.ONLY_NORMAL | hmUI.show_level.ONLY_EDIT
 };
 
 // Default styles for all IMG widgets 
 export const EDIT_DEFAULT_IMG = {
+    // TODO: make images full width and remove this
     w: px(editWidgetW), // full width to center
     pos_x: px((editWidgetW - editWidgetIconWidth) / 2), // center the image
+    show_level: hmUI.show_level.ONLY_NORMAL
+};
+
+// Default styles for all IMG_LEVEL widgets 
+export const EDIT_DEFAULT_IMG_LEVEL = {
+    w: px(40),
+    h: px(10),
     show_level: hmUI.show_level.ONLY_NORMAL
 };
 
@@ -394,7 +474,8 @@ export const EDIT_DEFAULT_TEXT_IMG = {
     align_h: hmUI.align.CENTER_H,
     show_level: hmUI.show_level.ONLY_NORMAL,
     font_array: smallNumArr,
-    dot_image: img('smallNum/d.png')
+    dot_image: img('smallNum/d.png'),
+    negative_image: img('smallNum/negative_image.png')
 };
 // END edit group default styles
 
@@ -416,6 +497,12 @@ export const EDIT_TOP_LEFT_GROUP = {
 export const EDIT_TL_IMG = {
     x: px(topLeftX),
     y: px(topLeftY)
+};
+
+// Styles for all Top Left IMG_LEVEL widgets
+export const EDIT_TL_IMG_LEVEL = {
+    x: px(topLeftX + editWidgetIconWidth + 8),
+    y: px(topLeftY + 15)
 };
 
 // Styles for all Top Left TEXT_IMG widgets
@@ -445,6 +532,12 @@ export const EDIT_TR_IMG = {
     y: px(topRightY)
 };
 
+// Styles for all Top Right IMG_LEVEL widgets
+export const EDIT_TR_IMG_LEVEL = {
+    x: px(topRightX + editWidgetIconWidth + 8),
+    y: px(topRightY + 15)
+};
+
 // Styles for all Top Right TEXT_IMG widgets
 export const EDIT_TR_TEXT_IMG = {
     x: px(topRightX),
@@ -470,6 +563,12 @@ export const EDIT_BOTTOM_LEFT_GROUP = {
 export const EDIT_BL_IMG = {
     x: px(bottomLeftX),
     y: px(bottomLeftY)
+};
+
+// Styles for all Bottom Left IMG_LEVEL widgets
+export const EDIT_BL_IMG_LEVEL = {
+    x: px(bottomLeftX + editWidgetIconWidth + 8),
+    y: px(bottomLeftY + 15)
 };
 
 // Styles for all Bottom Left TEXT_IMG widgets
@@ -499,7 +598,13 @@ export const EDIT_BR_IMG = {
     y: px(bottomRightY)
 };
 
-// Default styles for all Bottom Right TEXT_IMG widgets
+// Styles for all Bottom Right IMG_LEVEL widgets
+export const EDIT_BR_IMG_LEVEL = {
+    x: px(bottomRightX + editWidgetIconWidth + 8),
+    y: px(bottomRightY + 15)
+};
+
+// Styles for all Bottom Right TEXT_IMG widgets
 export const EDIT_BR_TEXT_IMG = {
     x: px(bottomRightX),
     y: px(bottomRightY + editWidgetIconHeight + editWidgetIconMargin)
@@ -519,7 +624,14 @@ export const EDIT_HEART_TEXT_IMG = {
 
 // STEP widget
 export const EDIT_STEP_IMG = {
-    src: img('widgets/steps.png') // 40x40px
+    src: img('widgets/steps/steps-base.png'), // 90x40px
+    pos_x: 0 // remove later 
+};
+export const EDIT_STEP_IMG_LEVEL = {
+    image_array: stepsArr, // 90x40px
+    image_length: stepsArr.length,
+    type: hmUI.data_type.STEP,
+    //level: 9
 };
 export const EDIT_STEP_TEXT_IMG = {
     type: hmUI.data_type.STEP
@@ -556,7 +668,7 @@ export const EDIT_WEATHER_CURRENT_TEXT_IMG = {
     imperial_unit_en: img('smallNum/unit-temperature-imperial.png')
 };
 
-// STEP widget
+// PAI widget
 export const EDIT_PAI_IMG = {
     src: img('widgets/pai.png') // 40x40px
 };
@@ -564,7 +676,7 @@ export const EDIT_PAI_TEXT_IMG = {
     type: hmUI.data_type.PAI_DAILY
 };
 
-// STEP widget
+// UVI widget
 export const EDIT_UVI_IMG = {
     src: img('widgets/uvi.png') // 40x40px
 };
@@ -572,12 +684,19 @@ export const EDIT_UVI_TEXT_IMG = {
     type: hmUI.data_type.UVI
 };
 
-// STEP widget
+// ALTIMETER widget
 export const EDIT_ALTIMETER_IMG = {
     src: img('widgets/air-pressure.png') // 40x40px
 };
 export const EDIT_ALTIMETER_TEXT_IMG = {
-    type: hmUI.data_type.ALTIMETER
+    type: hmUI.data_type.ALTIMETER,
+    nit_sc: img('smallNum/unit-pressure-metric.png'),
+    unit_tc: img('smallNum/unit-pressure-metric.png'),
+    unit_en: img('smallNum/unit-pressure-metric.png'),
+    imperial_unit_sc: img('smallNum/unit-pressure-imperial.png'),
+    imperial_unit_tc: img('smallNum/unit-pressure-imperial.png'),
+    imperial_unit_en: img('smallNum/unit-pressure-imperial.png'),
+    align_h: hmUI.align.LEFT  // override alignment because of unit
 };
 
 // MOON widget
@@ -585,5 +704,51 @@ export const EDIT_MOON_IMG_LEVEL = {
     image_array: moonArr, // 90x70px
     image_length: moonArr.length,
     type: hmUI.data_type.WEATHER
+};
+
+// CAL widget
+export const EDIT_CAL_IMG = {
+    src: img('widgets/calories.png') // 40x40px
+};
+export const EDIT_CAL_TEXT_IMG = {
+    type: hmUI.data_type.CAL,
+    nit_sc: img('smallNum/unit-calories.png'),
+    unit_tc: img('smallNum/unit-calories.png'),
+    unit_en: img('smallNum/unit-calories.png'),
+    imperial_unit_sc: img('smallNum/unit-calories.png'),
+    imperial_unit_tc: img('smallNum/unit-calories.png'),
+    imperial_unit_en: img('smallNum/unit-calories.png'),
+    align_h: hmUI.align.LEFT  // override alignment because of unit
+};
+
+// AQI widget
+export const EDIT_AQI_IMG = {
+    src: img('widgets/aqi.png') // 40x40px
+};
+export const EDIT_AQI_TEXT_IMG = {
+    type: hmUI.data_type.AQI
+};
+
+// SPO2 widget
+export const EDIT_SPO2_IMG = {
+    src: img('widgets/spo2.png') // 40x40px
+};
+export const EDIT_SPO2_TEXT_IMG = {
+    type: hmUI.data_type.SPO2,
+    nit_sc: img('smallNum/unit-spo2.png'),
+    unit_tc: img('smallNum/unit-spo2.png'),
+    unit_en: img('smallNum/unit-spo2.png'),
+    imperial_unit_sc: img('smallNum/unit-spo2.png'),
+    imperial_unit_tc: img('smallNum/unit-spo2.png'),
+    imperial_unit_en: img('smallNum/unit-spo2.png')
+};
+
+// STAND widget
+export const EDIT_STAND_IMG = {
+    src: img('widgets/stand.png') // 40x40px
+};
+export const EDIT_STAND_TEXT_IMG = {
+    type: hmUI.data_type.STAND,
+    dot_image: img('smallNum/slash.png')
 };
 // END Edit Widgets
