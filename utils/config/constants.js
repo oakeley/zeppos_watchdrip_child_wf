@@ -1,7 +1,15 @@
 import {MINUTE_IN_MS, SECOND_IN_MS} from "../../shared/date";
 
-export const DATA_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 30;
-export const DATA_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 3;
+// new code by oakeley
+/* export const DATA_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 5;
+export const DATA_UPDATE_INTERVAL_MS = SECOND_IN_MS * 20;
+
+export const DATA_AOD_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 5;
+export const DATA_AOD_UPDATE_INTERVAL_MS = SECOND_IN_MS * 20; */
+
+// old code
+export const DATA_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 20;
+export const DATA_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 2;
 
 export const DATA_AOD_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 30;
 export const DATA_AOD_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 5;
@@ -25,7 +33,8 @@ export const Colors = {
     black:0x000000,
     bgHigh:0xffa0a0,
     bgLow:0x8bbbff,
-    accent:0xffbeff37,
+    //accent:0xffbeff37,
+    accent:0xff99cc33,
 };
 
 /*set to true on wf creation*/
