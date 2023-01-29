@@ -25,7 +25,7 @@ export class BgData {
 
     static createEmpty() {
         if (TEST_DATA){
-            return new BgData("2.5", "+1.2", "Flat", true, false, Date.now()-2*MINUTE_IN_MS, false);
+            return new BgData("14.0", "+1.2", "Flat", true, false, Date.now()-2*MINUTE_IN_MS, false);
         }
         return new BgData("", "", "", false, false, null, true);
     }
