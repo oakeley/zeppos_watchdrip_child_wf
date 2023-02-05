@@ -37,6 +37,10 @@ const moonArr = range(1, 30).map((v) => {
     return img(`moon/${v}.png`);
 });
 
+const heartArr = range(1, 7).map((v) => {
+    return img(`widgets/heart/heart${v}.png`);
+});
+
 
 export const DIGITAL_TIME = {
     hour_startX: px(125),
@@ -150,7 +154,6 @@ export const BG_VALUE_TEXT_IMG = {
     align_h: hmUI.align.CENTER_H,
     dot_image: img('bgNum/d.png'),
     font_array: bgNumArr,
-    text: '0',
     visible: false,
     h_space:1,
     show_level: hmUI.show_level.ONLY_NORMAL
@@ -429,7 +432,7 @@ const editWidgetArcMarginTop = 0;
 const editGroupTypes = [
     {
         type: hmUI.edit_type.HEART,
-        preview: img('widgets/heart.png')
+        preview: img('widgets/heart/heart.png')
     },
     {
         type: hmUI.edit_type.SPO2,
@@ -511,26 +514,15 @@ export const EDIT_DEFAULT_IMG = {
 
 // Default styles for all ARC_PROGRESS Left widgets
 const EDIT_DEFAULT_ARC_PROGRESS_LEFT = {
- //   radius: px(editWidgetArcRadius),
- //   start_angle: 180,
- //   end_angle: 360,
- //   color: Colors.accent,
- //   line_width: editWidgetArcLineWidth,
- //   show_level: hmUI.show_level.ONLY_NORMAL
+
 };
 // Default styles for all ARC_PROGRESS RIGHT widgets
 const EDIT_DEFAULT_ARC_PROGRESS_RIGHT = {
- //   radius: px(editWidgetArcRadius),
- //   start_angle: 180,
- //   end_angle: 0,
- //   color: Colors.accent,
- //   line_width: editWidgetArcLineWidth,
- //   show_level: hmUI.show_level.ONLY_NORMAL
+   
 };
 
 export const EDIT_DEFAULT_ARC_PROGRESS = {
-  //  left: EDIT_DEFAULT_ARC_PROGRESS_LEFT,
-  //  right: EDIT_DEFAULT_ARC_PROGRESS_RIGHT
+   
 };
 
 // Default styles for all TEXT_IMG widgets
@@ -552,39 +544,34 @@ const topLeftX = 19;
 const topLeftY = 119;
 
 export const EDIT_TOP_LEFT_GROUP = {
-  //  edit_id: 101,
-  //  x: px(topLeftX),
-  //  y: px(topLeftY),
-  //  tips_x: 0,
-  //  tips_y: -45,
-  //  default_type: hmUI.edit_type.HEART
+
 }; 
 
 // Styles for all Top Left IMG widgets
 export const EDIT_TL_IMG = {
-  //  x: px(topLeftX),
-  //  y: px(topLeftY)
+
+
 };
 
 // Styles for all Top Left ARC_PROGRESS widgets
 const EDIT_TL_ARC_PROGRESS_LEFT = {
-   // center_x: px(topLeftX + editWidgetArcRadius + editWidgetArcMarginX + (editWidgetArcLineWidth / 2)),
-   // center_y: px(topLeftY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+    center_x: px(topLeftX + editWidgetArcRadius + editWidgetArcMarginX + (editWidgetArcLineWidth / 2)),
+    center_y: px(topLeftY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
 };
 // Styles for all Top Left ARC_PROGRESS Right widgets
 const EDIT_TL_ARC_PROGRESS_RIGHT = {
-   // center_x: px(topLeftX + editWidgetArcRadius + (2 * editWidgetArcMarginX) + editWidgetIconWidth + (editWidgetArcLineWidth / 2) + 1),
-   // center_y: px(topLeftY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+
+
 };
 export const EDIT_TL_ARC_PROGRESS = {
-   // left: EDIT_TL_ARC_PROGRESS_LEFT,
-   // right: EDIT_TL_ARC_PROGRESS_RIGHT
+ 
+
 };
 
 // Styles for all Top Left TEXT_IMG widgets
 export const EDIT_TL_TEXT_IMG = {
-   // x: px(topLeftX),
-   // y: px(topLeftY + editWidgetIconHeight + editWidgetIconMargin)
+
+
 };
 // END Top Left Edit Widgets
 
@@ -594,39 +581,35 @@ const topRightX = 310;
 const topRightY = 124;
 
 export const EDIT_TOP_RIGHT_GROUP = {
-   // edit_id: 102,
-   // x: px(topRightX),
-   // y: px(topRightY),
-   // tips_x: -25,
-   // tips_y: -45,
-   // default_type: hmUI.edit_type.STEP
+
+
 }; 
 
 // Default styles for all Top Right IMG widgets
 export const EDIT_TR_IMG = {
-   // x: px(topRightX),
-   // y: px(topRightY)
+
+
 };
 
 // Styles for all Top Right ARC_PROGRESS widgets
 const EDIT_TR_ARC_PROGRESS_LEFT = {
-   // center_x: px(topRightX + editWidgetArcRadius + editWidgetArcMarginX + (editWidgetArcLineWidth / 2)),
-   // center_y: px(topRightY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+
+
 };
 // Styles for all Top Right ARC_PROGRESS Right widgets
 const EDIT_TR_ARC_PROGRESS_RIGHT = {
-   // center_x: px(topRightX + editWidgetArcRadius + (2 * editWidgetArcMarginX) + editWidgetIconWidth + (editWidgetArcLineWidth / 2) + 1),
-   // center_y: px(topRightY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+
+
 };
 export const EDIT_TR_ARC_PROGRESS = {
-   // left: EDIT_TR_ARC_PROGRESS_LEFT,
-   // right: EDIT_TR_ARC_PROGRESS_RIGHT
+    left: EDIT_TR_ARC_PROGRESS_LEFT,
+    right: EDIT_TR_ARC_PROGRESS_RIGHT
 };
 
 // Styles for all Top Right TEXT_IMG widgets
 export const EDIT_TR_TEXT_IMG = {
-   // x: px(topRightX),
-   // y: px(topRightY + editWidgetIconHeight + editWidgetIconMargin)
+
+
 };
 // END Top Right Edit Widgets
 
@@ -636,39 +619,35 @@ const bottomLeftX = 19;
 const bottomLeftY = 211;
 
 export const EDIT_BOTTOM_LEFT_GROUP = {
-   // edit_id: 103,
-   // x: px(bottomLeftX),
-   // y: px(bottomLeftY),
-   // tips_x: 0,
-   // tips_y: 75,
-   // default_type: hmUI.edit_type.WEATHER
+
+
 }; 
 
 // Styles for all Bottom Left IMG widgets
 export const EDIT_BL_IMG = {
-   // x: px(bottomLeftX),
-   // y: px(bottomLeftY)
+
+
 };
 
 // Styles for all Bottom Left ARC_PROGRESS widgets
 const EDIT_BL_ARC_PROGRESS_LEFT = {
-   // center_x: px(bottomLeftX + editWidgetArcRadius + editWidgetArcMarginX + (editWidgetArcLineWidth / 2)),
-   // center_y: px(bottomLeftY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+ 
+
 };
 // Styles for all Bottom Left ARC_PROGRESS Right widgets
 const EDIT_BL_ARC_PROGRESS_RIGHT = {
-   // center_x: px(bottomLeftX + editWidgetArcRadius + (2 * editWidgetArcMarginX) + editWidgetIconWidth + (editWidgetArcLineWidth / 2) + 1),
-   // center_y: px(bottomLeftY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+
+
 };
 export const EDIT_BL_ARC_PROGRESS = {
-   // left: EDIT_BL_ARC_PROGRESS_LEFT,
-   // right: EDIT_BL_ARC_PROGRESS_RIGHT
+
+
 };
 
 // Styles for all Bottom Left TEXT_IMG widgets
 export const EDIT_BL_TEXT_IMG = {
-   // x: px(bottomLeftX),
-   // y: px(bottomLeftY + editWidgetIconHeight + editWidgetIconMargin)
+
+
 };
 // END Bottom Left Edit Widgets
 
@@ -678,12 +657,8 @@ const bottomRightX = 310;
 const bottomRightY = 211;
 
 export const EDIT_BOTTOM_RIGHT_GROUP = {
-   // edit_id: 104,
-   // x: px(bottomRightX),
-   // y: px(bottomRightY),
-   // tips_x: -25,
-   // tips_y: 75,
-   // default_type: hmUI.edit_type.DISTANCE
+
+
 }; 
 
 // Styles for all Bottom Right IMG widgets
@@ -694,23 +669,23 @@ export const EDIT_BR_IMG = {
 
 // Styles for all Bottom Right ARC_PROGRESS widgets
 const EDIT_BR_ARC_PROGRESS_LEFT = {
-   // center_x: px(bottomRightX + editWidgetArcRadius + editWidgetArcMarginX + (editWidgetArcLineWidth / 2)),
-   // center_y: px(bottomRightY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+
+
 };
 // Styles for all Bottom Right ARC_PROGRESS Right widgets
 const EDIT_BR_ARC_PROGRESS_RIGHT = {
-   // center_x: px(bottomRightX + editWidgetArcRadius + (2 * editWidgetArcMarginX) + editWidgetIconWidth + (editWidgetArcLineWidth / 2) + 1),
-   // center_y: px(bottomRightY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+
+
 };
 export const EDIT_BR_ARC_PROGRESS = {
-   // left: EDIT_BR_ARC_PROGRESS_LEFT,
-   // right: EDIT_BR_ARC_PROGRESS_RIGHT
+
+
 };
 
 // Styles for all Bottom Right TEXT_IMG widgets
 export const EDIT_BR_TEXT_IMG = {
-   // x: px(bottomRightX),
-   // y: px(bottomRightY + editWidgetIconHeight + editWidgetIconMargin)
+
+
 };
 // END Bottom Right Edit Widgets
 
@@ -719,8 +694,13 @@ export const EDIT_BR_TEXT_IMG = {
 // These styles are merged with the above default styles.
 // HEART widget
 export const EDIT_HEART_IMG = {
-    src: img('widgets/heart.png'), // 40x40px
-    pos_x: px((editWidgetW - editWidgetIconWidth) / 2) // center the image
+    src: img('widgets/heart/heart-base.png') // 90x40px
+};
+export const EDIT_HEART_IMG_LEVEL = {
+    image_array: heartArr, // 90x40px
+    image_length: heartArr.length,
+    type: hmUI.data_type.HEART
+    //level: 3
 };
 export const EDIT_HEART_TEXT_IMG = {
     type: hmUI.data_type.HEART
