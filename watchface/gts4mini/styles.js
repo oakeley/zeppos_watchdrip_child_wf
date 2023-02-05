@@ -118,9 +118,9 @@ export const DATE_TEXT_IMG = {
     month_sc_array: smallNumAccentArr,
     month_tc_array: smallNumAccentArr,
     month_en_array: smallNumAccentArr,
-    month_unit_sc: img('smallNumAccent/d.png'), // dot
-    month_unit_tc: img('smallNumAccent/d.png'),
-    month_unit_en: img('smallNumAccent/d.png'),
+    // month_unit_sc: img('smallNumAccent/d.png'), // dot
+    // month_unit_tc: img('smallNumAccent/d.png'),
+    // month_unit_en: img('smallNumAccent/d.png'),
     show_level: hmUI.show_level.ONLY_NORMAL
 };
 

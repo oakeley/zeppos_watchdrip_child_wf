@@ -1,8 +1,8 @@
 {
   "configVersion": "v2",
   "app": {
-    "appId": 28963,
-    "appName": "Watchdrip WF",
+    "appId": 38963,
+    "appName": "Watchdrip Child",
     "appType": "watchface",
     "version": {
       "code": 1,
