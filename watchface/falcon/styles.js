@@ -555,8 +555,8 @@ export const EDIT_TL_IMG = {
 
 // Styles for all Top Left ARC_PROGRESS widgets
 const EDIT_TL_ARC_PROGRESS_LEFT = {
-    center_x: px(topLeftX + editWidgetArcRadius + editWidgetArcMarginX + (editWidgetArcLineWidth / 2)),
-    center_y: px(topLeftY + editWidgetArcRadius + editWidgetArcMarginTop + (editWidgetArcLineWidth / 2))
+
+
 };
 // Styles for all Top Left ARC_PROGRESS Right widgets
 const EDIT_TL_ARC_PROGRESS_RIGHT = {
@@ -602,8 +602,7 @@ const EDIT_TR_ARC_PROGRESS_RIGHT = {
 
 };
 export const EDIT_TR_ARC_PROGRESS = {
-    left: EDIT_TR_ARC_PROGRESS_LEFT,
-    right: EDIT_TR_ARC_PROGRESS_RIGHT
+
 };
 
 // Styles for all Top Right TEXT_IMG widgets
@@ -663,8 +662,7 @@ export const EDIT_BOTTOM_RIGHT_GROUP = {
 
 // Styles for all Bottom Right IMG widgets
 export const EDIT_BR_IMG = {
-    x: px(bottomRightX),
-    y: px(bottomRightY)
+
 };
 
 // Styles for all Bottom Right ARC_PROGRESS widgets

@@ -7,6 +7,13 @@ import {
     BG_STATUS_HIGH_IMG,
     BG_STATUS_LOW_IMG,
     BG_STATUS_OK_IMG,
+    BG_STATUS_HIGHISH_IMG,
+    BG_STATUS_LOWISH_IMG,
+    TR_STATUS_HIGHISH_IMG,
+    TR_STATUS_LOWISH_IMG,
+    TR_STATUS_OK_IMG,
+    TR_STATUS_HIGH_IMG,
+    TR_STATUS_LOW_IMG,
     BG_TIME_TEXT,
     BG_TREND_IMAGE,
     BG_VALUE_NO_DATA_TEXT,
@@ -278,9 +285,19 @@ WatchFace({
         bgTrendImageWidget = hmUI.createWidget(hmUI.widget.IMG, BG_TREND_IMAGE);
         bgStaleLine = hmUI.createWidget(hmUI.widget.IMG, BG_STALE_IMG);
         phoneBattery = hmUI.createWidget(hmUI.widget.TEXT, PHONE_BATTERY_TEXT);
+        //bgStatusLow = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOW_IMG);
+        //bgStatusOk = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_OK_IMG);
+        //bgStatusHigh = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_HIGH_IMG);
         bgStatusLow = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOW_IMG);
+        bgStatusLowIsh = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOWISH_IMG);
         bgStatusOk = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_OK_IMG);
         bgStatusHigh = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_HIGH_IMG);
+        bgStatusHighIsh = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_HIGHISH_IMG);
+        trStatusHighIsh = hmUI.createWidget(hmUI.widget.IMG, TR_STATUS_HIGHISH_IMG);
+        trStatusHigh = hmUI.createWidget(hmUI.widget.IMG, TR_STATUS_HIGH_IMG);
+        trStatusLowIsh = hmUI.createWidget(hmUI.widget.IMG, TR_STATUS_LOWISH_IMG);
+        trStatusLow = hmUI.createWidget(hmUI.widget.IMG, TR_STATUS_LOW_IMG);
+        trStatusOk = hmUI.createWidget(hmUI.widget.IMG, TR_STATUS_OK_IMG);
         progress = hmUI.createWidget(hmUI.widget.IMG, IMG_LOADING_PROGRESS);
         stopLoader();
         // From modified xDrip ExternalStatusService.getLastStatusLine()
@@ -303,23 +320,53 @@ WatchFace({
     updateValuesWidget(watchdripData) {
         if (watchdripData === undefined) return;
         const bgObj = watchdripData.getBg();
-
+        const vLo = 3.0;
+        const qLo = 4.0;
+        const qHi = 9.0;
+        const Hi = 13.9;
+        const hiT = false
         bgStatusLow.setProperty(hmUI.prop.VISIBLE, false);
         bgStatusOk.setProperty(hmUI.prop.VISIBLE, false);
         bgStatusHigh.setProperty(hmUI.prop.VISIBLE, false);
+        bgStatusLowIsh.setProperty(hmUI.prop.VISIBLE, false);
+        bgStatusHighIsh.setProperty(hmUI.prop.VISIBLE, false);
+        trStatusHighIsh.setProperty(hmUI.prop.VISIBLE, false);
+        trStatusHigh.setProperty(hmUI.prop.VISIBLE, false);
+        trStatusLowIsh.setProperty(hmUI.prop.VISIBLE, false);
+        trStatusLow.setProperty(hmUI.prop.VISIBLE, false);
+        trStatusOk.setProperty(hmUI.prop.VISIBLE, false);
 
         if (bgObj.isHasData()) {
-            if (bgObj.isHigh || bgObj.isLow) {
-                if (bgObj.isHigh) {
-                    bgStatusHigh.setProperty(hmUI.prop.VISIBLE, true);
+            if (bgObj.val > Hi) {
+                bgStatusHigh.setProperty(hmUI.prop.VISIBLE, true);
+                trStatusHigh.setProperty(hmUI.prop.VISIBLE, true);
+                } else {
+                if (bgObj.val <= Hi || bgObj.isHigh) {
+                //if (bgObj.val <= Hi) {
+                bgStatusHigh.setProperty(hmUI.prop.VISIBLE, false);
+                trStatusHigh.setProperty(hmUI.prop.VISIBLE, false);
+                bgStatusHighIsh.setProperty(hmUI.prop.VISIBLE, true);
+                trStatusHighIsh.setProperty(hmUI.prop.VISIBLE, true);
+                    if (bgObj.val < qHi) {
+                        bgStatusHighIsh.setProperty(hmUI.prop.VISIBLE, false);
+                        trStatusHighIsh.setProperty(hmUI.prop.VISIBLE, false);
+                        bgStatusOk.setProperty(hmUI.prop.VISIBLE, true);
+                        trStatusOk.setProperty(hmUI.prop.VISIBLE, true);
+                        if (bgObj.val < qLo || bgObj.isLow) {
+                            bgStatusOk.setProperty(hmUI.prop.VISIBLE, false);
+                            trStatusOk.setProperty(hmUI.prop.VISIBLE, false);
+                            bgStatusLowIsh.setProperty(hmUI.prop.VISIBLE, true);
+                            trStatusLowIsh.setProperty(hmUI.prop.VISIBLE, true);
+                            if (bgObj.val < vLo) {
+                                bgStatusLowIsh.setProperty(hmUI.prop.VISIBLE, false);
+                                trStatusLowIsh.setProperty(hmUI.prop.VISIBLE, false);
+                                bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
+                                trStatusLow.setProperty(hmUI.prop.VISIBLE, true);
+                                };
+                            };
+                        };
+                    };
                 };
-                if (bgObj.isLow) {
-                    bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
-                };
-            } else {
-                bgStatusOk.setProperty(hmUI.prop.VISIBLE, true);
-            };
-            
             bgValTextImgWidget.setProperty(hmUI.prop.TEXT, bgObj.getBGVal());
             bgValTextImgWidget.setProperty(hmUI.prop.VISIBLE, true);
             bgValNoDataTextWidget.setProperty(hmUI.prop.VISIBLE, false);
@@ -354,9 +401,9 @@ WatchFace({
         };
 
         if (TEST_DATA) {
-            bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
-            bgStatusOk.setProperty(hmUI.prop.VISIBLE, true);
-            bgStatusHigh.setProperty(hmUI.prop.VISIBLE, true);
+          //  bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
+          //  bgStatusOk.setProperty(hmUI.prop.VISIBLE, true);
+          //  bgStatusHigh.setProperty(hmUI.prop.VISIBLE, true);
             bgValTimeTextWidget.setProperty(hmUI.prop.VISIBLE, true);
         }
     },
