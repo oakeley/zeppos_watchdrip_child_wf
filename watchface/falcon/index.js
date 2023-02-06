@@ -245,7 +245,14 @@ WatchFace({
         watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
         batterySensor.addEventListener(hmSensor.event.CHANGE, updateWidgets);
         
-        
+        // UI lifecycle proxy
+        const widgetDelegate = hmUI.createWidget(hmUI.widget.WIDGET_DELEGATE, {
+            resume_call: (function() {
+                // Update watch battery
+                updateWidgets();
+            })
+        });
+
         // BEGIN editable components init
         // 100% edit mask
         const maskCover = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_MASK, EDIT_MASK_100);

@@ -148,9 +148,9 @@ export const BG_VALUE_NO_DATA_TEXT = {
 };
 
 export const BG_VALUE_TEXT_IMG = {
-    x: px(141),
+    x: px(80),
     y: px(135),
-    w: px(134),
+    w: px(255),
     align_h: hmUI.align.CENTER_H,
     dot_image: img('bgNum/d.png'),
     font_array: bgNumArr,
