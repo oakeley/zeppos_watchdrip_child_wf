@@ -108,12 +108,12 @@ export const NORMAL_STEPS_TEXT_IMG = {
 }
 
 export const NORMAL_DIST_TEXT_IMG = {
-    x: px(170),
+    x: px(150),
     y: px(358),
     w: px(78),
     padding: false,
     h_space: 1,
-    align_h: hmUI.align.CENTER_H,
+    align_h: hmUI.align.RIGHT,
     type: hmUI.data_type.DISTANCE,
     dot_image: img('smallNumAccent/d.png'),
     show_level: hmUI.show_level.ONLY_NORMAL,
