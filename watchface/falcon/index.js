@@ -1,4 +1,5 @@
-import {Watchdrip} from "../../utils/watchdrip/watchdrip-mini";
+import {DebugText} from "../../shared/debug";
+import {Watchdrip} from "../../utils/watchdrip/watchdrip";
 import {WatchdripData} from "../../utils/watchdrip/watchdrip-data";
 import {getGlobal} from "../../shared/global";
 import {
@@ -6,9 +7,9 @@ import {
     BG_STALE_IMG,
     BG_STATUS_HIGH_IMG,
     BG_STATUS_LOW_IMG,
-    BG_STATUS_OK_IMG,
     BG_STATUS_HIGHISH_IMG,
     BG_STATUS_LOWISH_IMG,
+    BG_STATUS_OK_IMG,
     TR_STATUS_HIGHISH_IMG,
     TR_STATUS_LOWISH_IMG,
     TR_STATUS_OK_IMG,
@@ -19,6 +20,9 @@ import {
     BG_VALUE_NO_DATA_TEXT,
     BG_VALUE_TEXT_IMG,
     BG_VALUE_TEXT_IMG_AOD,
+    NORMAL_DIST_TEXT_IMG,
+    NORMAL_HEART_RATE_TEXT_IMG,
+    NORMAL_STEPS_TEXT_IMG,
     WEEK_DAYS_IMG,
     DATE_TEXT_IMG,
     DIGITAL_TIME,
@@ -62,7 +66,6 @@ import {
     EDIT_BR_TEXT_IMG,
     // Editable Widgets specific styles
     EDIT_HEART_IMG,
-    EDIT_HEART_IMG_LEVEL,
     EDIT_HEART_TEXT_IMG,
     EDIT_STEP_IMG,
     EDIT_STEP_ARC_PROGRESS,
@@ -84,6 +87,7 @@ import {
     EDIT_CAL_ARC_PROGRESS,
     EDIT_CAL_TEXT_IMG,
     EDIT_AQI_IMG,
+    EDIT_AQI_ARC_PROGRESS,
     EDIT_AQI_TEXT_IMG,
     EDIT_SPO2_IMG,
     EDIT_SPO2_TEXT_IMG,
@@ -104,8 +108,15 @@ let batterySensor;
 
 let globalNS, progressTimer, progressAngle, screenType;
 
+let debug, watchdrip;
 
 export const logger = Logger.getLogger("timer-page");
+
+function initDebug() {
+    globalNS.debug = new DebugText();
+    debug = globalNS.debug;
+    debug.setLines(12);
+};
 
 
 function startLoader() {
@@ -133,6 +144,7 @@ function stopLoader() {
 
 function updateWidgets() {
     if (typeof batterySensor !== 'undefined') {
+        screenType = hmSetting.getScreenType();
         if (screenType !== hmSetting.screen_type.AOD) {
             watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
         }
@@ -143,10 +155,6 @@ function mergeStyles(styleObj1, styleObj2, styleObj3 = {}) {
     return Object.assign({}, styleObj1, styleObj2, styleObj3);
 }
 
-function getGlobalWD() {
-    return getApp()._options.globalData.watchDrip;
-}
-
 
 WatchFace({
     // draws the editable widgets
@@ -154,7 +162,6 @@ WatchFace({
         switch (editType) {
             case hmUI.edit_type.HEART:
                 hmUI.createWidget(hmUI.widget.IMG, mergeStyles(EDIT_DEFAULT_IMG, imgStyle, EDIT_HEART_IMG));
-                hmUI.createWidget(hmUI.widget.IMG_LEVEL, mergeStyles(EDIT_DEFAULT_IMG, imgStyle, EDIT_HEART_IMG_LEVEL));
                 hmUI.createWidget(hmUI.widget.TEXT_IMG, mergeStyles(EDIT_DEFAULT_TEXT_IMG, textImgStyle, EDIT_HEART_TEXT_IMG));
                 break;
             case hmUI.edit_type.STEP:
@@ -244,6 +251,9 @@ WatchFace({
         batterySensor = hmSensor.createSensor(hmSensor.id.BATTERY);
         watchBattery = hmUI.createWidget(hmUI.widget.TEXT, WATCH_BATTERY_TEXT);
         batterySensor.addEventListener(hmSensor.event.CHANGE, updateWidgets);
+        normalHeartRateTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_HEART_RATE_TEXT_IMG);
+        normalStepsTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_STEPS_TEXT_IMG);
+        normalDistTextImg = hmUI.createWidget(hmUI.widget.TEXT_IMG, NORMAL_DIST_TEXT_IMG);
         
         // UI lifecycle proxy
         const widgetDelegate = hmUI.createWidget(hmUI.widget.WIDGET_DELEGATE, {
@@ -253,6 +263,7 @@ WatchFace({
             })
         });
 
+        
         // BEGIN editable components init
         // 100% edit mask
         const maskCover = hmUI.createWidget(hmUI.widget.WATCHFACE_EDIT_MASK, EDIT_MASK_100);
@@ -292,9 +303,6 @@ WatchFace({
         bgTrendImageWidget = hmUI.createWidget(hmUI.widget.IMG, BG_TREND_IMAGE);
         bgStaleLine = hmUI.createWidget(hmUI.widget.IMG, BG_STALE_IMG);
         phoneBattery = hmUI.createWidget(hmUI.widget.TEXT, PHONE_BATTERY_TEXT);
-      //  bgStatusLow = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOW_IMG);
-      //  bgStatusOk = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_OK_IMG);
-      //  bgStatusHigh = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_HIGH_IMG);
         bgStatusLow = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOW_IMG);
         bgStatusLowIsh = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_LOWISH_IMG);
         bgStatusOk = hmUI.createWidget(hmUI.widget.IMG, BG_STATUS_OK_IMG);
@@ -305,7 +313,6 @@ WatchFace({
         trStatusLowIsh = hmUI.createWidget(hmUI.widget.IMG, TR_STATUS_LOWISH_IMG);
         trStatusLow = hmUI.createWidget(hmUI.widget.IMG, TR_STATUS_LOW_IMG);
         trStatusOk = hmUI.createWidget(hmUI.widget.IMG, TR_STATUS_OK_IMG);
-
         progress = hmUI.createWidget(hmUI.widget.IMG, IMG_LOADING_PROGRESS);
         stopLoader();
         // From modified xDrip ExternalStatusService.getLastStatusLine()
@@ -328,15 +335,19 @@ WatchFace({
     updateValuesWidget(watchdripData) {
         if (watchdripData === undefined) return;
         const bgObj = watchdripData.getBg();
+        // Drop bgTest in here
+        //if (TEST_DATA) {bgObj.val = 9.0};
+        // xDrip only has low-Ok-High so I apply some settings that feel sensible... If xDrip has a better idea then it's high/low will be used for the extremes
         const vLo = 3.0;
         const qLo = 4.0;
         const qHi = 9.0;
         const Hi = 13.9;
         const hiT = false
+
         bgStatusLow.setProperty(hmUI.prop.VISIBLE, false);
+        bgStatusLowIsh.setProperty(hmUI.prop.VISIBLE, false);
         bgStatusOk.setProperty(hmUI.prop.VISIBLE, false);
         bgStatusHigh.setProperty(hmUI.prop.VISIBLE, false);
-        bgStatusLowIsh.setProperty(hmUI.prop.VISIBLE, false);
         bgStatusHighIsh.setProperty(hmUI.prop.VISIBLE, false);
         trStatusHighIsh.setProperty(hmUI.prop.VISIBLE, false);
         trStatusHigh.setProperty(hmUI.prop.VISIBLE, false);
@@ -409,9 +420,9 @@ WatchFace({
         };
 
         if (TEST_DATA) {
-           // bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
-           // bgStatusOk.setProperty(hmUI.prop.VISIBLE, true);
-           // bgStatusHigh.setProperty(hmUI.prop.VISIBLE, true);
+            //bgStatusLow.setProperty(hmUI.prop.VISIBLE, true);
+            //bgStatusOk.setProperty(hmUI.prop.VISIBLE, true);
+            //bgStatusHigh.setProperty(hmUI.prop.VISIBLE, true);
             bgValTimeTextWidget.setProperty(hmUI.prop.VISIBLE, true);
         }
     },
@@ -457,53 +468,32 @@ WatchFace({
     build() {
         logger.log("wf on build invoke");
         globalNS = getGlobal();
-
+        initDebug();
+        debug.log("build");
         this.initView();
-
-        const watchDrip = new Watchdrip();
-        getApp()._options.globalData.watchDrip = watchDrip;
-
-        watchDrip.setUpdateValueWidgetCallback(this.updateValuesWidget);
-        watchDrip.setUpdateTimesWidgetCallback(this.updateTimesWidget);
-        watchDrip.setOnUpdateStartCallback(this.updateStart);
-        watchDrip.setOnUpdateFinishCallback(this.updateFinish);
-        
-        // AOD runs on a timer, normal uses widget_delegate for updates
-        if (watchDrip.isAOD()) {
-            logger.log("IS_AOD_TRUE");
-            watchDrip.startTimerDataUpdates();
-            
-        } else {
-            logger.log("IS_AOD_FALSE");
-            hmUI.createWidget(hmUI.widget.WIDGET_DELEGATE, {
-                resume_call: (function() {
-                    logger.log("resume_call");
-                    watchDrip.checkUpdates();
-                    // Update watch battery
-                    updateWidgets();
-                }),
-                pause_call: (function() {
-                    logger.log("pause_call");
-                    watchDrip.updatingData = false;
-            
-                    stopLoader();
-                })
-            });
-        }
+        globalNS.watchdrip = new Watchdrip();
+        watchdrip = globalNS.watchdrip;
+        watchdrip.setUpdateValueWidgetCallback(this.updateValuesWidget);
+        watchdrip.setUpdateTimesWidgetCallback(this.updateTimesWidget);
+        watchdrip.setOnUpdateStartCallback(this.updateStart);
+        watchdrip.setOnUpdateFinishCallback(this.updateFinish);
+        watchdrip.start();
     },
 
     onDestroy() {
         logger.log("wf on destroy invoke");
-        getGlobalWD().destroy();
+        watchdrip.destroy();
 
-        stopLoader();
+        if (typeof batterySensor !== 'undefined') {
+            batterySensor.removeEventListener(hmSensor.event.CHANGE, updateWidgets);
+        }
     },
 
     onShow() {
-    
+        debug.log("onShow");
     },
 
     onHide() {
-    
+        debug.log("onHide");
     },
 });

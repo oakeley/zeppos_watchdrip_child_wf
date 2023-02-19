@@ -37,10 +37,6 @@ const moonArr = range(1, 30).map((v) => {
     return img(`moon/${v}.png`);
 });
 
-const heartArr = range(1, 7).map((v) => {
-    return img(`widgets/heart/heart${v}.png`);
-});
-
 
 export const DIGITAL_TIME = {
     hour_startX: px(153),
@@ -150,6 +146,7 @@ export const BG_VALUE_TEXT_IMG = {
     align_h: hmUI.align.CENTER_H,
     dot_image: img('bgNum/d.png'),
     font_array: bgNumArr,
+    text: '0',
     visible: false,
     h_space:1,
     show_level: hmUI.show_level.ONLY_NORMAL
@@ -388,7 +385,7 @@ const editWidgetArcMarginTop = 0;
 const editGroupTypes = [
     {
         type: hmUI.edit_type.HEART,
-        preview: img('widgets/heart/heart.png')
+        preview: img('widgets/heart.png')
     },
     {
         type: hmUI.edit_type.SPO2,
@@ -678,13 +675,8 @@ export const EDIT_BR_TEXT_IMG = {
 // These styles are merged with the above default styles.
 // HEART widget
 export const EDIT_HEART_IMG = {
-    src: img('widgets/heart/heart-base.png') // 90x40px
-};
-export const EDIT_HEART_IMG_LEVEL = {
-    image_array: heartArr, // 90x40px
-    image_length: heartArr.length,
-    type: hmUI.data_type.HEART
-    //level: 3
+    src: img('widgets/heart.png'), // 40x40px
+    pos_x: px((editWidgetW - editWidgetIconWidth) / 2) // center the image
 };
 export const EDIT_HEART_TEXT_IMG = {
     type: hmUI.data_type.HEART

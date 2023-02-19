@@ -1,8 +1,8 @@
 {
   "configVersion": "v2",
   "app": {
-    "appId": 38963,
-    "appName": "Watchdrip Child",
+    "appId": 28963,
+    "appName": "Watchdrip WF",
     "appType": "watchface",
     "version": {
       "code": 1,
@@ -12,6 +12,7 @@
     "description": "timer watchface",
     "icon": "images/preview.png"
   },
+  "permissions": ["gps"],
   "runtime": {
     "apiVersion": {
       "compatible": "1.0.0",
