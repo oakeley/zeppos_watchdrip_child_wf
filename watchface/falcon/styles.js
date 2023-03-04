@@ -182,9 +182,9 @@ export const BG_VALUE_NO_DATA_TEXT = {
 };
 
 export const BG_VALUE_TEXT_IMG = {
-    x: px(141),
-    y: px(135),
-    w: px(134),
+    x: px(125),
+    y: px(140),
+    w: px(164),
     align_h: hmUI.align.CENTER_H,
     dot_image: img('bgNum/d.png'),
     font_array: bgNumArr,
@@ -219,7 +219,7 @@ export const BG_TIME_TEXT = {
 export const BG_DELTA_TEXT = {
     x: px(166),
     y: px(206),
-    w: px(85),
+    w: px(95),
     h: px(49),
     color: Colors.defaultTransparent,
     text_size: px(27),

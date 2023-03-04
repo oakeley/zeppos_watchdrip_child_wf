@@ -147,6 +147,7 @@ function updateWidgets() {
         screenType = hmSetting.getScreenType();
         if (screenType !== hmSetting.screen_type.AOD) {
             watchBattery.setProperty(hmUI.prop.TEXT, batterySensor.current + '%');
+            updateValuesWidget(watchdripData);
         }
     }
 }

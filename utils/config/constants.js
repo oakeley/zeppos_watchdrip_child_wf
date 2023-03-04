@@ -1,25 +1,25 @@
 import {MINUTE_IN_MS, SECOND_IN_MS} from "../../shared/date";
 
-// new code by oakeley
-/* export const DATA_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 5;
-export const DATA_UPDATE_INTERVAL_MS = SECOND_IN_MS * 20;
+export const DATA_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 10;
+export const DATA_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 5;
 
-export const DATA_AOD_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 5;
-export const DATA_AOD_UPDATE_INTERVAL_MS = SECOND_IN_MS * 20; */
+export const APP_FETCH_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 1;
+export const APP_FETCH_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 5;
 
-// old code
-export const DATA_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 5;
-export const DATA_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 1;
+export const DATA_AOD_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 10;
+export const DATA_AOD_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 5;
 
-export const DATA_AOD_TIMER_UPDATE_INTERVAL_MS = SECOND_IN_MS * 5;
-export const DATA_AOD_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 1;
+export const DATA_STALE_TIME_MS = MINUTE_IN_MS * 2;
 
-export const DATA_STALE_TIME_MS = 30 * 1000;
+export const XDRIP_UPDATE_INTERVAL_MS = MINUTE_IN_MS * 5  + SECOND_IN_MS * 30;
+
+export const ALARM_UPDATE_INTERVAL = 3 * 60; //(in seconds)
 
 export const FILES_DIR = "/storage/watchdrip/";
 
 export const Commands = {
     getInfo: "CMD_GET_INFO",
+    putTreatment: "CMD_PUT_TREATMENTS",
     getImg: "CMD_GET_IMG",
 };
 
@@ -33,8 +33,7 @@ export const Colors = {
     black:0x000000,
     bgHigh:0xffa0a0,
     bgLow:0x8bbbff,
-    //accent:0xffbeff37,
-    accent:0xff99cc33,
+    accent:0xffbeff37,
 };
 
 /*set to true on wf creation*/

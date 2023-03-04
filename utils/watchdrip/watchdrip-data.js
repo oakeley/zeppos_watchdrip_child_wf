@@ -4,8 +4,6 @@ import {MINUTE_IN_MS, niceTime} from "../../shared/date";
 import {TreatmentData} from "./model/treatmentData";
 import {PumpData} from "./model/pumpData";
 
-import {ExternalData} from "./model/externalData";
-
 const BG_STALE_TIME_MS = 13 * MINUTE_IN_MS;
 
 export class WatchdripData {
@@ -19,10 +17,6 @@ export class WatchdripData {
         this.treatment = TreatmentData.createEmpty();
         /** @var PumpData $object */
         this.pump = PumpData.createEmpty();
-        
-        /** @var ExternalData $object */
-        this.external = ExternalData.createEmpty();
-        
         /* defines the difference in time between phone and watch*/
         this.timeDiff = 0;
     }
@@ -57,12 +51,6 @@ export class WatchdripData {
         } else {
             this.pump = Object.assign(PumpData.prototype, data['pump']);
         }
-
-        if (data['external'] === undefined) {
-            this.external = ExternalData.createEmpty();
-        } else {
-            this.external = Object.assign(ExternalData.prototype, data['external']);
-        }
     }
 
     /** @return BgData $object */
@@ -83,11 +71,6 @@ export class WatchdripData {
     /** @return PumpData $object */
     getPump() {
         return this.pump;
-    }
-
-    /** @return ExternalData $object */
-    getExternal() {
-        return this.external;
     }
 
     isBgStale() {
